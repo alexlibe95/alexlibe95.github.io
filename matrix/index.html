@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Lymperopoulos | The Matrix</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-bg">
+        <canvas id="matrix"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">ALEXLYMPE.sh</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">HOME</a></li>
+                <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Section -->
+        <section id="home" class="section section-active">
+            <div class="container">
+                <div class="page-header">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">root@matrix:~$</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">whoami</span>
+                            </div>
+                            <div class="output">
+                                <pre class="ascii-name">
+ ▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
+ █▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
+                                </pre>
+                                <p class="title">Frontend & Mobile Application Developer</p>
+                                <p class="description">Frontend & mobile developer with 8+ years of experience building responsive web and hybrid mobile apps. Passionate about performance, clean UI, and translating user needs into elegant technical solutions.</p>
+                            </div>
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">ls -la skills/</span>
+                            </div>
+                            <div class="output">
+                                <p>Angular, Ionic, React, Javascript, Typescript...</p>
+                            </div>
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat status.txt</span>
+                            </div>
+                            <div class="output">
+                                <p class="status">Booting up creativity - Deploying impact - Ready to build amazing applications</p>
+                            </div>
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">Skills Matrix</h1>
+                    <p class="page-subtitle">Technical Capabilities & Expertise</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h2 class="category-title">👨‍💻 Core Technologies</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">JavaScript / TypeScript</div>
+                            <div class="skill-item">Angular</div>
+                            <div class="skill-item">React</div>
+                            <div class="skill-item">RxJS</div>
+                            <div class="skill-item">Ionic + Capacitor</div>
+                            <div class="skill-item">Node.js</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h2 class="category-title">🎨 Styling & UI Libraries</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">TailwindCSS</div>
+                            <div class="skill-item">Bootstrap</div>
+                            <div class="skill-item">PrimeFaces</div>
+                            <div class="skill-item">Balsamiq (wireframes)</div>
+                            <div class="skill-item">Figma (design tools)</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h2 class="category-title">📱 Mobile Development</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">Hybrid mobile apps using Ionic + Angular</div>
+                            <div class="skill-item">Deployment to Google Play & App Store</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h2 class="category-title">🧪 Testing & QA</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">Jasmine + Karma</div>
+                            <div class="skill-item">Nightwatch.js</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h2 class="category-title">⚙️ Tools & Platforms</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">Git / GitHub</div>
+                            <div class="skill-item">RESTful API Integration</div>
+                            <div class="skill-item">Responsive Web Design</div>
+                            <div class="skill-item">Cross-browser Compatibility</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h2 class="category-title">🐍 Other Languages</h2>
+                        <div class="skills-list">
+                            <div class="skill-item">Python (basic to intermediate)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">Project Archive</h1>
+                    <p class="page-subtitle">Selected Works & Creations</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <span class="project-status active">ACTIVE</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Modern React-based e-commerce platform with responsive design 
+                                and seamless user experience across all devices.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TailwindCSS</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Code</a>
+                            <a href="#" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Fitness Tracker</h3>
+                            <span class="project-status active">ACTIVE</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Cross-platform mobile application for tracking workouts 
+                                and monitoring fitness progress with real-time analytics.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Redux</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Code</a>
+                            <a href="#" class="project-link">App Store</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Weather Dashboard</h3>
+                            <span class="project-status completed">COMPLETED</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Beautiful weather application built with Flutter featuring 
+                                animated UI components and real-time data visualization.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Code</a>
+                            <a href="#" class="project-link">Play Store</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Task Management App</h3>
+                            <span class="project-status development">DEV</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Minimalist task management application with drag-and-drop 
+                                functionality and team collaboration features.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Supabase</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Code</a>
+                            <a href="#" class="project-link">Preview</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Portfolio Website</h3>
+                            <span class="project-status active">ACTIVE</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Matrix-themed portfolio website showcasing clean design 
+                                principles with subtle retro aesthetics and smooth animations.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">View Code</a>
+                            <a href="#" class="project-link">Live Site</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Recipe Finder</h3>
+                            <span class="project-status planning">PLANNING</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                AI-powered recipe recommendation app that suggests meals 
+                                based on available ingredients and dietary preferences.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">ML</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="#" class="project-link">Research</a>
+                            <a href="#" class="project-link">Prototype</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Matrix Rain Effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Section Navigation Management
+        function updateActiveNav() {
+            const currentHash = window.location.hash || '#home';
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentHash) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function showSection(targetHash) {
+            const currentHash = targetHash || window.location.hash || '#home';
+            const sectionId = currentHash.replace('#', '');
+            const allSections = document.querySelectorAll('.section');
+            const targetSection = document.querySelector(currentHash) || document.querySelector('#home');
+            
+            // Hide all sections
+            allSections.forEach(section => {
+                section.classList.remove('section-active');
+                section.style.opacity = '0';
+                section.style.visibility = 'hidden';
+                section.style.transform = 'translateY(30px) scale(0.95)';
+                section.style.zIndex = '1';
+            });
+            
+            // Show target section
+            if (targetSection) {
+                targetSection.classList.add('section-active');
+                targetSection.style.opacity = '1';
+                targetSection.style.visibility = 'visible';
+                targetSection.style.transform = 'translateY(0) scale(1)';
+                targetSection.style.zIndex = '10';
+            }
+        }
+
+        function adjustMainHeight() {
+            const currentHash = window.location.hash || '#home';
+            const activeSection = document.querySelector(currentHash) || document.querySelector('#home');
+            const main = document.querySelector('.main');
+            
+            if (activeSection && main) {
+                // Reset main height first to allow proper measurement
+                main.style.height = 'auto';
+                
+                // Temporarily show the section to measure its height
+                const originalOpacity = activeSection.style.opacity;
+                const originalVisibility = activeSection.style.visibility;
+                const originalPosition = activeSection.style.position;
+                
+                activeSection.style.opacity = '1';
+                activeSection.style.visibility = 'visible';
+                activeSection.style.position = 'relative';
+                
+                // Force a reflow to get accurate measurements
+                activeSection.offsetHeight;
+                
+                // Get the actual content height
+                const sectionHeight = activeSection.scrollHeight;
+                const minHeight = window.innerHeight - 80; // Subtract nav height
+                
+                // Restore original positioning
+                activeSection.style.position = originalPosition;
+                activeSection.style.opacity = originalOpacity;
+                activeSection.style.visibility = originalVisibility;
+                
+                // Set main height to the exact content height or viewport height, whichever is larger
+                main.style.height = Math.max(sectionHeight, minHeight) + 'px';
+            }
+        }
+
+        function scrollToTop() {
+            // Always scroll to top immediately, no smooth behavior
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize navigation and listen for hash changes
+        window.addEventListener('load', () => {
+            // Immediately scroll to top to prevent hash-based scrolling
+            window.scrollTo(0, 0);
+            
+            updateActiveNav();
+            
+            // Set initial height for all sections first
+            const allSections = document.querySelectorAll('.section');
+            allSections.forEach(section => {
+                section.style.position = 'relative';
+                section.style.opacity = '1';
+                section.style.visibility = 'visible';
+            });
+            
+            // Measure and set proper height
+            setTimeout(() => {
+                adjustMainHeight();
+                
+                // Reset sections to absolute positioning and show correct section
+                allSections.forEach(section => {
+                    section.style.position = 'absolute';
+                });
+                
+                // Show the correct initial section
+                showSection();
+                
+                // Ensure we're at the top after everything is set up
+                window.scrollTo(0, 0);
+            }, 50);
+            
+            // Animate skill bars when skills section is visible
+            const skillBars = document.querySelectorAll('.level-bar');
+            skillBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                if (level) {
+                    bar.style.setProperty('--level', level + '%');
+                }
+            });
+        });
+
+        window.addEventListener('hashchange', () => {
+            // Immediately scroll to top first
+            scrollToTop();
+            
+            updateActiveNav();
+            
+            // Adjust height first, then show section
+            adjustMainHeight();
+            
+            setTimeout(() => {
+                showSection();
+                // Ensure we stay at top after section change
+                scrollToTop();
+            }, 50);
+        });
+
+        window.addEventListener('resize', adjustMainHeight);
+
+        // Smooth section transitions
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Immediately scroll to top on click
+                scrollToTop();
+                
+                // Remove section-active class from all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('section-active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
