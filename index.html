@@ -3,11 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Lymperopoulos | The Matrix</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>Alex Lymperopoulos - Portfolio</title>
+    <meta name="description" content="Frontend & Mobile Application Developer with 8+ years of experience building responsive web and hybrid mobile apps. Passionate about performance, clean UI, and translating user needs into elegant technical solutions.">
+    <meta name="keywords" content="Frontend Developer, Mobile Developer, Angular, React, Ionic, JavaScript, TypeScript, Web Development, Mobile Apps, Alex Lymperopoulos">
+    <meta name="author" content="Alex Lymperopoulos">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexlibe95.github.io/">
+    <meta property="og:title" content="Alex Lymperopoulos - Frontend & Mobile Developer Portfolio">
+    <meta property="og:description" content="Frontend & Mobile Application Developer with 8+ years of experience building responsive web and hybrid mobile apps.">
+    <meta property="og:image" content="https://alexlibe95.github.io/logo.png">
+    <meta property="og:site_name" content="Alex Lymperopoulos Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alexlibe95.github.io/">
+    <meta property="twitter:title" content="Alex Lymperopoulos - Frontend & Mobile Developer Portfolio">
+    <meta property="twitter:description" content="Frontend & Mobile Application Developer with 8+ years of experience building responsive web and hybrid mobile apps.">
+    <meta property="twitter:image" content="https://alexlibe95.github.io/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alexlibe95.github.io/">
+    
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Alex Lymperopoulos",
+        "jobTitle": "Frontend & Mobile Application Developer",
+        "description": "Frontend & Mobile Application Developer with 8+ years of experience building responsive web and hybrid mobile apps. Passionate about performance, clean UI, and translating user needs into elegant technical solutions.",
+        "url": "https://alexlibe95.github.io/",
+        "sameAs": [
+            "https://github.com/alexlibe95",
+            "https://linkedin.com/in/alex-lymperopoulos"
+        ],
+        "knowsAbout": [
+            "JavaScript",
+            "TypeScript", 
+            "Angular",
+            "React",
+            "Ionic",
+            "Node.js",
+            "Mobile Development",
+            "Web Development",
+            "Frontend Development"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Frontend & Mobile Application Developer",
+            "occupationalCategory": "Software Developer",
+            "experienceRequirements": "8+ years",
+            "skills": "Angular, React, Ionic, JavaScript, TypeScript, Mobile Development"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Matrix Rain Background -->
@@ -16,19 +86,21 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">ALEXLYMPE.sh</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">
+            <a href="#home" class="nav-logo" aria-label="Alex Lymperopoulos - Go to home">
+                <span class="logo-icon" aria-hidden="true">&lt;/&gt;</span>
+                <span class="logo-text">ALEXLYMPE.sh</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
             </button>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">HOME</a></li>
-                <li><a href="#skills" class="nav-link">SKILLS</a></li>
-                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
-                
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-link active" role="menuitem">HOME</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem">SKILLS</a></li>
+                <li role="none"><a href="#projects" class="nav-link" role="menuitem">PROJECTS</a></li>
             </ul>
         </div>
     </nav>

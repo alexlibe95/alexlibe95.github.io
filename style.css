@@ -90,6 +90,9 @@ body.nav-open {
 }
 
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-secondary);
     font-size: 1.2rem;
     color: var(--matrix-green);
@@ -98,8 +101,37 @@ body.nav-open {
     transition: all 0.3s ease;
 }
 
+.logo-icon {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--matrix-green);
+    text-shadow: 0 0 8px var(--matrix-green), 0 0 12px var(--matrix-green);
+    animation: logoGlow 3s ease-in-out infinite;
+    will-change: text-shadow;
+}
+
+.logo-text {
+    font-family: var(--font-secondary);
+}
+
+@keyframes logoGlow {
+    0% {
+        text-shadow: 0 0 8px var(--matrix-green), 0 0 12px var(--matrix-green);
+    }
+    50% {
+        text-shadow: 0 0 15px var(--matrix-green), 0 0 25px var(--matrix-green), 0 0 35px var(--matrix-green);
+    }
+    100% {
+        text-shadow: 0 0 8px var(--matrix-green), 0 0 12px var(--matrix-green);
+    }
+}
+
 .nav-logo:hover {
     text-shadow: 0 0 10px var(--matrix-green);
+}
+
+.nav-logo:hover .logo-icon {
+    animation-duration: 0.5s;
 }
 
 .nav-menu {
