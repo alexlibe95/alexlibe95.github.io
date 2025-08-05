@@ -397,7 +397,14 @@
 
         function scrollToTop() {
             // Always scroll to top immediately, no smooth behavior
-            window.scrollTo(0, 0);
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'instant'
+            });
+            // Force document scroll position
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
         }
 
         // Mobile viewport height fix
@@ -461,12 +468,20 @@
             // Show section first, then adjust height
             showSection();
             
+            // Multiple scroll attempts to ensure we reach the top
+            scrollToTop();
+            
             setTimeout(() => {
                 // Adjust height after section is shown
                 adjustMainHeight();
-                // Ensure we stay at top after section change
+                // Final scroll to top to ensure proper positioning
                 scrollToTop();
-            }, 100);
+            }, 50);
+            
+            // Additional scroll after a longer delay
+            setTimeout(() => {
+                scrollToTop();
+            }, 200);
         });
 
         window.addEventListener('resize', () => {
