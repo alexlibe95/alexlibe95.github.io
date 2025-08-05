@@ -36,12 +36,15 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto;
     scroll-behavior: smooth;
 }
 
 /* Prevent default hash scrolling */
 html {
     scroll-padding-top: 80px;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* Matrix Background */
@@ -142,6 +145,25 @@ body.nav-open {
     min-height: calc(100vh - 80px);
 }
 
+/* Mobile viewport fixes */
+@media (max-width: 768px) {
+    .main {
+        min-height: calc(100vh - 80px);
+        min-height: calc(var(--vh, 1vh) * 100 - 80px); /* Custom viewport height for mobile */
+    }
+    
+    body {
+        min-height: 100vh;
+        min-height: calc(var(--vh, 1vh) * 100); /* Custom viewport height for mobile */
+        overflow-x: hidden;
+    }
+    
+    html {
+        height: 100%;
+        overflow-x: hidden;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -150,22 +172,18 @@ body.nav-open {
 
 /* Section Management */
 .section {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: auto;
     min-height: calc(100vh - 80px);
-    padding: 0;
+    padding-top: 40px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(30px) scale(0.95);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 1;
-    overflow-y: auto;
+    overflow-y: visible;
     transform-origin: center top;
     will-change: transform, opacity;
-    scroll-margin-top: 80px;
 }
 
 .section.section-active {
@@ -275,6 +293,8 @@ body.nav-open {
 .section.section-active .projects-grid .project:nth-child(6) {
     animation-delay: 0.9s;
 }
+
+
 
 @keyframes headerSlideIn {
     0% {
@@ -476,11 +496,7 @@ body.nav-open {
     font-weight: 500;
 }
 
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+
 
 .skill {
     display: flex;
@@ -885,9 +901,10 @@ body.nav-open {
     }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Webkit browsers (Desktop Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -901,6 +918,32 @@ body.nav-open {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--matrix-light-green);
+}
+
+/* Modern CSS scrollbar styling - for newer browsers including mobile */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--matrix-green) var(--matrix-bg);
+}
+
+/* Mobile-specific scrollbar styling */
+@media (max-width: 768px) {
+    body::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        -webkit-appearance: none;
+    }
+    
+    body::-webkit-scrollbar-track {
+        background: var(--matrix-bg);
+        border-radius: 3px;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background: var(--matrix-green);
+        border-radius: 3px;
+        border: 1px solid var(--matrix-bg);
+    }
 }
 
 /* Selection styling */

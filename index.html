@@ -28,6 +28,7 @@
                 <li><a href="#home" class="nav-link active">HOME</a></li>
                 <li><a href="#skills" class="nav-link">SKILLS</a></li>
                 <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                
             </ul>
         </div>
     </nav>
@@ -103,58 +104,46 @@
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h2 class="category-title">👨‍💻 Core Technologies</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">JavaScript / TypeScript</div>
-                            <div class="skill-item">Angular</div>
-                            <div class="skill-item">React</div>
-                            <div class="skill-item">RxJS</div>
-                            <div class="skill-item">Ionic + Capacitor</div>
-                            <div class="skill-item">Node.js</div>
-                        </div>
+                        <div class="skill-item">JavaScript / TypeScript</div>
+                        <div class="skill-item">Angular</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">RxJS</div>
+                        <div class="skill-item">Ionic + Capacitor</div>
+                        <div class="skill-item">Node.js</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">🎨 Styling & UI Libraries</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">TailwindCSS</div>
-                            <div class="skill-item">Bootstrap</div>
-                            <div class="skill-item">PrimeFaces</div>
-                            <div class="skill-item">Balsamiq (wireframes)</div>
-                            <div class="skill-item">Figma (design tools)</div>
-                        </div>
+                        <div class="skill-item">TailwindCSS</div>
+                        <div class="skill-item">Bootstrap</div>
+                        <div class="skill-item">PrimeFaces</div>
+                        <div class="skill-item">Balsamiq (wireframes)</div>
+                        <div class="skill-item">Figma (design tools)</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">📱 Mobile Development</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">Hybrid mobile apps using Ionic + Angular</div>
-                            <div class="skill-item">Deployment to Google Play & App Store</div>
-                        </div>
+                        <div class="skill-item">Hybrid mobile apps using Ionic + Angular</div>
+                        <div class="skill-item">Deployment to Google Play & App Store</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">🧪 Testing & QA</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">Jasmine + Karma</div>
-                            <div class="skill-item">Nightwatch.js</div>
-                        </div>
+                        <div class="skill-item">Jasmine + Karma</div>
+                        <div class="skill-item">Nightwatch.js</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">⚙️ Tools & Platforms</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">Git / GitHub</div>
-                            <div class="skill-item">RESTful API Integration</div>
-                            <div class="skill-item">Responsive Web Design</div>
-                            <div class="skill-item">Cross-browser Compatibility</div>
-                        </div>
+                        <div class="skill-item">Git / GitHub</div>
+                        <div class="skill-item">RESTful API Integration</div>
+                        <div class="skill-item">Responsive Web Design</div>
+                        <div class="skill-item">Cross-browser Compatibility</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">🐍 Other Languages</h2>
-                        <div class="skills-list">
-                            <div class="skill-item">Python (basic to intermediate)</div>
-                        </div>
+                        <div class="skill-item">Python (basic to intermediate)</div>
                     </div>
                 </div>
             </div>
@@ -303,6 +292,8 @@
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <script>
@@ -369,52 +360,38 @@
             const allSections = document.querySelectorAll('.section');
             const targetSection = document.querySelector(currentHash) || document.querySelector('#home');
             
-            // Hide all sections
+            // Check if the target section is already active
+            if (targetSection && targetSection.classList.contains('section-active')) {
+                return; // Don't do anything if section is already active
+            }
+            
+            // Hide all sections completely from DOM layout
             allSections.forEach(section => {
                 section.classList.remove('section-active');
-                section.style.opacity = '0';
-                section.style.visibility = 'hidden';
-                section.style.transform = 'translateY(30px) scale(0.95)';
-                section.style.zIndex = '1';
+                section.style.display = 'none';
             });
             
             // Show target section
             if (targetSection) {
+                targetSection.style.display = 'block';
                 targetSection.classList.add('section-active');
-                targetSection.style.opacity = '1';
-                targetSection.style.visibility = 'visible';
-                targetSection.style.transform = 'translateY(0) scale(1)';
-                targetSection.style.zIndex = '10';
             }
         }
 
         function adjustMainHeight() {
-            const currentHash = window.location.hash || '#home';
-            const activeSection = document.querySelector(currentHash) || document.querySelector('#home');
             const main = document.querySelector('.main');
             
-            if (activeSection && main) {
-                // Reset main height to auto to allow natural content flow
+            if (main) {
+                // Simply let the main container be auto-height
                 main.style.height = 'auto';
+                main.style.minHeight = 'calc(100vh - 80px)';
                 
-                // Wait for animations to complete, then measure the visible section
-                setTimeout(() => {
-                    // Get the actual content height of the active section
-                    const sectionHeight = activeSection.scrollHeight;
-                    const minHeight = window.innerHeight - 80; // Subtract nav height
-                    
-                    // Set main height to fit the current section's content exactly
-                    const finalHeight = Math.max(sectionHeight, minHeight);
-                    main.style.height = finalHeight + 'px';
-                    
-                    // Remove any scrollbars on the body
-                    document.body.style.overflowY = 'hidden';
-                    
-                    // Allow scrolling only if content exceeds viewport
-                    if (sectionHeight > minHeight) {
-                        document.body.style.overflowY = 'auto';
-                    }
-                }, 50);
+                // Let body handle scrolling naturally
+                document.body.style.overflowY = 'auto';
+                document.body.style.overflowX = 'hidden';
+                
+                // Force scroll to top
+                window.scrollTo(0, 0);
             }
         }
 
@@ -423,8 +400,19 @@
             window.scrollTo(0, 0);
         }
 
+        // Mobile viewport height fix
+        function setMobileViewportHeight() {
+            if (window.innerWidth <= 768) {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+        }
+
         // Initialize navigation and listen for hash changes
         window.addEventListener('load', () => {
+            // Set mobile viewport height
+            setMobileViewportHeight();
+            
             // Immediately scroll to top to prevent hash-based scrolling
             window.scrollTo(0, 0);
             
@@ -481,20 +469,27 @@
             }, 100);
         });
 
-        window.addEventListener('resize', adjustMainHeight);
+        window.addEventListener('resize', () => {
+            setMobileViewportHeight();
+            adjustMainHeight();
+        });
 
         // Smooth section transitions
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
+                const targetHash = link.getAttribute('href');
+                
+                // Check if we're clicking the same section
+                const targetSection = document.querySelector(targetHash);
+                if (targetSection && targetSection.classList.contains('section-active')) {
+                    e.preventDefault();
+                    return; // Don't do anything if section is already active
+                }
+                
                 // Immediately scroll to top on click
                 scrollToTop();
                 
-                // Remove section-active class from all sections
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.remove('section-active');
-                });
-                
-                // Adjust height after a brief delay to allow section change
+                // Let showSection handle the section switching
                 setTimeout(() => {
                     adjustMainHeight();
                 }, 150);
