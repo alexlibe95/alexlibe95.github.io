@@ -420,31 +420,31 @@
             // Set mobile viewport height
             setMobileViewportHeight();
             
+            // Immediately hide all sections and reset their state
+            const allSections = document.querySelectorAll('.section');
+            allSections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('section-active');
+            });
+            
             // Immediately scroll to top to prevent hash-based scrolling
             window.scrollTo(0, 0);
             
             updateActiveNav();
             
-            // Set initial height for all sections first
-            const allSections = document.querySelectorAll('.section');
-            allSections.forEach(section => {
-                section.style.position = 'relative';
-                section.style.opacity = '1';
-                section.style.visibility = 'visible';
-            });
+            // Determine which section to show
+            const targetHash = window.location.hash || '#home';
+            const targetSection = document.querySelector(targetHash) || document.querySelector('#home');
             
-            // Measure and set proper height
+            // Show the target section
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                targetSection.classList.add('section-active');
+            }
+            
+            // Set proper height after section is shown
             setTimeout(() => {
                 adjustMainHeight();
-                
-                // Reset sections to absolute positioning and show correct section
-                allSections.forEach(section => {
-                    section.style.position = 'absolute';
-                });
-                
-                // Show the correct initial section
-                showSection();
-                
                 // Ensure we're at the top after everything is set up
                 window.scrollTo(0, 0);
             }, 50);
