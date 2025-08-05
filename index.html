@@ -467,17 +467,29 @@
             }
         }
 
+        let userScrolling = false;
+        let scrollTimeout;
+
         function scrollToTop() {
+            // Don't interrupt if user is actively scrolling
+            if (userScrolling) return;
+            
             // Always scroll to top immediately, no smooth behavior
             window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'instant'
             });
-            // Force document scroll position
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
         }
+
+        // Track user scrolling to avoid interrupting
+        window.addEventListener('scroll', () => {
+            userScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                userScrolling = false;
+            }, 150);
+        }, { passive: true });
 
         // Mobile viewport height fix
         function setMobileViewportHeight() {
@@ -532,28 +544,15 @@
         });
 
         window.addEventListener('hashchange', () => {
-            // Immediately scroll to top first
-            scrollToTop();
-            
             updateActiveNav();
-            
-            // Show section first, then adjust height
             showSection();
             
-            // Multiple scroll attempts to ensure we reach the top
-            scrollToTop();
-            
+            // Only scroll to top once, and only on navigation (not during natural scrolling)
             setTimeout(() => {
-                // Adjust height after section is shown
                 adjustMainHeight();
-                // Final scroll to top to ensure proper positioning
+                // Single scroll to top after section change
                 scrollToTop();
-            }, 50);
-            
-            // Additional scroll after a longer delay
-            setTimeout(() => {
-                scrollToTop();
-            }, 200);
+            }, 100);
         });
 
         window.addEventListener('resize', () => {
