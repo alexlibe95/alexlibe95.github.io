@@ -19,6 +19,11 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#home" class="nav-logo">ALEXLYMPE.sh</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">HOME</a></li>
                 <li><a href="#skills" class="nav-link">SKILLS</a></li>
@@ -43,10 +48,23 @@
                                 <span class="command">whoami</span>
                             </div>
                             <div class="output">
-                                <pre class="ascii-name">
- ▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
- █▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
+                                <!-- Full ASCII name for desktop -->
+                                <pre class="ascii-name ascii-name-full">
+▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
+█▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
                                 </pre>
+                                
+                                <!-- Compact ASCII name for tablets -->
+                                <pre class="ascii-name ascii-name-tablet">
+▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
+█▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
+                                </pre>
+                                
+                                <!-- Simple text name for mobile -->
+                                <div class="ascii-name ascii-name-mobile">
+                                    <div class="simple-name">ALEX LYMPEROPOULOS</div>
+                                </div>
+                                
                                 <p class="title">Frontend & Mobile Application Developer</p>
                                 <p class="description">Frontend & mobile developer with 8+ years of experience building responsive web and hybrid mobile apps. Passionate about performance, clean UI, and translating user needs into elegant technical solutions.</p>
                             </div>
@@ -376,32 +394,27 @@
             const main = document.querySelector('.main');
             
             if (activeSection && main) {
-                // Reset main height first to allow proper measurement
+                // Reset main height to auto to allow natural content flow
                 main.style.height = 'auto';
                 
-                // Temporarily show the section to measure its height
-                const originalOpacity = activeSection.style.opacity;
-                const originalVisibility = activeSection.style.visibility;
-                const originalPosition = activeSection.style.position;
-                
-                activeSection.style.opacity = '1';
-                activeSection.style.visibility = 'visible';
-                activeSection.style.position = 'relative';
-                
-                // Force a reflow to get accurate measurements
-                activeSection.offsetHeight;
-                
-                // Get the actual content height
-                const sectionHeight = activeSection.scrollHeight;
-                const minHeight = window.innerHeight - 80; // Subtract nav height
-                
-                // Restore original positioning
-                activeSection.style.position = originalPosition;
-                activeSection.style.opacity = originalOpacity;
-                activeSection.style.visibility = originalVisibility;
-                
-                // Set main height to the exact content height or viewport height, whichever is larger
-                main.style.height = Math.max(sectionHeight, minHeight) + 'px';
+                // Wait for animations to complete, then measure the visible section
+                setTimeout(() => {
+                    // Get the actual content height of the active section
+                    const sectionHeight = activeSection.scrollHeight;
+                    const minHeight = window.innerHeight - 80; // Subtract nav height
+                    
+                    // Set main height to fit the current section's content exactly
+                    const finalHeight = Math.max(sectionHeight, minHeight);
+                    main.style.height = finalHeight + 'px';
+                    
+                    // Remove any scrollbars on the body
+                    document.body.style.overflowY = 'hidden';
+                    
+                    // Allow scrolling only if content exceeds viewport
+                    if (sectionHeight > minHeight) {
+                        document.body.style.overflowY = 'auto';
+                    }
+                }, 50);
             }
         }
 
@@ -457,14 +470,15 @@
             
             updateActiveNav();
             
-            // Adjust height first, then show section
-            adjustMainHeight();
+            // Show section first, then adjust height
+            showSection();
             
             setTimeout(() => {
-                showSection();
+                // Adjust height after section is shown
+                adjustMainHeight();
                 // Ensure we stay at top after section change
                 scrollToTop();
-            }, 50);
+            }, 100);
         });
 
         window.addEventListener('resize', adjustMainHeight);
@@ -479,7 +493,58 @@
                 document.querySelectorAll('.section').forEach(section => {
                     section.classList.remove('section-active');
                 });
+                
+                // Adjust height after a brief delay to allow section change
+                setTimeout(() => {
+                    adjustMainHeight();
+                }, 150);
             });
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const body = document.body;
+
+        function toggleMobileMenu() {
+            const isActive = navMenu.classList.contains('nav-menu-active');
+            
+            if (isActive) {
+                navMenu.classList.remove('nav-menu-active');
+                navToggle.classList.remove('nav-toggle-active');
+                body.classList.remove('nav-open');
+            } else {
+                navMenu.classList.add('nav-menu-active');
+                navToggle.classList.add('nav-toggle-active');
+                body.classList.add('nav-open');
+            }
+        }
+
+        function closeMobileMenu() {
+            navMenu.classList.remove('nav-menu-active');
+            navToggle.classList.remove('nav-toggle-active');
+            body.classList.remove('nav-open');
+        }
+
+        navToggle.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu on window resize (when switching from mobile to desktop)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
