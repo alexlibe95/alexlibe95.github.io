@@ -647,6 +647,129 @@ body.nav-open {
     min-width: 35px;
 }
 
+/* Timeline Section */
+.timeline-container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--matrix-green);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 60px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--matrix-green);
+    box-shadow: 0 0 10px var(--matrix-green);
+    animation: pulse 2s infinite;
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--matrix-green);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    background: var(--matrix-surface);
+    border: 1px solid var(--matrix-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    border-color: var(--matrix-green);
+    box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.timeline-company {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-role {
+    color: var(--matrix-green);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.timeline-description {
+    margin-bottom: 1rem;
+}
+
+.timeline-bullet {
+    color: var(--text-secondary);
+    padding: 0.4rem 0;
+    margin: 0.3rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    position: relative;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(139, 148, 158, 0.1);
+}
+
+.timeline-bullet::before {
+    content: '▸';
+    color: var(--matrix-green);
+    margin-right: 0.8rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.timeline-bullet:hover {
+    color: var(--text-primary);
+    transform: translateX(5px);
+}
+
+.timeline-bullet:hover::before {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.timeline-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
+    }
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
