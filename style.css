@@ -418,6 +418,70 @@ body.nav-open {
     color: var(--text-secondary);
 }
 
+.ls-output {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.ls-line {
+    white-space: pre;
+    color: var(--text-secondary);
+}
+
+.ls-line:first-child {
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.network-config {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.network-line {
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.network-icon {
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.network-line:hover {
+    color: var(--matrix-green);
+    transition: color 0.2s ease;
+}
+
+.network-line:hover .network-icon {
+    color: var(--matrix-green);
+}
+
+.network-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.network-link:hover {
+    color: var(--matrix-green);
+    text-shadow: 0 0 5px var(--matrix-green);
+    border-bottom: 1px solid var(--matrix-green);
+    text-decoration: none;
+}
+
+.network-link:focus {
+    outline: 1px solid var(--matrix-green);
+    outline-offset: 2px;
+}
+
 .name {
     font-size: 2.5rem;
     color: var(--matrix-green);
