@@ -828,6 +828,12 @@ body.nav-open {
     border: 1px solid var(--status-completed);
 }
 
+.project-status.in-progress {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
 .project-status.development {
     background: rgba(255, 149, 0, 0.1);
     color: var(--status-development);
