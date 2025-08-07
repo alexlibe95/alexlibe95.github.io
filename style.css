@@ -434,6 +434,30 @@ body.nav-open {
     margin-bottom: 0.3rem;
 }
 
+/* Responsive ls-line for core skills */
+.ls-line-mobile {
+    display: none;
+}
+
+.ls-line-desktop {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .ls-line-desktop {
+        display: none;
+    }
+    
+    .ls-line-mobile {
+        display: block;
+    }
+    
+    .ls-line-mobile div {
+        white-space: pre;
+        color: var(--text-primary);
+    }
+}
+
 .network-config {
     font-family: var(--font-mono);
     font-size: 0.85rem;
