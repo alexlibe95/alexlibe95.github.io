@@ -111,9 +111,9 @@
             </button>
             <ul class="nav-menu" role="menubar">
                 <li role="none"><a href="#home" class="nav-link active" role="menuitem">HOME</a></li>
-                <li role="none"><a href="#skills" class="nav-link" role="menuitem">SKILLS</a></li>
-                <li role="none"><a href="#timeline" class="nav-link" role="menuitem">TIMELINE</a></li>
-                <li role="none"><a href="#projects" class="nav-link" role="menuitem">PROJECTS</a></li>
+                <li role="none" class="nav-extra"><a href="#skills" class="nav-link" role="menuitem">SKILLS</a></li>
+                <li role="none" class="nav-extra"><a href="#timeline" class="nav-link" role="menuitem">TIMELINE</a></li>
+                <li role="none" class="nav-extra"><a href="#projects" class="nav-link" role="menuitem">PROJECTS</a></li>
             </ul>
         </div>
     </nav>
@@ -124,9 +124,15 @@
         <section id="home" class="section section-active">
             <div class="container">
                 <div class="page-header">
-                    <div class="terminal">
+                        <div id="home-terminal" class="terminal terminal-hidden">
                         <div class="terminal-header">
                                                             <span class="terminal-title">user@alex-portfolio:~</span>
+                                <div class="terminal-controls">
+                                    <button id="intro-skip" class="terminal-btn" aria-label="Skip intro" title="Skip intro">
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5v14l8-7-8-7Zm9 0v14h3V5h-3Z"/></svg>
+                                    </button>
+                                    
+                                </div>
                         </div>
                         <div class="terminal-body">
                             <div class="command-line">
@@ -160,10 +166,10 @@
                             </div>
                             <div class="output">
                                 <div class="ls-output">
-                                    <div class="ls-line ls-line-desktop">angular    ionic    javascript    react    typescript</div>
+                                    <div class="ls-line ls-line-desktop">angular    ionic    react    typescript    javascript</div>
                                     <div class="ls-line ls-line-mobile">
-                                        <div>angular    ionic    javascript</div>
-                                        <div>react    typescript</div>
+                                        <div>angular    ionic    react</div>
+                                        <div>typescript    javascript</div>
                                     </div>
                                 </div>
                             </div>
@@ -202,9 +208,24 @@
                             </div>
                             <div class="command-line">
                                 <span class="prompt">$</span>
+                                <span class="command"></span>
                                 <span class="cursor">_</span>
                             </div>
+                            <div class="output">
+                                <div id="setup-progress" class="setup-progress">
+                                    <div class="setup-bar"><div class="setup-fill"></div></div>
+                                    <div class="setup-label">Setting up...</div>
                         </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Intro launcher overlay -->
+                    <div id="intro-launcher" class="intro-launcher" aria-hidden="true">
+                        <div class="intro-launcher-btn" role="button" tabindex="0" aria-label="Open terminal">
+                            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2 3v2h4V7H5Zm0 4v2h6v-2H5Zm0 4v2h10v-2H5Z"/></svg>
+                        </div>
+                        <div class="intro-mouse" aria-hidden="true"></div>
                     </div>
                 </div>
             </div>
@@ -509,7 +530,7 @@
             </div>
         </section>
 
-    
+
     </main>
 
     <footer class="footer" role="contentinfo">
@@ -608,6 +629,11 @@
             if (y) y.textContent = new Date().getFullYear();
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-link');
+            const navExtras = document.querySelectorAll('.nav-extra');
+            const homeTerminal = document.getElementById('home-terminal');
+            const introLauncher = document.getElementById('intro-launcher');
+            const introSkip = document.getElementById('intro-skip');
+            const introReplay = null;
             const idToNav = new Map();
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
@@ -698,6 +724,219 @@
                     bar.style.setProperty('--level', level + '%');
                 }
             });
+
+            // Hide non-home sections initially
+            document.getElementById('skills')?.classList.add('hidden-section');
+            document.getElementById('timeline')?.classList.add('hidden-section');
+            document.getElementById('projects')?.classList.add('hidden-section');
+
+            // Intro typewriter and reveal flow
+            const introSteps = [
+                { type: 'type', text: 'whoami', outputs: ['.ascii-name', '.title', '.description'] },
+                { type: 'wait', ms: 300 },
+                { type: 'type', text: 'ls core-skills/', outputs: ['.ls-output'] },
+                { type: 'wait', ms: 300 },
+                { type: 'type', text: 'cat status.txt', outputs: ['.status'] },
+                { type: 'wait', ms: 300 },
+                { type: 'type', text: 'cat network.cfg', outputs: ['.network-config'] },
+                { type: 'wait', ms: 300 },
+                { type: 'type', text: 'sudo ./alexlympe.sh', outputs: ['#setup-progress'] },
+                { type: 'progress', ms: 1200 },
+                { type: 'reveal-nav' },
+            ];
+
+            const commandLines = Array.from(homeTerminal.querySelectorAll('.command-line'));
+            const cursorSpans = Array.from(homeTerminal.querySelectorAll('.cursor'));
+
+            function showLauncher() {
+                if (introLauncher) introLauncher.style.display = 'flex';
+                navExtras.forEach(li => li.style.display = 'none');
+            }
+
+            function revealNav() {
+                navExtras.forEach((li, i) => {
+                    setTimeout(() => {
+                        li.style.display = 'list-item';
+                        const link = li.querySelector('.nav-link');
+                        if (link) {
+                            link.classList.add('nav-flash');
+                            setTimeout(() => link.classList.remove('nav-flash'), 1100);
+                        }
+                    }, i * 220);
+                });
+            }
+
+            async function typeCommand(lineEl, text) {
+                const commandSpan = lineEl.querySelector('.command');
+                const cursor = lineEl.querySelector('.cursor');
+                commandSpan.textContent = '';
+                commandSpan.style.visibility = 'visible';
+                if (cursor) cursor.style.display = 'inline';
+                for (let i = 0; i < text.length; i++) {
+                    commandSpan.textContent += text[i];
+                    await new Promise(r => setTimeout(r, 55));
+                }
+                if (cursor) cursor.style.display = 'none';
+            }
+
+            function getAsciiSelectorForViewport() {
+                const w = window.innerWidth;
+                if (w > 1024) return '.ascii-name-full';
+                if (w >= 901) return '.ascii-name-tablet';
+                return '.ascii-name-mobile';
+            }
+
+            function showOutputs(selectors) {
+                if (!selectors || !selectors.length) return;
+                selectors.forEach(sel => {
+                    if (sel === '.ascii-name') {
+                        const variantSel = getAsciiSelectorForViewport();
+                        const el = homeTerminal.querySelector(variantSel);
+                        if (el) el.classList.add('terminal-output-show');
+                    } else {
+                        homeTerminal.querySelectorAll(sel).forEach(el => {
+                            el.classList.add('terminal-output-show');
+                        });
+                    }
+                });
+            }
+
+            function runProgress(ms) {
+                return new Promise(resolve => {
+                    const wrap = document.getElementById('setup-progress');
+                    if (!wrap) return resolve();
+                    const fill = wrap.querySelector('.setup-fill');
+                    const label = wrap.querySelector('.setup-label');
+                    let pct = 0;
+                    const steps = Math.max(6, Math.floor(ms / 200));
+                    const timer = setInterval(() => {
+                        pct += Math.ceil(100 / steps);
+                        if (pct >= 100) {
+                            pct = 100;
+                            clearInterval(timer);
+                            if (label) label.textContent = 'Setup complete';
+                            resolve();
+                        }
+                        if (fill) fill.style.width = pct + '%';
+                    }, Math.max(80, Math.floor(ms / steps)));
+                });
+            }
+
+            let introCancelled = false;
+            function cancelIntro() { introCancelled = true; }
+
+            async function runIntro() {
+                introCancelled = false;
+                // hide non-home nav
+                navExtras.forEach(li => li.style.display = 'none');
+                if (introSkip) introSkip.style.display = 'inline-block';
+                // hide outputs initially (CSS handles via display:none)
+                // clear commands
+                homeTerminal.querySelectorAll('.command').forEach(c => c.textContent = '');
+                cursorSpans.forEach(c => c.style.display = 'inline');
+                // ensure all command lines hidden until used
+                const allCmdLines = homeTerminal.querySelectorAll('.command-line');
+                allCmdLines.forEach((line) => { line.style.display = 'none'; });
+
+                // automated mouse fly-in and click animation
+                const btn = introLauncher?.querySelector('.intro-launcher-btn');
+                const mouse = introLauncher?.querySelector('.intro-mouse');
+                if (btn && mouse) {
+                    await new Promise(r => setTimeout(r, 1800));
+                    btn.classList.add('is-clicking');
+                    await new Promise(r => setTimeout(r, 320));
+                }
+                // show terminal with mac-like zoom open
+                if (homeTerminal) {
+                    homeTerminal.classList.remove('terminal-hidden');
+                    homeTerminal.classList.add('terminal-open');
+                }
+                if (introLauncher) introLauncher.style.display = 'none';
+
+                let stepIndex = 0;
+                // allow paint before typing begins
+                await new Promise(r => setTimeout(r, 150));
+                // ensure first prompt line is visible before typing
+                if (commandLines[0]) {
+                    commandLines[0].style.display = 'flex';
+                    const firstCmd = commandLines[0].querySelector('.command');
+                    if (firstCmd) firstCmd.textContent = '';
+                }
+                for (const step of introSteps) {
+                    if (introCancelled) break;
+                    if (step.type === 'type') {
+                        const idx = Math.min(stepIndex, commandLines.length - 1);
+                        const lineEl = commandLines[idx];
+                        if (!lineEl) continue;
+                        lineEl.style.display = 'flex';
+                        const cmdSpan = lineEl.querySelector('.command');
+                        if (cmdSpan) cmdSpan.textContent = '';
+                        await typeCommand(lineEl, step.text);
+                        if (step.outputs) {
+                            showOutputs(step.outputs);
+                        } else if (step.outputSelector) {
+                            showOutputs([step.outputSelector]);
+                        }
+                        // prepare next prompt line if exists
+                        const nextIdx = Math.min(idx + 1, commandLines.length - 1);
+                        if (commandLines[nextIdx]) commandLines[nextIdx].style.display = 'flex';
+                        stepIndex++;
+                    } else if (step.type === 'wait') {
+                        await new Promise(r => setTimeout(r, step.ms));
+                    } else if (step.type === 'progress') {
+                        await runProgress(step.ms);
+                    } else if (step.type === 'reveal-nav') {
+                        revealNav();
+                        // reveal sections
+                        document.getElementById('skills')?.classList.remove('hidden-section');
+                        document.getElementById('timeline')?.classList.remove('hidden-section');
+                        document.getElementById('projects')?.classList.remove('hidden-section');
+                        // ensure they animate into view when scrolled
+                        document.querySelectorAll('#skills, #timeline, #projects').forEach(s => s.classList.remove('in-view'));
+                    }
+                }
+
+                // hide skip
+                if (introSkip) introSkip.style.display = 'none';
+            }
+
+            // Auto-run intro without user input
+            runIntro();
+
+            if (introSkip) introSkip.addEventListener('click', () => {
+                cancelIntro();
+                if (introSkip) introSkip.style.display = 'none';
+                revealNav();
+                if (introLauncher) introLauncher.style.display = 'none';
+                if (homeTerminal) {
+                    homeTerminal.classList.remove('terminal-hidden');
+                    homeTerminal.classList.add('terminal-open');
+                    // show only current viewport ASCII variant
+                    const asciiSel = getAsciiSelectorForViewport();
+                    const asciiEl = homeTerminal.querySelector(asciiSel);
+                    if (asciiEl) asciiEl.classList.add('terminal-output-show');
+                    // show other outputs
+                    homeTerminal.querySelectorAll('.ls-output, .status, .network-config, .title, .description')
+                        .forEach(el => el.classList.add('terminal-output-show'));
+                    // show all prompts and fill commands for each step
+                    const typedSteps = introSteps.filter(s => s.type === 'type');
+                    homeTerminal.querySelectorAll('.command-line').forEach((l, i) => {
+                        l.style.display = 'flex';
+                        const cmdSpan = l.querySelector('.command');
+                        if (cmdSpan && typedSteps[i]) {
+                            cmdSpan.textContent = typedSteps[i].text;
+                        }
+                    });
+                    cursorSpans.forEach(c => c.style.display = 'none');
+                }
+                document.getElementById('skills')?.classList.remove('hidden-section');
+                document.getElementById('timeline')?.classList.remove('hidden-section');
+                document.getElementById('projects')?.classList.remove('hidden-section');
+            });
+            // removed replay functionality
+
+            // Start with launcher visible (but auto-clicked by animation)
+            showLauncher();
         });
 
         window.addEventListener('resize', () => {
@@ -767,7 +1006,7 @@
 
         // Close mobile menu on window resize (when switching from mobile to desktop)
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 800) {
                 closeMobileMenu();
             }
         });
