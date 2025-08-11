@@ -362,7 +362,7 @@ body.nav-open {
 /* Home Section Terminal (within page-header) */
 .page-header .terminal {
     margin: 2rem auto 0;
-    max-width: 700px;
+    max-width: 100%;
     text-align: left;
 }
 
@@ -371,7 +371,7 @@ body.nav-open {
     border: 1px solid var(--matrix-border);
     border-radius: 8px;
     width: 100%;
-    max-width: 700px;
+    max-width: 100%;
     font-family: var(--font-secondary);
     box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
 }
@@ -462,6 +462,21 @@ body.nav-open {
     .ls-line-mobile div {
         white-space: pre;
         color: var(--text-primary);
+        line-height: 1.2;
+    }
+
+    /* Compact terminal layout for small screens */
+    .command-line {
+        margin: 0.5rem 0;
+    }
+    
+    .output {
+        margin: 0.25rem 0 0.75rem 1rem;
+    }
+    
+    .ls-output {
+        font-size: 0.8rem;
+        line-height: 1.2;
     }
 }
 
@@ -548,6 +563,14 @@ body.nav-open {
     text-shadow: 0 0 10px var(--matrix-green);
     margin: 0.5rem 0;
     overflow-x: auto;
+}
+
+/* Larger ASCII name on big screens */
+@media (min-width: 1200px) {
+    .ascii-name {
+        font-size: 1.1rem;
+        line-height: 1.25;
+    }
 }
 
 /* Desktop - show full ASCII */
