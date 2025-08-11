@@ -255,7 +255,8 @@ body.nav-open {
 
 /* Ensure content is hidden by default when in sections */
 .section .skill-category,
-.section .project {
+.section .project,
+.section .timeline-item {
     opacity: 0;
 }
 
@@ -291,38 +292,45 @@ body.nav-open {
 
 /* Make content visible for active sections through animation */
 .section.section-active .skills-grid .skill-category,
-.section.section-active .projects-grid .project {
+.section.section-active .projects-grid .project,
+.section.section-active .timeline-container .timeline-item {
     animation: staggerIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     opacity: 0;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(1),
-.section.section-active .projects-grid .project:nth-child(1) {
+.section.section-active .projects-grid .project:nth-child(1),
+.section.section-active .timeline-container .timeline-item:nth-child(1) {
     animation-delay: 0.4s;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(2),
-.section.section-active .projects-grid .project:nth-child(2) {
+.section.section-active .projects-grid .project:nth-child(2),
+.section.section-active .timeline-container .timeline-item:nth-child(2) {
     animation-delay: 0.5s;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(3),
-.section.section-active .projects-grid .project:nth-child(3) {
+.section.section-active .projects-grid .project:nth-child(3),
+.section.section-active .timeline-container .timeline-item:nth-child(3) {
     animation-delay: 0.6s;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(4),
-.section.section-active .projects-grid .project:nth-child(4) {
+.section.section-active .projects-grid .project:nth-child(4),
+.section.section-active .timeline-container .timeline-item:nth-child(4) {
     animation-delay: 0.7s;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(5),
-.section.section-active .projects-grid .project:nth-child(5) {
+.section.section-active .projects-grid .project:nth-child(5),
+.section.section-active .timeline-container .timeline-item:nth-child(5) {
     animation-delay: 0.8s;
 }
 
 .section.section-active .skills-grid .skill-category:nth-child(6),
-.section.section-active .projects-grid .project:nth-child(6) {
+.section.section-active .projects-grid .project:nth-child(6),
+.section.section-active .timeline-container .timeline-item:nth-child(6) {
     animation-delay: 0.9s;
 }
 
