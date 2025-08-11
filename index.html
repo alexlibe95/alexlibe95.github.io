@@ -509,16 +509,33 @@
             </div>
         </section>
 
-
+    
     </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">© <span id="footer-year">2025</span> Alex Lymperopoulos</p>
+            <div class="footer-links">
+                <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+                <span class="footer-sep">•</span>
+                <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Matrix Rain Effect
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function setCanvasSize() {
+            const vv = window.visualViewport;
+            const width = vv ? Math.floor(vv.width) : window.innerWidth;
+            const height = vv ? Math.floor(vv.height) : window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        setCanvasSize();
 
         const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
         const matrixArray = matrix.split("");
@@ -552,132 +569,128 @@
         setInterval(draw, 35);
 
         // Resize canvas on window resize
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        // Section Navigation Management
-        function updateActiveNav() {
-            const currentHash = window.location.hash || '#home';
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === currentHash) {
-                    link.classList.add('active');
-                }
+        let resizeRaf;
+        function onResize() {
+            if (resizeRaf) return;
+            resizeRaf = requestAnimationFrame(() => {
+                setMobileViewportHeight();
+                setCanvasSize();
+                resizeRaf = null;
             });
         }
-
-        function showSection(targetHash) {
-            const currentHash = targetHash || window.location.hash || '#home';
-            const sectionId = currentHash.replace('#', '');
-            const allSections = document.querySelectorAll('.section');
-            const targetSection = document.querySelector(currentHash) || document.querySelector('#home');
-            
-            // Check if the target section is already active
-            if (targetSection && targetSection.classList.contains('section-active')) {
-                return; // Don't do anything if section is already active
-            }
-            
-            // Hide all sections completely from DOM layout
-            allSections.forEach(section => {
-                section.classList.remove('section-active');
-                section.style.display = 'none';
-            });
-            
-            // Show target section
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                targetSection.classList.add('section-active');
-            }
+        window.addEventListener('resize', onResize);
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', onResize);
         }
-
-        function adjustMainHeight() {
-            const main = document.querySelector('.main');
-            
-            if (main) {
-                // Simply let the main container be auto-height
-                main.style.height = 'auto';
-                main.style.minHeight = 'calc(100vh - 80px)';
-                
-                // Let body handle scrolling naturally
-                document.body.style.overflowY = 'auto';
-                document.body.style.overflowX = 'hidden';
-                
-                // Force scroll to top
-                window.scrollTo(0, 0);
-            }
-        }
-
-        let userScrolling = false;
-        let scrollTimeout;
-
-        function scrollToTop() {
-            // Don't interrupt if user is actively scrolling
-            if (userScrolling) return;
-            
-            // Always scroll to top immediately, no smooth behavior
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'instant'
-            });
-        }
-
-        // Track user scrolling to avoid interrupting
-        window.addEventListener('scroll', () => {
-            userScrolling = true;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                userScrolling = false;
-            }, 150);
-        }, { passive: true });
 
         // Mobile viewport height fix
         function setMobileViewportHeight() {
-            if (window.innerWidth <= 768) {
-                const vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                const vhDesktop = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vhDesktop}px`);
+                return;
             }
+            const vv = window.visualViewport;
+            const height = vv ? vv.height : window.innerHeight;
+            const vh = height * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
 
-        // Initialize navigation and listen for hash changes
+        // Single-page behavior: IntersectionObserver for section reveal and active nav
+        // Prevent initial double-scrollbars by locking body until layout stabilizes
+        document.documentElement.style.overscrollBehaviorY = 'none';
+        document.body.style.overflowY = 'hidden';
+        
         window.addEventListener('load', () => {
-            // Set mobile viewport height
             setMobileViewportHeight();
-            
-            // Immediately hide all sections and reset their state
-            const allSections = document.querySelectorAll('.section');
-            allSections.forEach(section => {
-                section.style.display = 'none';
-                section.classList.remove('section-active');
+            const y = document.getElementById('footer-year');
+            if (y) y.textContent = new Date().getFullYear();
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const idToNav = new Map();
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    idToNav.set(href.slice(1), link);
+                }
             });
-            
-            // Immediately scroll to top to prevent hash-based scrolling
-            window.scrollTo(0, 0);
-            
-            updateActiveNav();
-            
-            // Determine which section to show
-            const targetHash = window.location.hash || '#home';
-            const targetSection = document.querySelector(targetHash) || document.querySelector('#home');
-            
-            // Show the target section
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                targetSection.classList.add('section-active');
+
+            let activeId = null;
+            function setActiveNav(id) {
+                if (!id || activeId === id) return;
+                activeId = id;
+                navLinks.forEach(link => link.classList.remove('active'));
+                const link = idToNav.get(id);
+                if (link) link.classList.add('active');
             }
-            
-            // Set proper height after section is shown
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { rootMargin: '0px 0px -20% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+            sections.forEach(s => observer.observe(s));
+
+            // Unlock scrolling shortly after initial layout settles
             setTimeout(() => {
-                adjustMainHeight();
-                // Ensure we're at the top after everything is set up
-                window.scrollTo(0, 0);
-            }, 50);
-            
-            // Animate skill bars when skills section is visible
+                document.body.style.overflowY = 'auto';
+                document.documentElement.style.overscrollBehaviorY = '';
+            }, 300);
+
+            // Smooth scroll on nav clicks using scroll-margin-top for offset
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href || !href.startsWith('#')) return;
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Hash will naturally update when scroll reaches the anchor; avoid pushing state mid-scroll
+                    }
+                });
+            });
+
+            // Stable active tab highlighting based on scroll position (avoids IO flicker)
+            function updateActiveFromScroll() {
+                const vv = window.visualViewport;
+                const viewportHeight = vv ? vv.height : window.innerHeight;
+                const anchorY = 90; // approx. below fixed nav
+                let bestId = null;
+                let bestDist = Infinity;
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const dist = Math.abs(rect.top - anchorY);
+                    if (dist < bestDist) {
+                        bestDist = dist;
+                        bestId = section.id;
+                    }
+                });
+                setActiveNav(bestId);
+            }
+
+            let ticking = false;
+            function onScrollStable() {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    updateActiveFromScroll();
+                    ticking = false;
+                });
+            }
+
+            window.addEventListener('scroll', onScrollStable, { passive: true });
+            window.addEventListener('resize', onScrollStable);
+            if (window.visualViewport) window.visualViewport.addEventListener('resize', onScrollStable);
+
+            // Initial highlight
+            updateActiveFromScroll();
+
+            // Initialize skill bars immediately; visual fill occurs via CSS transition
             const skillBars = document.querySelectorAll('.level-bar');
             skillBars.forEach(bar => {
                 const level = bar.getAttribute('data-level');
@@ -687,21 +700,8 @@
             });
         });
 
-        window.addEventListener('hashchange', () => {
-            updateActiveNav();
-            showSection();
-            
-            // Only scroll to top once, and only on navigation (not during natural scrolling)
-            setTimeout(() => {
-                adjustMainHeight();
-                // Single scroll to top after section change
-                scrollToTop();
-            }, 100);
-        });
-
         window.addEventListener('resize', () => {
             setMobileViewportHeight();
-            adjustMainHeight();
         });
 
         // Smooth section transitions

@@ -44,7 +44,7 @@ body {
 html {
     scroll-padding-top: 80px;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: auto;
 }
 
 /* Matrix Background */
@@ -174,13 +174,13 @@ body.nav-open {
     margin-top: 80px;
     position: relative;
     transition: height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    min-height: calc(100vh - 80px);
+    min-height: calc(var(--vh, 1vh) * 100 - 80px);
+    min-height: calc(100dvh - 80px);
 }
 
 /* Mobile viewport fixes */
 @media (max-width: 768px) {
     .main {
-        min-height: calc(100vh - 80px);
         min-height: calc(var(--vh, 1vh) * 100 - 80px); /* Custom viewport height for mobile */
     }
     
@@ -206,22 +206,16 @@ body.nav-open {
 .section {
     width: 100%;
     height: auto;
-    min-height: calc(100vh - 80px);
+    min-height: calc(var(--vh, 1vh) * 100 - 80px);
+    min-height: calc(100dvh - 80px);
     padding-top: 40px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(30px) scale(0.95);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     z-index: 1;
     overflow-y: visible;
     transform-origin: center top;
-    will-change: transform, opacity;
+    scroll-margin-top: 90px; /* Offset for fixed navbar when jumping to anchors */
 }
 
-.section.section-active {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) scale(1) !important;
+.section.in-view {
     z-index: 10 !important;
     animation: sectionSlideIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -242,7 +236,7 @@ body.nav-open {
 }
 
 /* Content animations for active sections */
-.section.section-active .page-header {
+.section.in-view .page-header {
     animation: headerSlideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     animation-delay: 0.2s;
     opacity: 0;
@@ -291,47 +285,52 @@ body.nav-open {
 }
 
 /* Make content visible for active sections through animation */
-.section.section-active .skills-grid .skill-category,
-.section.section-active .projects-grid .project,
-.section.section-active .timeline-container .timeline-item {
+.section.in-view .skills-grid .skill-category,
+.section.in-view .projects-grid .project,
+.section.in-view .timeline-container .timeline-item {
     animation: staggerIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     opacity: 0;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(1),
-.section.section-active .projects-grid .project:nth-child(1),
-.section.section-active .timeline-container .timeline-item:nth-child(1) {
+.section.in-view .skills-grid .skill-category:nth-child(1),
+.section.in-view .projects-grid .project:nth-child(1),
+.section.in-view .timeline-container .timeline-item:nth-child(1) {
     animation-delay: 0.4s;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(2),
-.section.section-active .projects-grid .project:nth-child(2),
-.section.section-active .timeline-container .timeline-item:nth-child(2) {
+.section.in-view .skills-grid .skill-category:nth-child(2),
+.section.in-view .projects-grid .project:nth-child(2),
+.section.in-view .timeline-container .timeline-item:nth-child(2) {
     animation-delay: 0.5s;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(3),
-.section.section-active .projects-grid .project:nth-child(3),
-.section.section-active .timeline-container .timeline-item:nth-child(3) {
+.section.in-view .skills-grid .skill-category:nth-child(3),
+.section.in-view .projects-grid .project:nth-child(3),
+.section.in-view .timeline-container .timeline-item:nth-child(3) {
     animation-delay: 0.6s;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(4),
-.section.section-active .projects-grid .project:nth-child(4),
-.section.section-active .timeline-container .timeline-item:nth-child(4) {
+.section.in-view .skills-grid .skill-category:nth-child(4),
+.section.in-view .projects-grid .project:nth-child(4),
+.section.in-view .timeline-container .timeline-item:nth-child(4) {
     animation-delay: 0.7s;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(5),
-.section.section-active .projects-grid .project:nth-child(5),
-.section.section-active .timeline-container .timeline-item:nth-child(5) {
+.section.in-view .skills-grid .skill-category:nth-child(5),
+.section.in-view .projects-grid .project:nth-child(5),
+.section.in-view .timeline-container .timeline-item:nth-child(5) {
     animation-delay: 0.8s;
 }
 
-.section.section-active .skills-grid .skill-category:nth-child(6),
-.section.section-active .projects-grid .project:nth-child(6),
-.section.section-active .timeline-container .timeline-item:nth-child(6) {
+.section.in-view .skills-grid .skill-category:nth-child(6),
+.section.in-view .projects-grid .project:nth-child(6),
+.section.in-view .timeline-container .timeline-item:nth-child(6) {
     animation-delay: 0.9s;
+}
+
+/* Ensure 7th skill category also staggers (prevents immediate show) */
+.section.in-view .skills-grid .skill-category:nth-child(7) {
+    animation-delay: 1s;
 }
 
 
@@ -927,6 +926,79 @@ body.nav-open {
 .project-link:hover {
     background: rgba(0, 255, 0, 0.1);
     text-shadow: 0 0 5px var(--matrix-green);
+}
+
+/* Section background emphasis with smooth transitions (no dividing lines) */
+#skills,
+#projects {
+    transition: background-color 0.6s ease;
+}
+
+#skills {
+    background-color: rgba(13, 17, 23, 0.45);
+}
+
+#skills.in-view {
+    background-color: rgba(13, 17, 23, 0.70);
+}
+
+#projects {
+    background-color: rgba(13, 17, 23, 0.55);
+}
+
+#projects.in-view {
+    background-color: rgba(13, 17, 23, 0.80);
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--matrix-border);
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(6px);
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-link {
+    color: var(--matrix-green);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    text-shadow: 0 0 5px var(--matrix-green);
+    border-bottom: 1px solid var(--matrix-green);
+}
+
+.footer-sep {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
 }
 
 /* Mobile Navigation Toggle */
