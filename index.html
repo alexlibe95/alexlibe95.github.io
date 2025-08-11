@@ -918,6 +918,15 @@
                     // show other outputs
                     homeTerminal.querySelectorAll('.ls-output, .status, .network-config, .title, .description')
                         .forEach(el => el.classList.add('terminal-output-show'));
+                    // show progress output and mark complete
+                    const setup = document.getElementById('setup-progress');
+                    if (setup) {
+                        setup.classList.add('terminal-output-show');
+                        const fill = setup.querySelector('.setup-fill');
+                        const label = setup.querySelector('.setup-label');
+                        if (fill) fill.style.width = '100%';
+                        if (label) label.textContent = 'Setup complete';
+                    }
                     // show all prompts and fill commands for each step
                     const typedSteps = introSteps.filter(s => s.type === 'type');
                     homeTerminal.querySelectorAll('.command-line').forEach((l, i) => {
