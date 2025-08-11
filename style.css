@@ -272,9 +272,14 @@ body.nav-open {
 @media (max-width: 800px) {
     .ascii-name { overflow-x: hidden; }
     pre.ascii-name { display: none !important; }
-    .ascii-name-mobile { display: block !important; }
     .terminal-body { overflow-x: hidden; }
 }
+
+/* When whoami is shown, ensure only one variant is visible at a time */
+.ascii-name-full, .ascii-name-tablet, .ascii-name-mobile { display: none; }
+.terminal-output-show.ascii-name-full,
+.terminal-output-show.ascii-name-tablet,
+.terminal-output-show.ascii-name-mobile { display: block; }
 
 .container {
     max-width: 1200px;

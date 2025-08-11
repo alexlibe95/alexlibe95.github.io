@@ -786,6 +786,8 @@
                 return '.ascii-name-mobile';
             }
 
+            let whoamiShown = false;
+
             function showOutputs(selectors) {
                 if (!selectors || !selectors.length) return;
                 selectors.forEach(sel => {
@@ -793,12 +795,26 @@
                         const variantSel = getAsciiSelectorForViewport();
                         const el = homeTerminal.querySelector(variantSel);
                         if (el) el.classList.add('terminal-output-show');
+                        whoamiShown = true;
                     } else {
                         homeTerminal.querySelectorAll(sel).forEach(el => {
                             el.classList.add('terminal-output-show');
                         });
                     }
                 });
+            }
+
+            function adjustAsciiVariant() {
+                if (!whoamiShown) return;
+                const full = homeTerminal.querySelector('.ascii-name-full');
+                const tab = homeTerminal.querySelector('.ascii-name-tablet');
+                const mob = homeTerminal.querySelector('.ascii-name-mobile');
+                if (full) full.classList.remove('terminal-output-show');
+                if (tab) tab.classList.remove('terminal-output-show');
+                if (mob) mob.classList.remove('terminal-output-show');
+                const sel = getAsciiSelectorForViewport();
+                const target = homeTerminal.querySelector(sel);
+                if (target) target.classList.add('terminal-output-show');
             }
 
             function runProgress(ms) {
@@ -837,6 +853,9 @@
                 // ensure all command lines hidden until used
                 const allCmdLines = homeTerminal.querySelectorAll('.command-line');
                 allCmdLines.forEach((line) => { line.style.display = 'none'; });
+                // ensure mobile simple name hidden until whoami step
+                const simpleName = homeTerminal.querySelector('.ascii-name-mobile');
+                if (simpleName) simpleName.classList.remove('terminal-output-show');
 
                 // automated mouse fly-in and click animation
                 const btn = introLauncher?.querySelector('.intro-launcher-btn');
@@ -915,6 +934,7 @@
                     const asciiSel = getAsciiSelectorForViewport();
                     const asciiEl = homeTerminal.querySelector(asciiSel);
                     if (asciiEl) asciiEl.classList.add('terminal-output-show');
+                    whoamiShown = true;
                     // show other outputs
                     homeTerminal.querySelectorAll('.ls-output, .status, .network-config, .title, .description')
                         .forEach(el => el.classList.add('terminal-output-show'));
@@ -944,12 +964,17 @@
             });
             // removed replay functionality
 
+            // React to resize and keep correct ASCII variant visible
+            window.addEventListener('resize', () => {
+                setMobileViewportHeight();
+                adjustAsciiVariant();
+            });
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', adjustAsciiVariant);
+            }
+
             // Start with launcher visible (but auto-clicked by animation)
             showLauncher();
-        });
-
-        window.addEventListener('resize', () => {
-            setMobileViewportHeight();
         });
 
         // Smooth section transitions
