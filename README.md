@@ -59,7 +59,7 @@ $ cat experience.json
 
 ### 🚀 Professional Journey
 
-#### **2021 – Present | RAW Labs - Frontend Developer**
+#### **2021 – 2025 | RAW Labs - Frontend Developer**
 Building the next-generation data platform enabling AI-driven applications via secure, real-time data APIs.
 - Developed new features and maintained complex interfaces
 - Delivered responsive, cross-browser UI for enterprise clients
