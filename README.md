@@ -129,6 +129,26 @@ Intelligent roulette prediction system using advanced algorithms and statistical
 
 **Tech:** JavaScript • CSS • HTML • Algorithms
 
+### [📈 PeakLog](https://github.com/alexlibe95/PeakLog) | [Live Demo](https://peaklog.netlify.app/)
+Lightweight athlete performance and training tracker for coaches and teams. Built for endurance and watersports teams with real-time data, magic link authentication, and role-based access control.
+
+**Tech:** React • Firebase • TailwindCSS • Vite • ShadCN UI • Authentication
+
+### [🔧 SquashMate](https://github.com/alexlibe95/SquashMate)
+AppImage installation manager for Linux. Provides easy AppImage selection, automatic installation/updates to ~/Applications/, desktop integration via .desktop files, and comprehensive logging.
+
+**Tech:** Python • PyQt5 • Shell • Linux
+
+### [🏛️ Greek Civil Eye](https://github.com/alexlibe95/GreekCivilEye)
+Powerful web application for enhancing government transparency in Greece by making government decisions easily accessible, searchable, and understandable to citizens. Connects to official Diavgeia.gov.gr platform with real-time monitoring and advanced filtering.
+
+**Tech:** Next.js • React • TypeScript • Supabase • TailwindCSS • PostgreSQL
+
+### [🌐 ΕΝΟΑ Website](https://github.com/alexlibe95/enoa_website) | [Live Demo](https://enoaclub.netlify.app/)
+Modern, responsive website for the Hellenic Nautical Club of Egyptians (ΕΝΟΑ). Features multilingual support, CMS integration, dark/light mode, and optimized SEO.
+
+**Tech:** Astro • TypeScript • TailwindCSS • Decap CMS
+
 ### [💅 NC Nailroom](https://github.com/alexlibe95/nc_nailroom) | [Live Site](https://ncnailroom.netlify.app/)
 Modern, elegant static website for professional nail artistry services. Features interactive gallery and optimized performance.
 
