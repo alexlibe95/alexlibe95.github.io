@@ -139,7 +139,7 @@ AppImage installation manager for Linux. Provides easy AppImage selection, autom
 
 **Tech:** Python • PyQt5 • Shell • Linux
 
-### [🏛️ Greek Civil Eye](https://github.com/alexlibe95/GreekCivilEye)
+### [🏛️ Greek Civil Eye](https://github.com/alexlibe95/GreekCivilEye) | [Live Demo](https://greekcivileye.netlify.app/)
 Powerful web application for enhancing government transparency in Greece by making government decisions easily accessible, searchable, and understandable to citizens. Connects to official Diavgeia.gov.gr platform with real-time monitoring and advanced filtering.
 
 **Tech:** Next.js • React • TypeScript • Supabase • TailwindCSS • PostgreSQL
@@ -148,11 +148,6 @@ Powerful web application for enhancing government transparency in Greece by maki
 Modern, responsive website for the Hellenic Nautical Club of Egyptians (ΕΝΟΑ). Features multilingual support, CMS integration, dark/light mode, and optimized SEO.
 
 **Tech:** Astro • TypeScript • TailwindCSS • Decap CMS
-
-### [💅 NC Nailroom](https://github.com/alexlibe95/nc_nailroom) | [Live Site](https://ncnailroom.netlify.app/)
-Modern, elegant static website for professional nail artistry services. Features interactive gallery and optimized performance.
-
-**Tech:** Astro • TypeScript • TailwindCSS
 
 ## 🎨 Design Philosophy
 
