@@ -1173,6 +1173,49 @@ body.nav-open {
     margin-bottom: 0.3rem;
 }
 
+.timeline-company-with-external {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.timeline-external-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0.2rem;
+    color: var(--matrix-green);
+    background: transparent;
+    border: 1px solid rgba(0, 255, 0, 0.35);
+    border-radius: 6px;
+    line-height: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-external-btn:hover {
+    color: var(--matrix-light-green);
+    border-color: var(--matrix-green);
+    background: rgba(0, 255, 0, 0.08);
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.15);
+}
+
+.timeline-external-btn:focus {
+    outline: none;
+}
+
+.timeline-external-btn:focus-visible {
+    outline: 2px solid var(--matrix-green);
+    outline-offset: 2px;
+}
+
+.timeline-external-icon {
+    display: block;
+}
+
 .timeline-role {
     color: var(--matrix-green);
     font-size: 1.1rem;
