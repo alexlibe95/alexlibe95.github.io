@@ -124,10 +124,10 @@ Professional-grade AI-powered trading chart analysis with 90% accuracy. Analyzes
 
 **Tech:** Next.js • TypeScript • TailwindCSS • AI/ML
 
-### [🎰 Smart Roulette Predictor](https://github.com/alexlibe95/SmartRoulettePredictor) | [Live Demo](https://smartroulettepredictor.netlify.app/)
-Intelligent roulette prediction system using advanced algorithms and statistical analysis for pattern recognition and betting strategies.
+### [🎰 Roulette Session Tracker](https://github.com/alexlibe95/SmartRoulettePredictor) | [Live Demo](https://roulettesessiontracker.netlify.app/)
+A small React (Vite) app for **logging play sessions**—bankroll, stakes, wins/losses, and playful color suggestions. It does **not** provide gambling advice or a way to beat the house; it’s for personal tracking and entertainment.
 
-**Tech:** JavaScript • CSS • HTML • Algorithms
+**Tech:** React • Vite • CSS
 
 ### [📈 PeakLog](https://github.com/alexlibe95/PeakLog) | [Live Demo](https://peaklog.netlify.app/)
 Lightweight athlete performance and training tracker for coaches and teams. Built for endurance and watersports teams with real-time data, magic link authentication, and role-based access control.
