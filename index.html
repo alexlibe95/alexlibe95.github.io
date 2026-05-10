@@ -77,7 +77,6 @@
             "Express.js",
             "MongoDB",
             "AWS",
-            "Elasticsearch",
             "Redis",
             "Docker",
             "Firebase",
@@ -93,7 +92,7 @@
             "name": "Fullstack Engineer",
             "occupationalCategory": "Software Developer",
             "experienceRequirements": "8+ years",
-            "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker, Elasticsearch"
+            "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker"
         }
     }
     </script>
@@ -236,7 +235,7 @@
                         <div class="intro-mouse" aria-hidden="true"></div>
                     </div>
                 </div>
-                <a href="#skills" class="scroll-hint">
+                <a href="#skills" class="scroll-hint scroll-hint--pending" aria-hidden="true">
                     <span class="scroll-hint-label">Explore</span>
                     <span class="scroll-hint-chevron" aria-hidden="true"></span>
                 </a>
@@ -259,7 +258,7 @@
                         <div class="skill-item">Node.js</div>
                         <div class="skill-item">Express.js</div>
                         <div class="skill-item">MongoDB</div>
-                        <div class="skill-item">RxJS</div>
+                        <div class="skill-item">Next.js</div>
                         <div class="skill-item">Ionic + Capacitor</div>
                         <div class="skill-item">React</div>
                     </div>
@@ -284,17 +283,16 @@
                         <h2 class="category-title">🧪 Testing & QA</h2>
                         <div class="skill-item">Jasmine + Karma</div>
                         <div class="skill-item">Nightwatch.js</div>
+                        <div class="skill-item">Vitest</div>
                     </div>
 
                     <div class="skill-category">
                         <h2 class="category-title">☁️ Backend & Cloud Services</h2>
                         <div class="skill-item">AWS</div>
-                        <div class="skill-item">Elasticsearch</div>
                         <div class="skill-item">Redis</div>
                         <div class="skill-item">Docker</div>
                         <div class="skill-item">Firebase (Auth, Firestore, Hosting)</div>
                         <div class="skill-item">Real-time Database Management</div>
-                        <div class="skill-item">Magic Link Authentication</div>
                         <div class="skill-item">Cloud Functions</div>
                     </div>
 
@@ -302,16 +300,9 @@
                         <h2 class="category-title">⚙️ Tools & Platforms</h2>
                         <div class="skill-item">Jira</div>
                         <div class="skill-item">Git / GitHub</div>
-                        <div class="skill-item">Sentry</div>
-                        <div class="skill-item">Figma</div>
                         <div class="skill-item">RESTful API Integration</div>
                         <div class="skill-item">Responsive Web Design</div>
                         <div class="skill-item">Cross-browser Compatibility</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">💻 Other Languages</h2>
-                        <div class="skill-item">Python (basic to intermediate)</div>
                     </div>
 
                     <div class="skill-category">
@@ -366,13 +357,11 @@
                                 <span class="tech-tag">MongoDB</span>
                                 <span class="tech-tag">TypeScript</span>
                                 <span class="tech-tag">AWS</span>
-                                <span class="tech-tag">Elasticsearch</span>
                                 <span class="tech-tag">Redis</span>
                                 <span class="tech-tag">Docker</span>
                                 <span class="tech-tag">Bootstrap</span>
                                 <span class="tech-tag">Jira</span>
                                 <span class="tech-tag">GitHub</span>
-                                <span class="tech-tag">Sentry</span>
                                 <span class="tech-tag">Figma</span>
                             </div>
                         </div>
@@ -406,7 +395,7 @@
                             <div class="timeline-tech">
                                 <span class="tech-tag">Angular</span>
                                 <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">RxJS</span>
+                                <span class="tech-tag">Next.js</span>
                                 <span class="tech-tag">TailwindCSS</span>
                                 <span class="tech-tag">PrimeFaces</span>
                                 <span class="tech-tag">Figma</span>
@@ -519,8 +508,7 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="https://github.com/alexlibe95/ChartAnalyzerAI" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-                            <a href="http://chartanalyzerai.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://chartanalyzerai.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
                         </div>
                     </div>
 
@@ -554,7 +542,7 @@
                         </div>
                         <div class="project-body">
                             <p class="project-description">
-                                📈 Lightweight athlete performance and training tracker for coaches and teams.
+                                Lightweight athlete performance and training tracker for coaches and teams.
                                 Built for endurance and watersports teams with real-time data, magic link authentication, and role-based access control.
                             </p>
                             <div class="project-tech">
@@ -567,8 +555,29 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="https://github.com/alexlibe95/PeakLog" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
                             <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-header">
+                            <h3 class="project-title">Dep Up Surgeon</h3>
+                            <span class="project-status active">ACTIVE</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-description">
+                                Production-oriented CLI that upgrades npm dependencies with install + validation after each bump and rolls back on failure. Framework-agnostic; supports npm, pnpm, and yarn—including workspaces and monorepos.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">CLI</span>
+                                <span class="tech-tag">npm</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/alexlibe95/dep-up-surgeon" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
+                            <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
                         </div>
                     </div>
 
@@ -871,6 +880,11 @@
                         }
                     }, i * 220);
                 });
+                const scrollHint = document.querySelector('.scroll-hint');
+                if (scrollHint) {
+                    scrollHint.classList.remove('scroll-hint--pending');
+                    scrollHint.removeAttribute('aria-hidden');
+                }
             }
 
             async function typeCommand(lineEl, text) {

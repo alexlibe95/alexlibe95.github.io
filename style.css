@@ -941,7 +941,13 @@ body.nav-open {
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 8px;
-    transition: color 0.25s ease, background 0.25s ease;
+    transition: color 0.25s ease, background 0.25s ease, opacity 0.45s ease, visibility 0.45s ease;
+}
+
+.scroll-hint.scroll-hint--pending {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .scroll-hint:hover {
@@ -1793,6 +1799,10 @@ html.reduce-motion .logo-icon {
 
 html.reduce-motion .scroll-hint-chevron {
     animation: none;
+}
+
+html.reduce-motion .scroll-hint {
+    transition: none;
 }
 
 html.reduce-motion .timeline-item::before {
