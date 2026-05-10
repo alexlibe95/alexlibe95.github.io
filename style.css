@@ -28,6 +28,7 @@
     /* Fonts */
     --font-primary: 'JetBrains Mono', monospace;
     --font-secondary: 'Courier Prime', monospace;
+    --font-mono: var(--font-primary);
 }
 
 body {
@@ -37,16 +38,44 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-behavior: smooth;
 }
 
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -120px;
+    z-index: 3000;
+    padding: 0.65rem 1.15rem;
+    background: var(--matrix-surface);
+    border: 1px solid var(--matrix-green);
+    border-radius: 6px;
+    color: var(--matrix-green);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: top 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skip-link:focus {
+    outline: none;
+}
+
+.skip-link:focus-visible {
+    top: 1rem;
+    box-shadow: 0 0 0 2px var(--matrix-bg), 0 0 18px rgba(0, 255, 0, 0.35);
+}
 /* Prevent default hash scrolling */
 html {
     scroll-padding-top: 80px;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
 /* Matrix Background */
 .matrix-bg {
     position: fixed;
@@ -73,8 +102,15 @@ html {
     border-bottom: 1px solid var(--matrix-border);
     z-index: 1000;
     padding: 1rem 0;
+    transition: padding 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
+.nav.nav-scrolled {
+    padding: 0.55rem 0;
+    background: rgba(13, 17, 23, 0.98);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+    border-bottom-color: rgba(0, 255, 0, 0.18);
+}
 /* Prevent body scroll when mobile menu is open */
 body.nav-open {
     overflow: hidden;
@@ -195,6 +231,16 @@ body.nav-open {
     opacity: 1;
 }
 
+.nav-link:focus {
+    outline: none;
+}
+
+.nav-link:focus-visible {
+    color: var(--matrix-green);
+    border-color: var(--matrix-green);
+    background: rgba(0, 255, 0, 0.12);
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.35);
+}
 /* Main Layout */
 .main {
     margin-top: 80px;
@@ -418,6 +464,9 @@ body.nav-open {
     animation-delay: 1s;
 }
 
+.section.in-view .skills-grid .skill-category:nth-child(8) {
+    animation-delay: 1.1s;
+}
 
 
 @keyframes headerSlideIn {
@@ -547,6 +596,10 @@ body.nav-open {
 
 .terminal-btn svg { width: 22px; height: 22px; display: block; }
 
+.terminal-btn:focus-visible {
+    outline: 2px solid var(--matrix-green);
+    outline-offset: 2px;
+}
 /* Smooth pulse animation for the Skip icon */
 #intro-skip svg {
     transform-origin: center;
@@ -867,6 +920,80 @@ body.nav-open {
     100% { transform: scale(1); }
 }
 
+#home > .container {
+    position: relative;
+    padding-bottom: 3.25rem;
+}
+
+.scroll-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 0.35rem;
+    transform: translateX(-50%);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: color 0.25s ease, background 0.25s ease;
+}
+
+.scroll-hint:hover {
+    color: var(--matrix-green);
+    background: rgba(0, 255, 0, 0.06);
+}
+
+.scroll-hint:focus {
+    outline: none;
+}
+
+.scroll-hint:focus-visible {
+    color: var(--matrix-green);
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.35);
+}
+
+.scroll-hint-label {
+    opacity: 0.85;
+}
+
+.scroll-hint-chevron {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: 2px;
+    animation: scrollChevron 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollChevron {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(45deg) translateY(6px);
+    }
+}
+
+@media (max-width: 640px) {
+    #home > .container {
+        padding-bottom: 4rem;
+    }
+
+    .scroll-hint {
+        letter-spacing: 0.18em;
+        bottom: 0.15rem;
+    }
+}
 /* Hidden sections until intro completes */
 .hidden-section { display: none; }
 
@@ -886,6 +1013,16 @@ body.nav-open {
     font-family: var(--font-secondary);
 }
 
+.page-subtitle::after {
+    content: '';
+    display: block;
+    width: 72px;
+    height: 2px;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+    opacity: 0.75;
+}
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -1195,8 +1332,14 @@ body.nav-open {
     font-size: 0.75rem;
     border: 1px solid rgba(0, 255, 0, 0.3);
     font-weight: 500;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.tech-tag:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 255, 0, 0.55);
+    box-shadow: 0 6px 16px rgba(0, 255, 0, 0.12);
+}
 .project-footer {
     padding: 1.5rem;
     border-top: 1px solid var(--matrix-border);
@@ -1221,6 +1364,14 @@ body.nav-open {
     text-shadow: 0 0 5px var(--matrix-green);
 }
 
+.project-link:focus {
+    outline: none;
+}
+
+.project-link:focus-visible {
+    background: rgba(0, 255, 0, 0.14);
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.45);
+}
 /* Section background emphasis with smooth transitions (no dividing lines) */
 #skills,
 #projects {
@@ -1293,6 +1444,11 @@ body.nav-open {
     border-bottom: 1px solid var(--matrix-green);
 }
 
+.footer-link:focus-visible {
+    outline: 2px solid var(--matrix-green);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
 .footer-sep {
     color: var(--text-secondary);
 }
@@ -1583,4 +1739,23 @@ body.nav-open {
 ::selection {
     background: rgba(0, 255, 0, 0.2);
     color: var(--text-primary);
+}
+html.reduce-motion .matrix-bg {
+    opacity: 0.04;
+}
+
+html.reduce-motion .logo-icon {
+    animation: none;
+}
+
+html.reduce-motion .scroll-hint-chevron {
+    animation: none;
+}
+
+html.reduce-motion .timeline-item::before {
+    animation: none;
+}
+
+html.reduce-motion #intro-skip svg {
+    animation: none;
 }

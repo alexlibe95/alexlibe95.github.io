@@ -99,6 +99,7 @@
     </script>
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to content</a>
     <!-- Matrix Rain Background -->
     <div class="matrix-bg">
         <canvas id="matrix"></canvas>
@@ -111,12 +112,12 @@
                 <span class="logo-icon" aria-hidden="true">&lt;/&gt;</span>
                 <span class="logo-text">ALEXLYMPE.sh</span>
             </a>
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
             </button>
-            <ul class="nav-menu" role="menubar">
+            <ul id="nav-menu" class="nav-menu" role="menubar">
                 <li role="none"><a href="#home" class="nav-link active" role="menuitem">HOME</a></li>
                 <li role="none" class="nav-extra"><a href="#skills" class="nav-link" role="menuitem">SKILLS</a></li>
                 <li role="none" class="nav-extra"><a href="#timeline" class="nav-link" role="menuitem">TIMELINE</a></li>
@@ -235,6 +236,10 @@
                         <div class="intro-mouse" aria-hidden="true"></div>
                     </div>
                 </div>
+                <a href="#skills" class="scroll-hint">
+                    <span class="scroll-hint-label">Explore</span>
+                    <span class="scroll-hint-chevron" aria-hidden="true"></span>
+                </a>
             </div>
         </section>
 
@@ -581,25 +586,23 @@
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const drops = [];
+
         function setCanvasSize() {
             const vv = window.visualViewport;
             const width = vv ? Math.floor(vv.width) : window.innerWidth;
             const height = vv ? Math.floor(vv.height) : window.innerHeight;
             canvas.width = width;
             canvas.height = height;
+            const cols = Math.max(1, Math.floor(canvas.width / fontSize));
+            while (drops.length < cols) drops.push(1);
+            drops.length = cols;
         }
         setCanvasSize();
-
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
-
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for(let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
 
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
@@ -619,7 +622,23 @@
             }
         }
 
-        setInterval(draw, 35);
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let matrixIntervalId = null;
+        function syncMatrixAnimation() {
+            if (matrixIntervalId) {
+                clearInterval(matrixIntervalId);
+                matrixIntervalId = null;
+            }
+            document.documentElement.classList.toggle('reduce-motion', motionQuery.matches);
+            if (!motionQuery.matches) {
+                matrixIntervalId = window.setInterval(draw, 35);
+            } else {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+        motionQuery.addEventListener('change', syncMatrixAnimation);
+        syncMatrixAnimation();
 
         // Resize canvas on window resize
         let resizeRaf;
@@ -700,6 +719,8 @@
             }, 300);
 
             // Smooth scroll on nav clicks using scroll-margin-top for offset
+            const scrollBehaviorNav = () =>
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
@@ -707,8 +728,7 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // Hash will naturally update when scroll reaches the anchor; avoid pushing state mid-scroll
+                        target.scrollIntoView({ behavior: scrollBehaviorNav(), block: 'start' });
                     }
                 });
             });
@@ -731,12 +751,14 @@
                 setActiveNav(bestId);
             }
 
+            const navEl = document.querySelector('.nav');
             let ticking = false;
             function onScrollStable() {
                 if (ticking) return;
                 ticking = true;
                 requestAnimationFrame(() => {
                     updateActiveFromScroll();
+                    if (navEl) navEl.classList.toggle('nav-scrolled', window.scrollY > 16);
                     ticking = false;
                 });
             }
@@ -745,8 +767,9 @@
             window.addEventListener('resize', onScrollStable);
             if (window.visualViewport) window.visualViewport.addEventListener('resize', onScrollStable);
 
-            // Initial highlight
+            // Initial highlight + nav state
             updateActiveFromScroll();
+            if (navEl) navEl.classList.toggle('nav-scrolled', window.scrollY > 16);
 
             // Initialize skill bars immediately; visual fill occurs via CSS transition
             const skillBars = document.querySelectorAll('.level-bar');
@@ -1009,54 +1032,37 @@
             showLauncher();
         });
 
-        // Smooth section transitions
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetHash = link.getAttribute('href');
-                
-                // Check if we're clicking the same section
-                const targetSection = document.querySelector(targetHash);
-                if (targetSection && targetSection.classList.contains('section-active')) {
-                    e.preventDefault();
-                    return; // Don't do anything if section is already active
-                }
-                
-                // Immediately scroll to top on click
-                scrollToTop();
-                
-                // Let showSection handle the section switching
-                setTimeout(() => {
-                    adjustMainHeight();
-                }, 150);
-            });
-        });
-
         // Mobile Navigation Toggle
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
         const body = document.body;
 
         function toggleMobileMenu() {
+            if (!navToggle || !navMenu) return;
             const isActive = navMenu.classList.contains('nav-menu-active');
             
             if (isActive) {
                 navMenu.classList.remove('nav-menu-active');
                 navToggle.classList.remove('nav-toggle-active');
                 body.classList.remove('nav-open');
+                navToggle.setAttribute('aria-expanded', 'false');
             } else {
                 navMenu.classList.add('nav-menu-active');
                 navToggle.classList.add('nav-toggle-active');
                 body.classList.add('nav-open');
+                navToggle.setAttribute('aria-expanded', 'true');
             }
         }
 
         function closeMobileMenu() {
+            if (!navToggle || !navMenu) return;
             navMenu.classList.remove('nav-menu-active');
             navToggle.classList.remove('nav-toggle-active');
             body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
         }
 
-        navToggle.addEventListener('click', toggleMobileMenu);
+        if (navToggle && navMenu) navToggle.addEventListener('click', toggleMobileMenu);
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -1065,6 +1071,7 @@
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
+            if (!navToggle || !navMenu) return;
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 closeMobileMenu();
             }
