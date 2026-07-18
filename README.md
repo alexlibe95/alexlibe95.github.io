@@ -111,15 +111,10 @@ Git / GitHub • Jira • RESTful APIs • Responsive design
 
 ## Featured Projects
 
-### [Just Plan It](https://justplanitofficial.netlify.app/en)
-Event planning platform for Greece — browse categories and event types, discover professionals, bilingual (EN/EL) marketing experience.
+### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
+Free macOS menu bar suite: **CommitBar** (Git stage/commit/push), **RunBar** (bun/npm/yarn/pnpm scripts with kill & retry), and **UsageBar** (Claude, Cursor, ChatGPT usage at a glance).
 
-**Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
-
-### [CryptoAnalyzer](https://chartanalyzerfree.netlify.app/)
-AI-assisted trading chart analysis for TradingView screenshots — pattern recognition and trading insights.
-
-**Tech:** Next.js • TypeScript • TailwindCSS • AI/ML
+**Tech:** macOS • Menu Bar • EntelXCore
 
 ### [PeakLog](https://peaklog-official.netlify.app/)
 Lightweight athlete performance and training tracker for coaches and teams. Real-time data, magic link auth, RBAC.
@@ -131,25 +126,20 @@ Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026
 
 **Tech:** Next.js • TypeScript • TailwindCSS • Netlify
 
+### [Just Plan It](https://justplanitofficial.netlify.app/en)
+Event planning platform for Greece — browse categories and event types, discover professionals, bilingual (EN/EL) marketing experience.
+
+**Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
+
 ### [Dep Up Surgeon](https://github.com/alexlibe95/dep-up-surgeon) | [Live](https://dep-up-surgeon.netlify.app/)
 CLI that upgrades npm dependencies with install + validation after each bump and rolls back on failure.
 
 **Tech:** TypeScript • Node.js • CLI
 
-### [Roulette Session Tracker](https://roulettesessiontracker.netlify.app/) | [Code](https://github.com/alexlibe95/SmartRoulettePredictor)
-Personal session logger for bankroll/stakes — entertainment tracking only, not gambling advice.
-
-**Tech:** React • Vite • CSS
-
 ### [SquashMate](https://github.com/alexlibe95/SquashMate) | [Live](https://squash-mate.netlify.app/)
 Linux desktop helper for AppImage and `.deb` installs.
 
 **Tech:** Python • PyQt5 • Shell • Linux
-
-### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
-Free macOS menu bar suite: **CommitBar** (Git stage/commit/push), **RunBar** (bun/npm/yarn/pnpm scripts with kill & retry), and **UsageBar** (Claude, Cursor, ChatGPT usage at a glance).
-
-**Tech:** macOS • Menu Bar • EntelXCore
 
 ## Contact
 
