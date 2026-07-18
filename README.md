@@ -1,63 +1,68 @@
-# 🌟 Alex Lymperopoulos - Portfolio
+# Alex Lymperopoulos - Portfolio
 
-> **Frontend & Mobile Application Developer** with 6+ years of experience building responsive web and hybrid mobile apps. Passionate about performance, clean UI, and translating user needs into elegant technical solutions.
+> **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at RE18**. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
-[![Live Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-Visit_Site-00ff00?style=for-the-badge)](https://alexlibe95.github.io)
-[![Made with Love](https://img.shields.io/badge/Made_with-❤️_Love-ff69b4?style=for-the-badge)](https://github.com/alexlibe95)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit_Site-00ff00?style=for-the-badge)](https://alexlibe95.github.io)
 
-## 🎯 About This Portfolio
+## About This Portfolio
 
-This portfolio website showcases my journey as a developer, built with pure **HTML5**, **CSS3**, and **JavaScript** - no frameworks, no dependencies, just clean code crafted with love! 
+Built with pure **HTML5**, **CSS3**, and **JavaScript** — no frameworks, no dependencies.
 
-### ✨ Features
+### Features
 
-- **🎨 Matrix-Inspired Design** - Clean, minimal aesthetic with terminal-style interface
-- **📱 Fully Responsive** - Optimized for desktop, tablet, and mobile devices
-- **⚡ Lightning Fast** - Pure vanilla technologies for optimal performance
-- **🎭 Smooth Animations** - Custom CSS animations and transitions
-- **🌐 PWA Ready** - Progressive Web App with offline capabilities
-- **♿ Accessible** - ARIA labels and semantic HTML for screen readers
-- **🔍 SEO Optimized** - Meta tags, Open Graph, and structured data
+- **Matrix / terminal design** — Clean aesthetic with a decorative terminal home
+- **Fully responsive** — Desktop, tablet, and mobile
+- **Fast** — Vanilla stack, minimal assets
+- **Accessible** — Skip link, semantic HTML, reduced-motion support
+- **SEO** — Meta tags, Open Graph, structured data
+- **Install metadata** — Web app manifest and theme colors (no offline service worker)
 
-## 🛠️ Technical Stack
+## Technical Stack
 
-### Core Technologies
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Custom properties, flexbox, grid, animations
-- **JavaScript (ES6+)** - Vanilla JS for interactivity
-- **SVG** - Scalable icons and graphics
+- **HTML5** — Semantic markup
+- **CSS3** — Custom properties, flexbox, grid, animations
+- **JavaScript (ES6+)** — Interactivity (`script.js`)
+- **SVG** — Icons and graphics
 
-### Features Implemented
-- Single-page application with smooth section transitions
-- Custom scrollbar styling
-- Responsive ASCII art and typography
-- Mobile-first hamburger navigation
-- Matrix rain background effect
-- Dynamic height calculations
-- Progressive Web App manifest
-
-## 👨‍💻 About Me
+## About Me
 
 ```bash
 $ whoami
-Alex Lymperopoulos - Frontend & Mobile Application Developer
+Alex Lymperopoulos - Founder @ EntelXCore · Fullstack Engineer @ RE18
 
 $ cat experience.json
 {
-  "years_of_experience": "6+",
-  "current_role": "Frontend Developer at RAW Labs",
-  "specialties": [
-    "Angular & TypeScript",
-    "Ionic & Capacitor",
-    "React & JavaScript",
-    "Responsive Web Design",
-    "Hybrid Mobile Apps"
+  "years_of_experience": "8+",
+  "current_roles": [
+    "Founder at EntelXCore (Jul 2026 – Present)",
+    "Fullstack Engineer at RE18 (Jan 2026 – Present)"
   ],
-  "passion": "Building amazing user experiences"
+  "specialties": [
+    "AI systems & custom software",
+    "Angular & TypeScript",
+    "Node.js & Express",
+    "MongoDB",
+    "MEAN stack delivery"
+  ]
 }
 ```
 
-### 🚀 Professional Journey
+### Professional Journey
+
+#### **Jul 2026 – Present | EntelXCore - Founder**
+Founded [EntelXCore](https://entelxcore.com/) to build AI systems and custom software for businesses that need technology done right.
+- Leading product vision, architecture, and delivery across AI, web/mobile, and cloud
+- Partnering with clients from idea to launch and ongoing product evolution
+
+**Tech:** AI Systems • TypeScript • Node.js • Angular • React • Cloud • APIs
+
+#### **Jan 2026 – Present | RE18 - Fullstack Engineer**
+Delivering end-to-end features across frontend and backend using the full MEAN stack.
+- Designing and building scalable services and responsive UIs
+- Owning features from planning to production with cross-functional teams
+- Clean-code standards and a get-things-done delivery mindset
+
+**Tech:** Angular • Node.js • Express • MongoDB • TypeScript • AWS • Redis • Docker
 
 #### **2021 – 2025 | RAW Labs - Frontend Developer**
 Building the next-generation data platform enabling AI-driven applications via secure, real-time data APIs.
@@ -66,7 +71,7 @@ Building the next-generation data platform enabling AI-driven applications via s
 - Integrated APIs and ensured seamless data flow with backend teams
 - Created high-fidelity mockups and transformed them into production-ready interfaces
 
-**Tech Stack:** Angular • TypeScript • RxJS • TailwindCSS • PrimeFaces • Figma • Balsamiq • Jasmine • Karma • Nightwatch
+**Tech:** Angular • TypeScript • Next.js • TailwindCSS • PrimeFaces • Figma • Jasmine • Karma • Nightwatch
 
 #### **2019 – 2021 | INTELIQUA - Frontend & Mobile Application Developer**
 Contributed to the "QivosCloud Platform" and maintained a suite of hybrid mobile applications.
@@ -74,7 +79,7 @@ Contributed to the "QivosCloud Platform" and maintained a suite of hybrid mobile
 - Upgraded web platform from AngularJS to modern Angular
 - Ensured consistent app performance across platforms
 
-**Tech Stack:** Angular • Ionic • Capacitor • JavaScript • Jasmine • Karma • Nightwatch
+**Tech:** Angular • Ionic • Capacitor • JavaScript • Jasmine • Karma • Nightwatch
 
 #### **2015 – 2019 | Study in Greece (NGO) - Web Application Developer**
 Developed and maintained the official web portal for international students in Greece.
@@ -82,116 +87,80 @@ Developed and maintained the official web portal for international students in G
 - Organized and supported educational events for international students
 - Maintained the main website and led content updates
 
-**Tech Stack:** HTML5 • CSS3 • WordPress • JavaScript • Bootstrap • Node.js
+**Tech:** HTML5 • CSS3 • WordPress • JavaScript • Bootstrap • Node.js
 
-## 🎨 Skills Overview
+## Skills Overview
 
-### 👨‍💻 Core Technologies
-- **JavaScript / TypeScript** - ES6+, async/await, modern syntax
-- **Angular** - Component architecture, services, routing, RxJS
-- **React** - Hooks, context, state management
-- **Ionic + Capacitor** - Cross-platform mobile development
+### ~/skills/core/
+JavaScript / TypeScript • Angular • Node.js • Express.js • MongoDB • Next.js • React • Ionic + Capacitor
 
-### 🎨 Styling & UI Libraries
-- **TailwindCSS** - Utility-first CSS framework
-- **Bootstrap** - Responsive component library
-- **PrimeFaces** - Enterprise UI components
-- **Figma** - Design and prototyping
-- **Balsamiq** - Wireframing and mockups
+### ~/skills/ui/
+TailwindCSS • Bootstrap • PrimeFaces • Shadcn/ui • Figma • Balsamiq
 
-### 📱 Mobile Development
-- **Hybrid Mobile Apps** - Ionic + Angular/React
-- **App Store Deployment** - Google Play & Apple App Store
-- **Cross-platform Solutions** - Write once, deploy everywhere
+### ~/skills/mobile/
+Hybrid Ionic apps • Google Play & App Store deployment
 
-### 🧪 Testing & QA
-- **Jasmine + Karma** - Unit testing for Angular applications
-- **Nightwatch.js** - End-to-end testing automation
+### ~/skills/testing/
+Jasmine + Karma • Nightwatch.js • Vitest
 
-### ⚙️ Tools & Platforms
-- **Git / GitHub** - Version control and collaboration
-- **RESTful APIs** - Integration and data management
-- **Responsive Design** - Mobile-first approach
-- **Cross-browser Compatibility** - Ensuring consistent experience
+### ~/skills/cloud/
+AWS • Redis • Docker • Firebase • Cloud Functions • Real-time databases
 
-### 🐍 Other Languages
-- **Python** - Basic to intermediate scripting and automation
+### ~/skills/tools/
+Git / GitHub • Jira • RESTful APIs • Responsive design
 
-## 🚀 Featured Projects
+## Featured Projects
 
-### [🤖 ChartAnalyzer AI](https://github.com/alexlibe95/ChartAnalyzerAI) | [Live Demo](http://chartanalyzerai.netlify.app/)
-Professional-grade AI-powered trading chart analysis with 90% accuracy. Analyzes TradingView screenshots for pattern recognition and trading insights.
+### [Just Plan It](https://justplanitofficial.netlify.app/en)
+Event planning platform for Greece — browse categories and event types, discover professionals, bilingual (EN/EL) marketing experience.
+
+**Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
+
+### [CryptoAnalyzer](https://chartanalyzerfree.netlify.app/)
+AI-assisted trading chart analysis for TradingView screenshots — pattern recognition and trading insights.
 
 **Tech:** Next.js • TypeScript • TailwindCSS • AI/ML
 
-### [🎰 Roulette Session Tracker](https://github.com/alexlibe95/SmartRoulettePredictor) | [Live Demo](https://roulettesessiontracker.netlify.app/)
-A small React (Vite) app for **logging play sessions**—bankroll, stakes, wins/losses, and playful color suggestions. It does **not** provide gambling advice or a way to beat the house; it’s for personal tracking and entertainment.
+### [PeakLog](https://peaklog-official.netlify.app/)
+Lightweight athlete performance and training tracker for coaches and teams. Real-time data, magic link auth, RBAC.
+
+**Tech:** React • Firebase • TailwindCSS • Vite • ShadCN UI
+
+### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
+Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.
+
+**Tech:** Next.js • TypeScript • TailwindCSS • Netlify
+
+### [Dep Up Surgeon](https://github.com/alexlibe95/dep-up-surgeon) | [Live](https://dep-up-surgeon.netlify.app/)
+CLI that upgrades npm dependencies with install + validation after each bump and rolls back on failure.
+
+**Tech:** TypeScript • Node.js • CLI
+
+### [Roulette Session Tracker](https://roulettesessiontracker.netlify.app/) | [Code](https://github.com/alexlibe95/SmartRoulettePredictor)
+Personal session logger for bankroll/stakes — entertainment tracking only, not gambling advice.
 
 **Tech:** React • Vite • CSS
 
-### [📈 PeakLog](https://github.com/alexlibe95/PeakLog) | [Live Demo](https://peaklog.netlify.app/)
-Lightweight athlete performance and training tracker for coaches and teams. Built for endurance and watersports teams with real-time data, magic link authentication, and role-based access control.
-
-**Tech:** React • Firebase • TailwindCSS • Vite • ShadCN UI • Authentication
-
-### [🔧 SquashMate](https://github.com/alexlibe95/SquashMate)
-AppImage installation manager for Linux. Provides easy AppImage selection, automatic installation/updates to ~/Applications/, desktop integration via .desktop files, and comprehensive logging.
+### [SquashMate](https://github.com/alexlibe95/SquashMate) | [Live](https://squash-mate.netlify.app/)
+Linux desktop helper for AppImage and `.deb` installs.
 
 **Tech:** Python • PyQt5 • Shell • Linux
 
-### [🏛️ Greek Civil Eye](https://github.com/alexlibe95/GreekCivilEye) | [Live Demo](https://greekcivileye.netlify.app/)
-Powerful web application for enhancing government transparency in Greece by making government decisions easily accessible, searchable, and understandable to citizens. Connects to official Diavgeia.gov.gr platform with real-time monitoring and advanced filtering.
+### [Monitor Orb](https://ai-usage-tool.netlify.app/)
+macOS menu bar companion for Claude and Cursor usage awareness.
 
-**Tech:** Next.js • React • TypeScript • Supabase • TailwindCSS • PostgreSQL
+**Tech:** macOS • Menu Bar • Claude • Cursor
 
-### [🌐 ΕΝΟΑ Website](https://github.com/alexlibe95/enoa_website) | [Live Demo](https://enoaclub.netlify.app/)
-Modern, responsive website for the Hellenic Nautical Club of Egyptians (ΕΝΟΑ). Features multilingual support, CMS integration, dark/light mode, and optimized SEO.
-
-**Tech:** Astro • TypeScript • TailwindCSS • Decap CMS
-
-## 🎨 Design Philosophy
-
-```css
-.my-approach {
-  performance: optimized;
-  user-experience: seamless;
-  code-quality: clean;
-  accessibility: inclusive;
-  design: minimal-yet-beautiful;
-}
-```
-
-I believe in creating digital experiences that are not only visually appealing but also performant, accessible, and user-centric. Every line of code is written with purpose, and every design decision is made with the user in mind.
-
-## 📞 Let's Connect
-
-Ready to build something amazing together? Let's talk!
+## Contact
 
 ```bash
 $ cat network.cfg
 ```
 
-📧 **Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)  
-💼 **LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)  
-💻 **GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)
-
-## 🎯 What's Next?
-
-Currently exploring:
-- **Advanced TypeScript patterns** for better code architecture
-- **Web Performance Optimization** techniques
-- **AI/ML integration** in frontend applications
-- **Modern CSS features** like container queries and cascade layers
+**Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)  
+**LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)  
+**GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)
 
 ---
 
-<div align="center">
-
-**🚀 Booting up creativity • Deploying impact • Ready to build amazing applications**
-
-Made with ❤️ using HTML, CSS & JavaScript
-
-[![Stars](https://img.shields.io/github/stars/alexlibe95/alexlibe95.github.io?style=social)](https://github.com/alexlibe95/alexlibe95.github.io)
-[![Forks](https://img.shields.io/github/forks/alexlibe95/alexlibe95.github.io?style=social)](https://github.com/alexlibe95/alexlibe95.github.io)
-
-</div>
+**Booting up creativity • Deploying impact • Ready to build amazing applications**

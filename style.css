@@ -321,11 +321,61 @@ body.nav-open {
     .terminal-body { overflow-x: hidden; }
 }
 
-/* When whoami is shown, ensure only one variant is visible at a time */
-.ascii-name-full, .ascii-name-tablet, .ascii-name-mobile { display: none; }
-.terminal-output-show.ascii-name-full,
-.terminal-output-show.ascii-name-tablet,
-.terminal-output-show.ascii-name-mobile { display: block; }
+/* ASCII variants */
+.ascii-name-full { display: block; }
+.ascii-name-mobile { display: none; }
+
+@media (max-width: 900px) {
+    .ascii-name-full { display: none; }
+    .ascii-name-mobile { display: block; }
+}
+
+/* Home terminal typing decoration — gated only while animating */
+html.js #home-terminal.is-typing .terminal-body > .command-line,
+html.js #home-terminal.is-typing .ascii-name,
+html.js #home-terminal.is-typing .ls-output,
+html.js #home-terminal.is-typing .status,
+html.js #home-terminal.is-typing .network-config,
+html.js #home-terminal.is-typing .hero-actions,
+html.js #home-terminal.is-typing .title,
+html.js #home-terminal.is-typing .description {
+    display: none;
+}
+
+html.js #home-terminal .terminal-output-show {
+    display: block !important;
+    animation: outputFade 300ms ease-out;
+}
+
+html.js #home-terminal .terminal-output-show.hero-actions {
+    display: block !important;
+}
+
+@keyframes outputFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+html.js #home-terminal.is-typing .ascii-name-full,
+html.js #home-terminal.is-typing .ascii-name-mobile {
+    display: none;
+}
+
+html.js #home-terminal .terminal-output-show.ascii-name-full {
+    display: block !important;
+}
+
+html.js #home-terminal .terminal-output-show.ascii-name-mobile {
+    display: block !important;
+}
+
+#intro-skip {
+    display: none;
+}
+
+html.js #home-terminal.is-typing #intro-skip {
+    display: inline-flex;
+}
 
 .container {
     max-width: 1200px;
@@ -373,98 +423,75 @@ body.nav-open {
     opacity: 0;
 }
 
-/* Ensure headers are hidden by default when in sections */
-.section .page-header {
+/* Progressive enhancement: hide for reveal animation only when JS runs */
+html.js .section:not(#home) .page-header {
     opacity: 0;
 }
 
-/* Ensure content is hidden by default when in sections */
-.section .skill-category,
-.section .project,
-.section .timeline-item {
+html.js .section .skills-block,
+html.js .section .project,
+html.js .section .timeline-item {
     opacity: 0;
 }
 
-/* Minimal skill item styling */
-.skill-item {
-    color: var(--text-secondary);
-    padding: 0.4rem 0;
-    margin: 0.3rem 0;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    position: relative;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid rgba(139, 148, 158, 0.1);
-}
-
-.skill-item::before {
-    content: '▸';
-    color: var(--matrix-green);
-    margin-right: 0.8rem;
-    font-size: 0.8rem;
-    opacity: 0.7;
-}
-
-.skill-item:hover {
-    color: var(--text-primary);
-    transform: translateX(5px);
-}
-
-.skill-item:hover::before {
+/* Home terminal is decorative content — always visible */
+#home .page-header {
     opacity: 1;
-    transform: translateX(3px);
 }
 
 /* Make content visible for active sections through animation */
-.section.in-view .skills-grid .skill-category,
+.section.in-view .skills-listing .skills-block,
 .section.in-view .projects-grid .project,
 .section.in-view .timeline-container .timeline-item {
     animation: staggerIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
     opacity: 0;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(1),
+.section.in-view .skills-listing .skills-block:nth-child(1),
 .section.in-view .projects-grid .project:nth-child(1),
 .section.in-view .timeline-container .timeline-item:nth-child(1) {
     animation-delay: 0.4s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(2),
+.section.in-view .skills-listing .skills-block:nth-child(2),
 .section.in-view .projects-grid .project:nth-child(2),
 .section.in-view .timeline-container .timeline-item:nth-child(2) {
     animation-delay: 0.5s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(3),
+.section.in-view .skills-listing .skills-block:nth-child(3),
 .section.in-view .projects-grid .project:nth-child(3),
 .section.in-view .timeline-container .timeline-item:nth-child(3) {
     animation-delay: 0.6s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(4),
+.section.in-view .skills-listing .skills-block:nth-child(4),
 .section.in-view .projects-grid .project:nth-child(4),
 .section.in-view .timeline-container .timeline-item:nth-child(4) {
     animation-delay: 0.7s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(5),
+.section.in-view .skills-listing .skills-block:nth-child(5),
 .section.in-view .projects-grid .project:nth-child(5),
 .section.in-view .timeline-container .timeline-item:nth-child(5) {
     animation-delay: 0.8s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(6),
+.section.in-view .skills-listing .skills-block:nth-child(6),
 .section.in-view .projects-grid .project:nth-child(6),
 .section.in-view .timeline-container .timeline-item:nth-child(6) {
     animation-delay: 0.9s;
 }
 
-/* Ensure 7th skill category also staggers (prevents immediate show) */
-.section.in-view .skills-grid .skill-category:nth-child(7) {
+.section.in-view .skills-listing .skills-block:nth-child(7) {
     animation-delay: 1s;
 }
 
-.section.in-view .skills-grid .skill-category:nth-child(8) {
+.section.in-view .projects-grid .project:nth-child(7) {
+    animation-delay: 1s;
+}
+
+.section.in-view .projects-grid .project:nth-child(8) {
     animation-delay: 1.1s;
 }
 
@@ -511,45 +538,6 @@ body.nav-open {
     transform-origin: center center;
 }
 
-.terminal-hidden {
-    opacity: 0;
-    transform: scale(0.2);
-}
-
-.terminal-open {
-    animation: terminalOpen 450ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-/* Hide terminal body content until shown to avoid prefill flash */
-.terminal-hidden .terminal-body { visibility: hidden; }
-.terminal-open .terminal-body { visibility: visible; }
-
-/* Terminal output visibility control */
-.terminal-body .ascii-name,
-.terminal-body .ls-output,
-.terminal-body .status,
-.terminal-body .network-config,
-.terminal-body .title,
-.terminal-body .description,
-.setup-progress { display: none; }
-
-/* Keep command lines visible container-wise but hide the typed text initially */
-.terminal-body .command-line { display: none; }
-
-.terminal-output-show { display: block !important; animation: outputFade 300ms ease-out; }
-@keyframes outputFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Setup progress bar styling */
-.setup-progress { margin-top: 0.5rem; }
-.setup-bar { width: 100%; height: 8px; background: rgba(0,255,0,0.15); border: 1px solid var(--matrix-green); border-radius: 4px; overflow: hidden; }
-.setup-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--matrix-dark-green), var(--matrix-green)); transition: width 0.25s ease; }
-.setup-label { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-secondary); }
-
-@keyframes terminalOpen {
-    0% { opacity: 0; transform: scale(0.2); }
-    60% { opacity: 1; transform: scale(1.04); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
 .terminal-header {
     background: var(--matrix-bg);
     padding: 0 1.5rem;
@@ -590,38 +578,34 @@ body.nav-open {
     align-items: center;
     justify-content: center;
 }
-.terminal-btn:hover {
-    background: transparent;
-}
 
-.terminal-btn svg { width: 22px; height: 22px; display: block; }
-
-.terminal-btn:focus-visible {
-    outline: 2px solid var(--matrix-green);
-    outline-offset: 2px;
-}
-/* Smooth pulse animation for the Skip icon */
-#intro-skip svg {
+.terminal-btn svg {
+    width: 22px;
+    height: 22px;
+    display: block;
     transform-origin: center;
+}
+
+html.js #home-terminal.is-typing #intro-skip svg {
     animation: iconPulse 1.4s ease-in-out infinite;
 }
 
 @keyframes iconPulse {
-    0% {
+    0%, 100% {
         transform: scale(1);
         opacity: 0.9;
-        filter: drop-shadow(0 0 0 rgba(0,255,0,0));
+        filter: drop-shadow(0 0 0 rgba(0, 255, 0, 0));
     }
     50% {
         transform: scale(1.12);
         opacity: 1;
-        filter: drop-shadow(0 0 6px rgba(0,255,0,0.35));
+        filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.35));
     }
-    100% {
-        transform: scale(1);
-        opacity: 0.9;
-        filter: drop-shadow(0 0 0 rgba(0,255,0,0));
-    }
+}
+
+.terminal-btn:focus-visible {
+    outline: 2px solid var(--matrix-green);
+    outline-offset: 2px;
 }
 
 .terminal-body {
@@ -772,6 +756,38 @@ body.nav-open {
     outline-offset: 2px;
 }
 
+.hero-actions {
+    margin-top: 1.25rem;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1.15rem;
+    color: var(--matrix-bg);
+    background: var(--matrix-green);
+    border: 1px solid var(--matrix-green);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-btn:hover {
+    background: transparent;
+    color: var(--matrix-green);
+    box-shadow: 0 0 16px rgba(0, 255, 0, 0.25);
+}
+
+.cta-btn:focus-visible {
+    outline: 2px solid var(--matrix-light-green);
+    outline-offset: 3px;
+}
+
 .name {
     font-size: 2.5rem;
     color: var(--matrix-green);
@@ -833,19 +849,6 @@ body.nav-open {
     }
 }
 
-/* Desktop - show full ASCII */
-.ascii-name-full {
-    display: block;
-}
-
-.ascii-name-tablet {
-    display: none;
-}
-
-.ascii-name-mobile {
-    display: none;
-}
-
 .simple-name {
     font-family: var(--font-mono);
     font-size: 1.5rem;
@@ -860,64 +863,6 @@ body.nav-open {
 .page-header {
     text-align: center;
     margin-bottom: 4rem;
-}
-
-/* Intro launcher overlay */
-.intro-launcher {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.intro-launcher-btn {
-    color: var(--matrix-green);
-    border: 1px solid var(--matrix-green);
-    border-radius: 8px;
-    background: rgba(0,255,0,0.06);
-    padding: 1.2rem 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    pointer-events: none; /* automated, not user clickable */
-    transition: transform 0.2s ease;
-}
-.intro-launcher-btn:focus {
-    outline: 1px solid var(--matrix-green);
-    outline-offset: 2px;
-}
-
-.intro-mouse {
-    width: 18px;
-    height: 24px;
-    border: 2px solid var(--matrix-green);
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-380%, 280%);
-    opacity: 0;
-    animation: mousePath 1.9s ease-out 0.4s forwards;
-}
-
-@keyframes mousePath {
-    0% { opacity: 0; transform: translate(-380%, 280%) scale(1); }
-    15% { opacity: 0.9; }
-    80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    90% { transform: translate(-50%, -50%) scale(0.95); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-.intro-launcher-btn.is-clicking {
-    animation: clickPop 0.4s ease;
-}
-@keyframes clickPop {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.92); }
-    100% { transform: scale(1); }
 }
 
 #home > .container {
@@ -942,12 +887,6 @@ body.nav-open {
     text-decoration: none;
     border-radius: 8px;
     transition: color 0.25s ease, background 0.25s ease, opacity 0.45s ease, visibility 0.45s ease;
-}
-
-.scroll-hint.scroll-hint--pending {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
 }
 
 .scroll-hint:hover {
@@ -1000,11 +939,6 @@ body.nav-open {
         bottom: 0.15rem;
     }
 }
-/* Hidden sections until intro completes */
-.hidden-section { display: none; }
-
-.nav-extra { display: none; }
-
 .page-title {
     font-size: 3rem;
     color: var(--matrix-green);
@@ -1029,89 +963,70 @@ body.nav-open {
     background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
     opacity: 0.75;
 }
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+/* Skills Section — denser terminal / ls layout */
+.skills-terminal {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
 }
 
-.skill-category {
-    background: var(--matrix-surface);
-    border: 1px solid var(--matrix-border);
-    border-radius: 8px;
-    padding: 2rem;
-    transition: all 0.3s ease;
+.skills-terminal-body {
+    padding-top: 1.25rem;
 }
 
-.skill-category:hover {
-    border-color: var(--matrix-green);
-    box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
-    transform: translateY(-5px);
-}
-
-.category-title {
-    color: var(--matrix-green);
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--matrix-border);
-    font-weight: 500;
-}
-
-
-
-.skill {
+.skills-listing {
+    margin: 0.5rem 0 1rem 1.25rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
-}
-
-.skill:last-child {
-    border-bottom: none;
-}
-
-.skill-name {
-    color: var(--text-primary);
-    font-weight: 500;
-    flex: 1;
-}
-
-.skill-level {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 1rem;
-    min-width: 120px;
 }
 
-.level-bar {
-    width: 80px;
-    height: 4px;
-    background: var(--matrix-border);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
+.skills-block {
+    margin: 0;
 }
 
-.level-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--matrix-dark-green), var(--matrix-green));
-    width: var(--level, 0%);
-    transition: width 1.5s ease 0.3s;
-    border-radius: 2px;
-}
-
-.level-text {
-    font-size: 0.8rem;
+.skills-path {
     color: var(--matrix-green);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
     font-weight: 500;
-    min-width: 35px;
+    margin: 0 0 0.35rem;
+}
+
+.skills-ls {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.25rem;
+    row-gap: 0.2rem;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.skills-ls span {
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+}
+
+.skills-ls span:hover {
+    color: var(--matrix-light-green);
+}
+
+.skills-ls--phrases {
+    column-gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .skills-listing {
+        margin-left: 0.5rem;
+    }
+
+    .skills-ls {
+        column-gap: 0.85rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* Timeline Section */
@@ -1461,10 +1376,33 @@ body.nav-open {
     backdrop-filter: blur(6px);
 }
 
+.footer-contact {
+    text-align: center;
+    padding: 2.5rem 0 1.25rem;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.7);
+}
+
+.footer-contact-label {
+    color: var(--matrix-green);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact-copy {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.15rem;
+}
+
+.footer-cta {
+    margin-bottom: 1.15rem;
+}
+
 .footer-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -1477,6 +1415,8 @@ body.nav-open {
 .footer-links {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
 }
 
@@ -1503,10 +1443,12 @@ body.nav-open {
 }
 
 @media (max-width: 600px) {
-    .footer-container {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
+    .footer-contact {
+        padding-top: 2rem;
+    }
+
+    .footer-links {
+        gap: 0.35rem 0.5rem;
     }
 }
 
@@ -1540,38 +1482,6 @@ body.nav-open {
 
 .nav-toggle-active .nav-toggle-bar:nth-child(3) {
     transform: rotate(45deg) translate(-6px, -6px);
-}
-
-/* Large Tablet - show compact ASCII */
-@media (max-width: 1024px) and (min-width: 901px) {
-    .ascii-name-full {
-        display: none;
-    }
-    
-    .ascii-name-tablet {
-        display: block;
-        font-size: 0.8rem;
-        line-height: 1.1;
-    }
-    
-    .ascii-name-mobile {
-        display: none;
-    }
-}
-
-/* Medium screens - show simple text to avoid breaking */
-@media (max-width: 900px) and (min-width: 769px) {
-    .ascii-name-full {
-        display: none;
-    }
-    
-    .ascii-name-tablet {
-        display: none;
-    }
-    
-    .ascii-name-mobile {
-        display: block;
-    }
 }
 
 /* Responsive Design */
@@ -1631,19 +1541,6 @@ body.nav-open {
         margin-top: 80px;
     }
     
-    /* Mobile - show simple text name */
-    .ascii-name-full {
-        display: none;
-    }
-    
-    .ascii-name-tablet {
-        display: none;
-    }
-    
-    .ascii-name-mobile {
-        display: block;
-    }
-    
     .container {
         padding: 0 1rem;
     }
@@ -1656,21 +1553,12 @@ body.nav-open {
         font-size: 2rem;
     }
     
-    .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
     }
     
     .terminal {
         font-size: 0.85rem;
-    }
-    
-    .skill-level {
-        min-width: 100px;
-    }
-    
-    .level-bar {
-        width: 60px;
     }
     
     .project-footer {
@@ -1699,7 +1587,6 @@ body.nav-open {
         font-size: 1.5rem;
     }
     
-    .skill-category,
     .project {
         padding: 1.5rem;
     }
@@ -1812,3 +1699,4 @@ html.reduce-motion .timeline-item::before {
 html.reduce-motion #intro-skip svg {
     animation: none;
 }
+

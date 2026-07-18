@@ -6,13 +6,13 @@
     
     <!-- SEO Meta Tags -->
     <title>Alex Lymperopoulos - Fullstack Engineer Portfolio</title>
-    <meta name="description" content="Fullstack engineer with a strong frontend background — now building features across Angular, Node, and MongoDB end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta name="description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
     <meta name="keywords" content="Fullstack Engineer, MEAN Stack, Node.js, Angular, MongoDB, Express, JavaScript, TypeScript, AWS, Docker, Alex Lymperopoulos">
     <meta name="author" content="Alex Lymperopoulos">
     <meta name="robots" content="index, follow">
     <meta name="language" content="en">
     
-    <!-- PWA and Mobile App -->
+    <!-- Theme / install metadata (manifest only; no offline service worker) -->
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-navbutton-color" content="#000000">
@@ -25,16 +25,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alexlibe95.github.io/">
     <meta property="og:title" content="Alex Lymperopoulos - Fullstack Engineer Portfolio">
-    <meta property="og:description" content="Fullstack engineer with a strong frontend background — now building features across Angular, Node, and MongoDB end‑to‑end. 8+ years delivering web and mobile products.">
-    <meta property="og:image" content="https://alexlibe95.github.io/logo.png">
+    <meta property="og:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta property="og:image" content="https://alexlibe95.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Alex Lymperopoulos Portfolio">
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://alexlibe95.github.io/">
-    <meta property="twitter:title" content="Alex Lymperopoulos - Fullstack Engineer Portfolio">
-    <meta property="twitter:description" content="Fullstack engineer with a strong frontend background — now building features across Angular, Node, and MongoDB end‑to‑end. 8+ years delivering web and mobile products.">
-    <meta property="twitter:image" content="https://alexlibe95.github.io/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alexlibe95.github.io/">
+    <meta name="twitter:title" content="Alex Lymperopoulos - Fullstack Engineer Portfolio">
+    <meta name="twitter:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta name="twitter:image" content="https://alexlibe95.github.io/og-image.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -51,7 +53,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Stylesheet -->
+    <!-- Enable progressive-enhancement styles before CSS applies -->
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="style.css">
     
     <!-- Structured Data -->
@@ -60,12 +63,13 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Alex Lymperopoulos",
-        "jobTitle": "Fullstack Engineer",
-        "description": "Fullstack engineer with a strong frontend background — now building features across Angular, Node, and MongoDB end‑to‑end. 8+ years across web and mobile; MEAN stack delivery, scalable architecture, and clean code practices.",
+        "jobTitle": ["Founder", "Fullstack Engineer"],
+        "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Strong frontend background — building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years across web and mobile.",
         "url": "https://alexlibe95.github.io/",
         "sameAs": [
             "https://github.com/alexlibe95",
-            "https://linkedin.com/in/alex-lymperopoulos"
+            "https://linkedin.com/in/alex-lymperopoulos",
+            "https://entelxcore.com/"
         ],
         "knowsAbout": [
             "JavaScript",
@@ -87,13 +91,21 @@
             "Frontend Development",
             "Backend Development"
         ],
-        "hasOccupation": {
-            "@type": "Occupation",
-            "name": "Fullstack Engineer",
-            "occupationalCategory": "Software Developer",
-            "experienceRequirements": "8+ years",
-            "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker"
-        }
+        "hasOccupation": [
+            {
+                "@type": "Occupation",
+                "name": "Founder",
+                "occupationalCategory": "Entrepreneur",
+                "skills": "AI Systems, Custom Software, Product Design, Cloud Architecture"
+            },
+            {
+                "@type": "Occupation",
+                "name": "Fullstack Engineer",
+                "occupationalCategory": "Software Developer",
+                "experienceRequirements": "8+ years",
+                "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker"
+            }
+        ]
     }
     </script>
 </head>
@@ -116,11 +128,11 @@
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
             </button>
-            <ul id="nav-menu" class="nav-menu" role="menubar">
-                <li role="none"><a href="#home" class="nav-link active" role="menuitem">HOME</a></li>
-                <li role="none" class="nav-extra"><a href="#skills" class="nav-link" role="menuitem">SKILLS</a></li>
-                <li role="none" class="nav-extra"><a href="#timeline" class="nav-link" role="menuitem">TIMELINE</a></li>
-                <li role="none" class="nav-extra"><a href="#projects" class="nav-link" role="menuitem">PROJECTS</a></li>
+            <ul id="nav-menu" class="nav-menu">
+                <li><a href="#home" class="nav-link active">HOME</a></li>
+                <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                <li><a href="#timeline" class="nav-link">TIMELINE</a></li>
+                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
             </ul>
         </div>
     </nav>
@@ -128,18 +140,17 @@
     <!-- Main Content -->
     <main class="main">
         <!-- Home Section -->
-        <section id="home" class="section section-active">
+        <section id="home" class="section section-active in-view">
             <div class="container">
                 <div class="page-header">
-                        <div id="home-terminal" class="terminal terminal-hidden">
+                    <div id="home-terminal" class="terminal">
                         <div class="terminal-header">
-                                                            <span class="terminal-title">user@alex-portfolio:~</span>
-                                <div class="terminal-controls">
-                                    <button id="intro-skip" class="terminal-btn" aria-label="Skip intro" title="Skip intro">
-                                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5v14l8-7-8-7Zm9 0v14h3V5h-3Z"/></svg>
-                                    </button>
-                                    
-                                </div>
+                            <span class="terminal-title">user@alex-portfolio:~</span>
+                            <div class="terminal-controls">
+                                <button type="button" id="intro-skip" class="terminal-btn" aria-label="Skip typing animation" title="Skip">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5v14l8-7-8-7Zm9 0v14h3V5h-3Z"/></svg>
+                                </button>
+                            </div>
                         </div>
                         <div class="terminal-body">
                             <div class="command-line">
@@ -147,25 +158,15 @@
                                 <span class="command">whoami</span>
                             </div>
                             <div class="output">
-                                <!-- Full ASCII name for desktop -->
                                 <pre class="ascii-name ascii-name-full">
 ▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
 █▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
                                 </pre>
-                                
-                                <!-- Compact ASCII name for tablets -->
-                                <pre class="ascii-name ascii-name-tablet">
-▄▀█ █   █▀▀ ▀▄▀   █   █▄█ █▀▄▀█ █▀█ █▀▀ █▀█ █▀█ █▀█ █▀█ █ █ █   █▀█ █▀
-█▀█ █▄▄ ██▄ █ █   █▄▄  █  █ ▀ █ █▀▀ ██▄ █▀▄ █▄█ █▀▀ █▄█ █▄█ █▄▄ █▄█ ▄█
-                                </pre>
-                                
-                                <!-- Simple text name for mobile -->
                                 <div class="ascii-name ascii-name-mobile">
                                     <div class="simple-name">ALEX LYMPEROPOULOS</div>
                                 </div>
-                                
                                 <p class="title">Fullstack Engineer</p>
-                                <p class="description">Fullstack engineer with a strong frontend background — now building features across Angular, Node, and MongoDB end‑to‑end.</p>
+                                <p class="description">Founder of EntelXCore — building AI systems and custom software — and Fullstack Engineer at RE18, shipping MEAN stack features end‑to‑end.</p>
                             </div>
                             <div class="command-line">
                                 <span class="prompt">$</span>
@@ -185,7 +186,7 @@
                                 <span class="command">cat status.txt</span>
                             </div>
                             <div class="output">
-                                <p class="status">Booting up creativity - Deploying impact - Ready to build amazing applications</p>
+                                <p class="status">Founder @ EntelXCore · Fullstack @ RE18 · Ready to build</p>
                             </div>
                             <div class="command-line">
                                 <span class="prompt">$</span>
@@ -194,48 +195,37 @@
                             <div class="output">
                                 <div class="network-config">
                                     <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
                                             <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.887.732-1.636 1.636-1.636h.906L12 12.94l9.458-9.119h.906c.904 0 1.636.749 1.636 1.636Z"/>
                                         </svg>
                                         <a href="mailto:alexlibe95@gmail.com" class="network-link">alexlibe95@gmail.com</a>
                                     </div>
                                     <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
                                             <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                         </svg>
                                         <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="network-link">linkedin.com/in/alex-lymperopoulos</a>
                                     </div>
                                     <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
                                             <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                                         </svg>
                                         <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="network-link">github.com/alexlibe95</a>
                                     </div>
                                 </div>
+                                <div class="hero-actions">
+                                    <a href="mailto:alexlibe95@gmail.com" class="cta-btn">Email me</a>
+                                </div>
                             </div>
                             <div class="command-line">
                                 <span class="prompt">$</span>
                                 <span class="command"></span>
-                                <span class="cursor">_</span>
-                            </div>
-                            <div class="output">
-                                <div id="setup-progress" class="setup-progress">
-                                    <div class="setup-bar"><div class="setup-fill"></div></div>
-                                    <div class="setup-label">Setting up...</div>
-                        </div>
+                                <span class="cursor" aria-hidden="true">_</span>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Intro launcher overlay -->
-                    <div id="intro-launcher" class="intro-launcher" aria-hidden="true">
-                        <div class="intro-launcher-btn" role="button" tabindex="0" aria-label="Open terminal">
-                            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path fill="currentColor" d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm2 3v2h4V7H5Zm0 4v2h6v-2H5Zm0 4v2h10v-2H5Z"/></svg>
-                        </div>
-                        <div class="intro-mouse" aria-hidden="true"></div>
                     </div>
                 </div>
-                <a href="#skills" class="scroll-hint scroll-hint--pending" aria-hidden="true">
+                <a href="#skills" class="scroll-hint">
                     <span class="scroll-hint-label">Explore</span>
                     <span class="scroll-hint-chevron" aria-hidden="true"></span>
                 </a>
@@ -246,72 +236,68 @@
         <section id="skills" class="section">
             <div class="container">
                 <div class="page-header">
-                    <h1 class="page-title">Skills Overview</h1>
-                    <p class="page-subtitle">Technical Capabilities & Expertise</p>
+                    <h1 class="page-title">~/skills</h1>
+                    <p class="page-subtitle">Technical capabilities &amp; expertise</p>
                 </div>
 
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h2 class="category-title">👨‍💻 Core Technologies</h2>
-                        <div class="skill-item">JavaScript / TypeScript</div>
-                        <div class="skill-item">Angular</div>
-                        <div class="skill-item">Node.js</div>
-                        <div class="skill-item">Express.js</div>
-                        <div class="skill-item">MongoDB</div>
-                        <div class="skill-item">Next.js</div>
-                        <div class="skill-item">Ionic + Capacitor</div>
-                        <div class="skill-item">React</div>
+                <div class="skills-terminal terminal">
+                    <div class="terminal-header">
+                        <span class="terminal-title">user@alex-portfolio:~/skills</span>
                     </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">🎨 Styling & UI Libraries</h2>
-                        <div class="skill-item">TailwindCSS</div>
-                        <div class="skill-item">Bootstrap</div>
-                        <div class="skill-item">PrimeFaces</div>
-                        <div class="skill-item">Shadcn/ui</div>
-                        <div class="skill-item">Balsamiq (wireframes)</div>
-                        <div class="skill-item">Figma (design tools)</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">📱 Mobile Development</h2>
-                        <div class="skill-item">Hybrid mobile apps using Ionic</div>
-                        <div class="skill-item">Deployment to Google Play & App Store</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">🧪 Testing & QA</h2>
-                        <div class="skill-item">Jasmine + Karma</div>
-                        <div class="skill-item">Nightwatch.js</div>
-                        <div class="skill-item">Vitest</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">☁️ Backend & Cloud Services</h2>
-                        <div class="skill-item">AWS</div>
-                        <div class="skill-item">Redis</div>
-                        <div class="skill-item">Docker</div>
-                        <div class="skill-item">Firebase (Auth, Firestore, Hosting)</div>
-                        <div class="skill-item">Real-time Database Management</div>
-                        <div class="skill-item">Cloud Functions</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">⚙️ Tools & Platforms</h2>
-                        <div class="skill-item">Jira</div>
-                        <div class="skill-item">Git / GitHub</div>
-                        <div class="skill-item">RESTful API Integration</div>
-                        <div class="skill-item">Responsive Web Design</div>
-                        <div class="skill-item">Cross-browser Compatibility</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h2 class="category-title">🤝 Professional Strengths</h2>
-                        <div class="skill-item">Excellent communication and teamwork</div>
-                        <div class="skill-item">Strong attention to detail and organization</div>
-                        <div class="skill-item">Clean, scalable code following best practices</div>
-                        <div class="skill-item">Resilience and get-things-done attitude</div>
-                        <div class="skill-item">Enthusiasm for new technologies and learning</div>
+                    <div class="terminal-body skills-terminal-body">
+                        <div class="command-line">
+                            <span class="prompt">$</span>
+                            <span class="command">ls ~/skills/</span>
+                        </div>
+                        <div class="skills-listing">
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/core/</h2>
+                                <div class="skills-ls">
+                                    <span>javascript</span><span>typescript</span><span>angular</span><span>node.js</span><span>express</span><span>mongodb</span><span>next.js</span><span>react</span><span>ionic</span><span>capacitor</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/ui/</h2>
+                                <div class="skills-ls">
+                                    <span>tailwindcss</span><span>bootstrap</span><span>primefaces</span><span>shadcn/ui</span><span>figma</span><span>balsamiq</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/mobile/</h2>
+                                <div class="skills-ls">
+                                    <span>ionic-hybrid</span><span>play-store</span><span>app-store</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/testing/</h2>
+                                <div class="skills-ls">
+                                    <span>jasmine</span><span>karma</span><span>nightwatch</span><span>vitest</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/cloud/</h2>
+                                <div class="skills-ls">
+                                    <span>aws</span><span>redis</span><span>docker</span><span>firebase</span><span>cloud-functions</span><span>realtime-db</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/tools/</h2>
+                                <div class="skills-ls">
+                                    <span>git</span><span>github</span><span>jira</span><span>rest-apis</span><span>responsive-design</span>
+                                </div>
+                            </div>
+                            <div class="skills-block">
+                                <h2 class="skills-path">~/skills/strengths/</h2>
+                                <div class="skills-ls skills-ls--phrases">
+                                    <span>communication</span><span>attention-to-detail</span><span>clean-code</span><span>ownership</span><span>continuous-learning</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="command-line">
+                            <span class="prompt">$</span>
+                            <span class="command"></span>
+                            <span class="cursor" aria-hidden="true">_</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -326,6 +312,42 @@
                 </div>
 
                 <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jul 2026 – Present</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-company timeline-company-with-external">
+                                <span>EntelXCore</span>
+                                <a
+                                    href="https://entelxcore.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="timeline-external-btn"
+                                    aria-label="EntelXCore website (opens in new tab)"
+                                >
+                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <h4 class="timeline-role">Founder</h4>
+                            <div class="timeline-description">
+                                <div class="timeline-bullet">Founded EntelXCore to build AI systems and custom software for businesses that need technology done right</div>
+                                <div class="timeline-bullet">Leading product vision, architecture, and delivery across AI assistants, web/mobile apps, and cloud platforms</div>
+                                <div class="timeline-bullet">Partnering with clients from idea to launch — and continuing to evolve products after ship</div>
+                            </div>
+                            <div class="timeline-tech">
+                                <span class="tech-tag">AI Systems</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Angular</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Cloud</span>
+                                <span class="tech-tag">APIs</span>
+                                <span class="tech-tag">Product Design</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="timeline-item">
                         <div class="timeline-date">Jan 2026 – Present</div>
                         <div class="timeline-content">
@@ -521,8 +543,8 @@
                         </div>
                         <div class="project-body">
                             <p class="project-description">
-                                Professional-grade AI-powered trading chart analysis with 90% accuracy.
-                                Analyzes TradingView screenshots for pattern recognition and trading insights.
+                                AI-assisted trading chart analysis for TradingView screenshots —
+                                pattern recognition and trading insights to support discretionary decisions.
                             </p>
                             <div class="project-tech">
                                 <span class="tech-tag">Next.js</span>
@@ -676,523 +698,25 @@
     </main>
 
     <footer class="footer" role="contentinfo">
-        <div class="container footer-container">
-            <p class="footer-text">© <span id="footer-year">2025</span> Alex Lymperopoulos</p>
-            <div class="footer-links">
-                <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-                <span class="footer-sep">•</span>
-                <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+        <div class="container">
+            <div class="footer-contact">
+                <p class="footer-contact-label">$ cat contact.txt</p>
+                <p class="footer-contact-copy">Open to interesting fullstack work — say hello.</p>
+                <a href="mailto:alexlibe95@gmail.com" class="cta-btn footer-cta">Email me</a>
+                <div class="footer-links">
+                    <a href="mailto:alexlibe95@gmail.com" class="footer-link">alexlibe95@gmail.com</a>
+                    <span class="footer-sep">•</span>
+                    <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                    <span class="footer-sep">•</span>
+                    <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-container">
+                <p class="footer-text">© <span id="footer-year">2026</span> Alex Lymperopoulos</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Matrix Rain Effect
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-
-        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-        const matrixArray = matrix.split("");
-
-        const fontSize = 10;
-        const drops = [];
-
-        function setCanvasSize() {
-            const vv = window.visualViewport;
-            const width = vv ? Math.floor(vv.width) : window.innerWidth;
-            const height = vv ? Math.floor(vv.height) : window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-            const cols = Math.max(1, Math.floor(canvas.width / fontSize));
-            while (drops.length < cols) drops.push(1);
-            drops.length = cols;
-        }
-        setCanvasSize();
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
-            for(let i = 0; i < drops.length; i++) {
-                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        let matrixIntervalId = null;
-        function syncMatrixAnimation() {
-            if (matrixIntervalId) {
-                clearInterval(matrixIntervalId);
-                matrixIntervalId = null;
-            }
-            document.documentElement.classList.toggle('reduce-motion', motionQuery.matches);
-            if (!motionQuery.matches) {
-                matrixIntervalId = window.setInterval(draw, 35);
-            } else {
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-        }
-        motionQuery.addEventListener('change', syncMatrixAnimation);
-        syncMatrixAnimation();
-
-        // Resize canvas on window resize
-        let resizeRaf;
-        function onResize() {
-            if (resizeRaf) return;
-            resizeRaf = requestAnimationFrame(() => {
-                setMobileViewportHeight();
-                setCanvasSize();
-                resizeRaf = null;
-            });
-        }
-        window.addEventListener('resize', onResize);
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', onResize);
-        }
-
-        // Mobile viewport height fix
-        function setMobileViewportHeight() {
-            const isMobile = window.innerWidth <= 768;
-            if (!isMobile) {
-                const vhDesktop = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vhDesktop}px`);
-                return;
-            }
-            const vv = window.visualViewport;
-            const height = vv ? vv.height : window.innerHeight;
-            const vh = height * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-
-        // Single-page behavior: IntersectionObserver for section reveal and active nav
-        // Prevent initial double-scrollbars by locking body until layout stabilizes
-        document.documentElement.style.overscrollBehaviorY = 'none';
-        document.body.style.overflowY = 'hidden';
-        
-        window.addEventListener('load', () => {
-            setMobileViewportHeight();
-            const y = document.getElementById('footer-year');
-            if (y) y.textContent = new Date().getFullYear();
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const navExtras = document.querySelectorAll('.nav-extra');
-            const homeTerminal = document.getElementById('home-terminal');
-            const introLauncher = document.getElementById('intro-launcher');
-            const introSkip = document.getElementById('intro-skip');
-            const introReplay = null;
-            const idToNav = new Map();
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    idToNav.set(href.slice(1), link);
-                }
-            });
-
-            let activeId = null;
-            function setActiveNav(id) {
-                if (!id || activeId === id) return;
-                activeId = id;
-                navLinks.forEach(link => link.classList.remove('active'));
-                const link = idToNav.get(id);
-                if (link) link.classList.add('active');
-            }
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                    }
-                });
-            }, { rootMargin: '0px 0px -20% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
-
-            sections.forEach(s => observer.observe(s));
-
-            // Unlock scrolling shortly after initial layout settles
-            setTimeout(() => {
-                document.body.style.overflowY = 'auto';
-                document.documentElement.style.overscrollBehaviorY = '';
-            }, 300);
-
-            // Smooth scroll on nav clicks using scroll-margin-top for offset
-            const scrollBehaviorNav = () =>
-                window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    if (!href || !href.startsWith('#')) return;
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: scrollBehaviorNav(), block: 'start' });
-                    }
-                });
-            });
-
-            // Stable active tab highlighting based on scroll position (avoids IO flicker)
-            function updateActiveFromScroll() {
-                const vv = window.visualViewport;
-                const viewportHeight = vv ? vv.height : window.innerHeight;
-                const anchorY = 90; // approx. below fixed nav
-                let bestId = null;
-                let bestDist = Infinity;
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const dist = Math.abs(rect.top - anchorY);
-                    if (dist < bestDist) {
-                        bestDist = dist;
-                        bestId = section.id;
-                    }
-                });
-                setActiveNav(bestId);
-            }
-
-            const navEl = document.querySelector('.nav');
-            let ticking = false;
-            function onScrollStable() {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(() => {
-                    updateActiveFromScroll();
-                    if (navEl) navEl.classList.toggle('nav-scrolled', window.scrollY > 16);
-                    ticking = false;
-                });
-            }
-
-            window.addEventListener('scroll', onScrollStable, { passive: true });
-            window.addEventListener('resize', onScrollStable);
-            if (window.visualViewport) window.visualViewport.addEventListener('resize', onScrollStable);
-
-            // Initial highlight + nav state
-            updateActiveFromScroll();
-            if (navEl) navEl.classList.toggle('nav-scrolled', window.scrollY > 16);
-
-            // Initialize skill bars immediately; visual fill occurs via CSS transition
-            const skillBars = document.querySelectorAll('.level-bar');
-            skillBars.forEach(bar => {
-                const level = bar.getAttribute('data-level');
-                if (level) {
-                    bar.style.setProperty('--level', level + '%');
-                }
-            });
-
-            // Hide non-home sections initially
-            document.getElementById('skills')?.classList.add('hidden-section');
-            document.getElementById('timeline')?.classList.add('hidden-section');
-            document.getElementById('projects')?.classList.add('hidden-section');
-
-            // Intro typewriter and reveal flow
-            const introSteps = [
-                { type: 'type', text: 'whoami', outputs: ['.ascii-name', '.title', '.description'] },
-                { type: 'wait', ms: 300 },
-                { type: 'type', text: 'ls core-skills/', outputs: ['.ls-output'] },
-                { type: 'wait', ms: 300 },
-                { type: 'type', text: 'cat status.txt', outputs: ['.status'] },
-                { type: 'wait', ms: 300 },
-                { type: 'type', text: 'cat network.cfg', outputs: ['.network-config'] },
-                { type: 'wait', ms: 300 },
-                { type: 'type', text: 'sudo ./alexlympe.sh', outputs: ['#setup-progress'] },
-                { type: 'progress', ms: 1200 },
-                { type: 'reveal-nav' },
-            ];
-
-            const commandLines = Array.from(homeTerminal.querySelectorAll('.command-line'));
-            const cursorSpans = Array.from(homeTerminal.querySelectorAll('.cursor'));
-
-            function showLauncher() {
-                if (introLauncher) introLauncher.style.display = 'flex';
-                navExtras.forEach(li => li.style.display = 'none');
-            }
-
-            function revealNav() {
-                navExtras.forEach((li, i) => {
-                    setTimeout(() => {
-                        li.style.display = 'list-item';
-                        const link = li.querySelector('.nav-link');
-                        if (link) {
-                            link.classList.add('nav-flash');
-                            setTimeout(() => link.classList.remove('nav-flash'), 1100);
-                        }
-                    }, i * 220);
-                });
-                const scrollHint = document.querySelector('.scroll-hint');
-                if (scrollHint) {
-                    scrollHint.classList.remove('scroll-hint--pending');
-                    scrollHint.removeAttribute('aria-hidden');
-                }
-            }
-
-            async function typeCommand(lineEl, text) {
-                const commandSpan = lineEl.querySelector('.command');
-                const cursor = lineEl.querySelector('.cursor');
-                commandSpan.textContent = '';
-                commandSpan.style.visibility = 'visible';
-                if (cursor) cursor.style.display = 'inline';
-                for (let i = 0; i < text.length; i++) {
-                    commandSpan.textContent += text[i];
-                    await new Promise(r => setTimeout(r, 55));
-                }
-                if (cursor) cursor.style.display = 'none';
-            }
-
-            function getAsciiSelectorForViewport() {
-                const w = window.innerWidth;
-                if (w > 1024) return '.ascii-name-full';
-                if (w >= 901) return '.ascii-name-tablet';
-                return '.ascii-name-mobile';
-            }
-
-            let whoamiShown = false;
-
-            function showOutputs(selectors) {
-                if (!selectors || !selectors.length) return;
-                selectors.forEach(sel => {
-                    if (sel === '.ascii-name') {
-                        const variantSel = getAsciiSelectorForViewport();
-                        const el = homeTerminal.querySelector(variantSel);
-                        if (el) el.classList.add('terminal-output-show');
-                        whoamiShown = true;
-                    } else {
-                        homeTerminal.querySelectorAll(sel).forEach(el => {
-                            el.classList.add('terminal-output-show');
-                        });
-                    }
-                });
-            }
-
-            function adjustAsciiVariant() {
-                if (!whoamiShown) return;
-                const full = homeTerminal.querySelector('.ascii-name-full');
-                const tab = homeTerminal.querySelector('.ascii-name-tablet');
-                const mob = homeTerminal.querySelector('.ascii-name-mobile');
-                if (full) full.classList.remove('terminal-output-show');
-                if (tab) tab.classList.remove('terminal-output-show');
-                if (mob) mob.classList.remove('terminal-output-show');
-                const sel = getAsciiSelectorForViewport();
-                const target = homeTerminal.querySelector(sel);
-                if (target) target.classList.add('terminal-output-show');
-            }
-
-            function runProgress(ms) {
-                return new Promise(resolve => {
-                    const wrap = document.getElementById('setup-progress');
-                    if (!wrap) return resolve();
-                    const fill = wrap.querySelector('.setup-fill');
-                    const label = wrap.querySelector('.setup-label');
-                    let pct = 0;
-                    const steps = Math.max(6, Math.floor(ms / 200));
-                    const timer = setInterval(() => {
-                        pct += Math.ceil(100 / steps);
-                        if (pct >= 100) {
-                            pct = 100;
-                            clearInterval(timer);
-                            if (label) label.textContent = 'Setup complete';
-                            resolve();
-                        }
-                        if (fill) fill.style.width = pct + '%';
-                    }, Math.max(80, Math.floor(ms / steps)));
-                });
-            }
-
-            let introCancelled = false;
-            function cancelIntro() { introCancelled = true; }
-
-            async function runIntro() {
-                introCancelled = false;
-                // hide non-home nav
-                navExtras.forEach(li => li.style.display = 'none');
-                if (introSkip) introSkip.style.display = 'inline-block';
-                // hide outputs initially (CSS handles via display:none)
-                // clear commands
-                homeTerminal.querySelectorAll('.command').forEach(c => c.textContent = '');
-                cursorSpans.forEach(c => c.style.display = 'inline');
-                // ensure all command lines hidden until used
-                const allCmdLines = homeTerminal.querySelectorAll('.command-line');
-                allCmdLines.forEach((line) => { line.style.display = 'none'; });
-                // ensure mobile simple name hidden until whoami step
-                const simpleName = homeTerminal.querySelector('.ascii-name-mobile');
-                if (simpleName) simpleName.classList.remove('terminal-output-show');
-
-                // automated mouse fly-in and click animation
-                const btn = introLauncher?.querySelector('.intro-launcher-btn');
-                const mouse = introLauncher?.querySelector('.intro-mouse');
-                if (btn && mouse) {
-                    await new Promise(r => setTimeout(r, 1800));
-                    btn.classList.add('is-clicking');
-                    await new Promise(r => setTimeout(r, 320));
-                }
-                // show terminal with mac-like zoom open
-                if (homeTerminal) {
-                    homeTerminal.classList.remove('terminal-hidden');
-                    homeTerminal.classList.add('terminal-open');
-                }
-                if (introLauncher) introLauncher.style.display = 'none';
-
-                let stepIndex = 0;
-                // allow paint before typing begins
-                await new Promise(r => setTimeout(r, 150));
-                // ensure first prompt line is visible before typing
-                if (commandLines[0]) {
-                    commandLines[0].style.display = 'flex';
-                    const firstCmd = commandLines[0].querySelector('.command');
-                    if (firstCmd) firstCmd.textContent = '';
-                }
-                for (const step of introSteps) {
-                    if (introCancelled) break;
-                    if (step.type === 'type') {
-                        const idx = Math.min(stepIndex, commandLines.length - 1);
-                        const lineEl = commandLines[idx];
-                        if (!lineEl) continue;
-                        lineEl.style.display = 'flex';
-                        const cmdSpan = lineEl.querySelector('.command');
-                        if (cmdSpan) cmdSpan.textContent = '';
-                        await typeCommand(lineEl, step.text);
-                        if (step.outputs) {
-                            showOutputs(step.outputs);
-                        } else if (step.outputSelector) {
-                            showOutputs([step.outputSelector]);
-                        }
-                        // prepare next prompt line if exists
-                        const nextIdx = Math.min(idx + 1, commandLines.length - 1);
-                        if (commandLines[nextIdx]) commandLines[nextIdx].style.display = 'flex';
-                        stepIndex++;
-                    } else if (step.type === 'wait') {
-                        await new Promise(r => setTimeout(r, step.ms));
-                    } else if (step.type === 'progress') {
-                        await runProgress(step.ms);
-                    } else if (step.type === 'reveal-nav') {
-                        revealNav();
-                        // reveal sections
-                        document.getElementById('skills')?.classList.remove('hidden-section');
-                        document.getElementById('timeline')?.classList.remove('hidden-section');
-                        document.getElementById('projects')?.classList.remove('hidden-section');
-                        // ensure they animate into view when scrolled
-                        document.querySelectorAll('#skills, #timeline, #projects').forEach(s => s.classList.remove('in-view'));
-                    }
-                }
-
-                // hide skip
-                if (introSkip) introSkip.style.display = 'none';
-            }
-
-            // Auto-run intro without user input
-            runIntro();
-
-            if (introSkip) introSkip.addEventListener('click', () => {
-                cancelIntro();
-                if (introSkip) introSkip.style.display = 'none';
-                revealNav();
-                if (introLauncher) introLauncher.style.display = 'none';
-                if (homeTerminal) {
-                    homeTerminal.classList.remove('terminal-hidden');
-                    homeTerminal.classList.add('terminal-open');
-                    // show only current viewport ASCII variant
-                    const asciiSel = getAsciiSelectorForViewport();
-                    const asciiEl = homeTerminal.querySelector(asciiSel);
-                    if (asciiEl) asciiEl.classList.add('terminal-output-show');
-                    whoamiShown = true;
-                    // show other outputs
-                    homeTerminal.querySelectorAll('.ls-output, .status, .network-config, .title, .description')
-                        .forEach(el => el.classList.add('terminal-output-show'));
-                    // show progress output and mark complete
-                    const setup = document.getElementById('setup-progress');
-                    if (setup) {
-                        setup.classList.add('terminal-output-show');
-                        const fill = setup.querySelector('.setup-fill');
-                        const label = setup.querySelector('.setup-label');
-                        if (fill) fill.style.width = '100%';
-                        if (label) label.textContent = 'Setup complete';
-                    }
-                    // show all prompts and fill commands for each step
-                    const typedSteps = introSteps.filter(s => s.type === 'type');
-                    homeTerminal.querySelectorAll('.command-line').forEach((l, i) => {
-                        l.style.display = 'flex';
-                        const cmdSpan = l.querySelector('.command');
-                        if (cmdSpan && typedSteps[i]) {
-                            cmdSpan.textContent = typedSteps[i].text;
-                        }
-                    });
-                    cursorSpans.forEach(c => c.style.display = 'none');
-                }
-                document.getElementById('skills')?.classList.remove('hidden-section');
-                document.getElementById('timeline')?.classList.remove('hidden-section');
-                document.getElementById('projects')?.classList.remove('hidden-section');
-            });
-            // removed replay functionality
-
-            // React to resize and keep correct ASCII variant visible
-            window.addEventListener('resize', () => {
-                setMobileViewportHeight();
-                adjustAsciiVariant();
-            });
-            if (window.visualViewport) {
-                window.visualViewport.addEventListener('resize', adjustAsciiVariant);
-            }
-
-            // Start with launcher visible (but auto-clicked by animation)
-            showLauncher();
-        });
-
-        // Mobile Navigation Toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        const body = document.body;
-
-        function toggleMobileMenu() {
-            if (!navToggle || !navMenu) return;
-            const isActive = navMenu.classList.contains('nav-menu-active');
-            
-            if (isActive) {
-                navMenu.classList.remove('nav-menu-active');
-                navToggle.classList.remove('nav-toggle-active');
-                body.classList.remove('nav-open');
-                navToggle.setAttribute('aria-expanded', 'false');
-            } else {
-                navMenu.classList.add('nav-menu-active');
-                navToggle.classList.add('nav-toggle-active');
-                body.classList.add('nav-open');
-                navToggle.setAttribute('aria-expanded', 'true');
-            }
-        }
-
-        function closeMobileMenu() {
-            if (!navToggle || !navMenu) return;
-            navMenu.classList.remove('nav-menu-active');
-            navToggle.classList.remove('nav-toggle-active');
-            body.classList.remove('nav-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        }
-
-        if (navToggle && navMenu) navToggle.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navToggle || !navMenu) return;
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu on window resize (when switching from mobile to desktop)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 800) {
-                closeMobileMenu();
-            }
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
