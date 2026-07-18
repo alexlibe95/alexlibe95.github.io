@@ -146,10 +146,10 @@ Linux desktop helper for AppImage and `.deb` installs.
 
 **Tech:** Python • PyQt5 • Shell • Linux
 
-### [Monitor Orb](https://ai-usage-tool.netlify.app/)
-macOS menu bar companion for Claude and Cursor usage awareness.
+### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
+Free macOS menu bar suite: **CommitBar** (Git stage/commit/push), **RunBar** (bun/npm/yarn/pnpm scripts with kill & retry), and **UsageBar** (Claude, Cursor, ChatGPT usage at a glance).
 
-**Tech:** macOS • Menu Bar • Claude • Cursor
+**Tech:** macOS • Menu Bar • EntelXCore
 
 ## Contact
 
