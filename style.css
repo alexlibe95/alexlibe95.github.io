@@ -1210,6 +1210,9 @@ html.js #home-terminal.is-typing #intro-skip svg {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project:hover {
@@ -1274,6 +1277,9 @@ html.js #home-terminal.is-typing #intro-skip svg {
 
 .project-body {
     padding: 1.5rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-description {
@@ -1286,7 +1292,6 @@ html.js #home-terminal.is-typing #intro-skip svg {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
 }
 
 .tech-tag {
@@ -1310,6 +1315,8 @@ html.js #home-terminal.is-typing #intro-skip svg {
     border-top: 1px solid var(--matrix-border);
     display: flex;
     gap: 1rem;
+    margin-top: auto;
+    flex-shrink: 0;
 }
 
 .project-link {
