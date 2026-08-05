@@ -117,9 +117,9 @@ Free macOS menu bar suite: **CommitBar** (Git stage/commit/push), **RunBar** (bu
 **Tech:** macOS • Menu Bar • EntelXCore
 
 ### [PeakLog](https://peaklog-official.netlify.app/)
-Lightweight athlete performance and training tracker for coaches and teams. Real-time data, magic link auth, RBAC.
+PeakLog is a lightweight athlete performance and training tracker for coaches and teams. Built with Flutter and Firebase — cross-platform (web, iOS, Android) and optimized for real-world use in endurance and watersports teams.
 
-**Tech:** React • Firebase • TailwindCSS • Vite • ShadCN UI
+**Tech:** Flutter • Firebase • Web • iOS • Android
 
 ### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
 Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.
