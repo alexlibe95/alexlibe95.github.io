@@ -55,6 +55,17 @@
     
     <!-- Enable progressive-enhancement styles before CSS applies -->
     <script>document.documentElement.classList.add('js');</script>
+    <style>
+      /* Critical: hide home typing content before style.css loads (prevents flash) */
+      html.js #home-terminal.is-typing .terminal-body > .command-line,
+      html.js #home-terminal.is-typing .ascii-name,
+      html.js #home-terminal.is-typing .ls-output,
+      html.js #home-terminal.is-typing .status,
+      html.js #home-terminal.is-typing .network-config,
+      html.js #home-terminal.is-typing .hero-actions,
+      html.js #home-terminal.is-typing .title,
+      html.js #home-terminal.is-typing .description { display: none; }
+    </style>
     <link rel="stylesheet" href="style.css">
     
     <!-- Structured Data -->
@@ -143,7 +154,7 @@
         <section id="home" class="section section-active in-view">
             <div class="container">
                 <div class="page-header">
-                    <div id="home-terminal" class="terminal">
+                    <div id="home-terminal" class="terminal is-typing">
                         <div class="terminal-header">
                             <span class="terminal-title">user@alex-portfolio:~</span>
                             <div class="terminal-controls">
@@ -556,7 +567,7 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
                     </div>
 
@@ -578,7 +589,7 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="https://eokk-race-timeline.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://eokk-race-timeline.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
                     </div>
 
@@ -602,7 +613,7 @@
                             </div>
                         </div>
                         <div class="project-footer">
-                            <a href="https://justplanitofficial.netlify.app/en" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://justplanitofficial.netlify.app/en" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
                     </div>
 
@@ -624,7 +635,7 @@
                         </div>
                         <div class="project-footer">
                             <a href="https://github.com/alexlibe95/dep-up-surgeon" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-                            <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
                     </div>
 
@@ -646,7 +657,7 @@
                         </div>
                         <div class="project-footer">
                             <a href="https://github.com/alexlibe95/SquashMate" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-                            <a href="https://squash-mate.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo</a>
+                            <a href="https://squash-mate.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
                     </div>
 

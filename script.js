@@ -185,10 +185,10 @@
         if (navEl) navEl.classList.toggle('nav-scrolled', window.scrollY > 16);
 
         window.addEventListener('resize', setMobileViewportHeight);
-
-        // Decorative home-terminal typing only (does not gate page content)
-        initHomeTerminalTyping();
     });
+
+    // Start typing ASAP after DOM parse (script is defer) — don't wait for window.load
+    initHomeTerminalTyping();
 
     function initHomeTerminalTyping() {
         const homeTerminal = document.getElementById('home-terminal');
@@ -288,6 +288,7 @@
             homeTerminal.classList.add('is-typing');
             if (introSkip) introSkip.style.display = 'inline-flex';
 
+            // Clear command text before first paint of typing lines
             homeTerminal.querySelectorAll('.command').forEach((c) => {
                 c.textContent = '';
             });
@@ -299,7 +300,8 @@
                 .forEach((el) => el.classList.remove('terminal-output-show'));
 
             let stepIndex = 0;
-            await new Promise((r) => setTimeout(r, 120));
+            // One frame so is-typing / cleared commands apply before first prompt shows
+            await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 
             for (const step of introSteps) {
                 if (introCancelled) return;
@@ -332,6 +334,11 @@
 
             finishTyping();
         }
+
+        // Clear prefilled command text immediately so a late paint can't flash full commands
+        homeTerminal.querySelectorAll('.command').forEach((c) => {
+            c.textContent = '';
+        });
 
         if (reduceMotion) {
             revealAll();
