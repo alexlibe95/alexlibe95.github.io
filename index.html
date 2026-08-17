@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Alex Lymperopoulos - Fullstack Engineer Portfolio</title>
+    <title>Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore</title>
     <meta name="description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
-    <meta name="keywords" content="Fullstack Engineer, MEAN Stack, Node.js, Angular, MongoDB, Express, JavaScript, TypeScript, AWS, Docker, Alex Lymperopoulos">
+    <meta name="keywords" content="Alex Lymperopoulos, Fullstack Engineer, EntelXCore, MEAN Stack, Node.js, Angular, MongoDB, Express, JavaScript, TypeScript, AWS, Docker">
     <meta name="author" content="Alex Lymperopoulos">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
     <meta name="language" content="en">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Theme / install metadata (manifest only; no offline service worker) -->
     <meta name="theme-color" content="#000000">
@@ -22,21 +24,27 @@
     <link rel="manifest" href="/manifest.json">
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://alexlibe95.github.io/">
-    <meta property="og:title" content="Alex Lymperopoulos - Fullstack Engineer Portfolio">
+    <meta property="og:title" content="Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore">
     <meta property="og:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
     <meta property="og:image" content="https://alexlibe95.github.io/og-image.png">
+    <meta property="og:image:alt" content="Alex Lymperopoulos — Fullstack Engineer portfolio">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:site_name" content="Alex Lymperopoulos Portfolio">
+    <meta property="og:locale" content="en_US">
+    <meta property="profile:first_name" content="Alex">
+    <meta property="profile:last_name" content="Lymperopoulos">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://alexlibe95.github.io/">
-    <meta name="twitter:title" content="Alex Lymperopoulos - Fullstack Engineer Portfolio">
+    <meta name="twitter:title" content="Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore">
     <meta name="twitter:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
     <meta name="twitter:image" content="https://alexlibe95.github.io/og-image.png">
+    <meta name="twitter:image:alt" content="Alex Lymperopoulos — Fullstack Engineer portfolio">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -47,6 +55,16 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://alexlibe95.github.io/">
+    <link rel="sitemap" type="application/xml" href="https://alexlibe95.github.io/sitemap.xml">
+    <link rel="author" href="https://alexlibe95.github.io/">
+    <link rel="me" href="https://github.com/alexlibe95">
+    <link rel="me" href="https://www.linkedin.com/in/alex-lymperopoulos/">
+    <link rel="me" href="mailto:alexlibe95@gmail.com">
+
+    <!-- LLM / agent discovery (llms.txt v2) -->
+    <link rel="alternate" type="text/markdown" href="https://alexlibe95.github.io/index.md" title="Markdown version">
+    <link rel="describedby" type="text/markdown" href="https://alexlibe95.github.io/llms.txt" title="LLM index">
+    <link rel="alternate" type="text/plain" href="https://alexlibe95.github.io/llms-full.txt" title="Full text for LLMs">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,49 +90,178 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Alex Lymperopoulos",
-        "jobTitle": ["Founder", "Fullstack Engineer"],
-        "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Strong frontend background — building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years across web and mobile.",
-        "url": "https://alexlibe95.github.io/",
-        "sameAs": [
-            "https://github.com/alexlibe95",
-            "https://linkedin.com/in/alex-lymperopoulos",
-            "https://entelxcore.com/"
-        ],
-        "knowsAbout": [
-            "JavaScript",
-            "TypeScript", 
-            "Angular",
-            "React",
-            "Ionic",
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "AWS",
-            "Redis",
-            "Docker",
-            "Firebase",
-            "Authentication",
-            "Real-time Databases",
-            "Mobile Development",
-            "Web Development",
-            "Frontend Development",
-            "Backend Development"
-        ],
-        "hasOccupation": [
+        "@graph": [
             {
-                "@type": "Occupation",
-                "name": "Founder",
-                "occupationalCategory": "Entrepreneur",
-                "skills": "AI Systems, Custom Software, Product Design, Cloud Architecture"
+                "@type": "ProfilePage",
+                "@id": "https://alexlibe95.github.io/#webpage",
+                "url": "https://alexlibe95.github.io/",
+                "name": "Alex Lymperopoulos | Fullstack Engineer & Founder of EntelXCore",
+                "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end-to-end. 8+ years delivering web and mobile products.",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://alexlibe95.github.io/#website" },
+                "about": { "@id": "https://alexlibe95.github.io/#person" },
+                "mainEntity": { "@id": "https://alexlibe95.github.io/#person" },
+                "dateModified": "2026-08-17"
             },
             {
-                "@type": "Occupation",
-                "name": "Fullstack Engineer",
-                "occupationalCategory": "Software Developer",
-                "experienceRequirements": "8+ years",
-                "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker"
+                "@type": "WebSite",
+                "@id": "https://alexlibe95.github.io/#website",
+                "url": "https://alexlibe95.github.io/",
+                "name": "Alex Lymperopoulos Portfolio",
+                "description": "Personal portfolio of Alex Lymperopoulos — founder of EntelXCore and fullstack engineer.",
+                "inLanguage": "en",
+                "publisher": { "@id": "https://alexlibe95.github.io/#person" }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://alexlibe95.github.io/#person",
+                "name": "Alex Lymperopoulos",
+                "givenName": "Alex",
+                "familyName": "Lymperopoulos",
+                "jobTitle": ["Founder", "Fullstack Engineer"],
+                "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Strong frontend background — building AI systems, custom software, and MEAN stack features end-to-end. 8+ years across web and mobile.",
+                "url": "https://alexlibe95.github.io/",
+                "image": "https://alexlibe95.github.io/og-image.png",
+                "email": "mailto:alexlibe95@gmail.com",
+                "sameAs": [
+                    "https://github.com/alexlibe95",
+                    "https://www.linkedin.com/in/alex-lymperopoulos/",
+                    "https://entelxcore.com/"
+                ],
+                "worksFor": [
+                    {
+                        "@type": "Organization",
+                        "name": "EntelXCore",
+                        "url": "https://entelxcore.com/",
+                        "founder": { "@id": "https://alexlibe95.github.io/#person" }
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "RE18",
+                        "url": "https://re18.com/"
+                    }
+                ],
+                "knowsAbout": [
+                    "JavaScript",
+                    "TypeScript",
+                    "Angular",
+                    "React",
+                    "Next.js",
+                    "Ionic",
+                    "Node.js",
+                    "Express.js",
+                    "MongoDB",
+                    "AWS",
+                    "Redis",
+                    "Docker",
+                    "Firebase",
+                    "Authentication",
+                    "Real-time Databases",
+                    "Mobile Development",
+                    "Web Development",
+                    "Frontend Development",
+                    "Backend Development",
+                    "AI Systems"
+                ],
+                "hasOccupation": [
+                    {
+                        "@type": "Occupation",
+                        "name": "Founder",
+                        "occupationalCategory": "Entrepreneur",
+                        "skills": "AI Systems, Custom Software, Product Design, Cloud Architecture"
+                    },
+                    {
+                        "@type": "Occupation",
+                        "name": "Fullstack Engineer",
+                        "occupationalCategory": "Software Developer",
+                        "experienceRequirements": "8+ years",
+                        "skills": "Angular, Node.js, Express.js, MongoDB, TypeScript, JavaScript, AWS, Redis, Docker"
+                    }
+                ]
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://alexlibe95.github.io/#projects",
+                "name": "Selected projects",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@type": "SoftwareApplication",
+                            "name": "EntelXCore Free Tools",
+                            "url": "https://entelxcore.com/free-tools",
+                            "description": "Free macOS menu bar suite: CommitBar, RunBar, and UsageBar.",
+                            "applicationCategory": "DeveloperApplication",
+                            "operatingSystem": "macOS",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@type": "SoftwareApplication",
+                            "name": "PeakLog",
+                            "url": "https://peaklog-official.netlify.app/",
+                            "description": "Athlete performance and training tracker for coaches and teams.",
+                            "applicationCategory": "HealthApplication",
+                            "operatingSystem": "Web, iOS, Android",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "item": {
+                            "@type": "WebApplication",
+                            "name": "EOKK Race Timeline",
+                            "url": "https://eokk-race-timeline.netlify.app/",
+                            "description": "Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026.",
+                            "applicationCategory": "SportsApplication",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "item": {
+                            "@type": "WebApplication",
+                            "name": "Just Plan It",
+                            "url": "https://justplanitofficial.netlify.app/en",
+                            "description": "Bilingual event planning platform for Greece.",
+                            "applicationCategory": "BusinessApplication",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 5,
+                        "item": {
+                            "@type": "SoftwareApplication",
+                            "name": "Dep Up Surgeon",
+                            "url": "https://dep-up-surgeon.netlify.app/",
+                            "sameAs": "https://github.com/alexlibe95/dep-up-surgeon",
+                            "description": "CLI that upgrades npm dependencies with install, validation, and rollback.",
+                            "applicationCategory": "DeveloperApplication",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 6,
+                        "item": {
+                            "@type": "SoftwareApplication",
+                            "name": "SquashMate",
+                            "url": "https://squash-mate.netlify.app/",
+                            "sameAs": "https://github.com/alexlibe95/SquashMate",
+                            "description": "Linux desktop helper for AppImage and .deb installs.",
+                            "applicationCategory": "UtilitiesApplication",
+                            "operatingSystem": "Linux",
+                            "author": { "@id": "https://alexlibe95.github.io/#person" }
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -151,7 +298,8 @@
     <!-- Main Content -->
     <main class="main">
         <!-- Home Section -->
-        <section id="home" class="section section-active in-view">
+        <section id="home" class="section section-active in-view" aria-labelledby="home-heading">
+            <h1 id="home-heading" class="sr-only">Alex Lymperopoulos — Founder of EntelXCore and Fullstack Engineer</h1>
             <div class="container">
                 <div class="page-header">
                     <div id="home-terminal" class="terminal is-typing">
@@ -247,7 +395,7 @@
         <section id="skills" class="section">
             <div class="container">
                 <div class="page-header">
-                    <h1 class="page-title">~/skills</h1>
+                    <h2 class="page-title">~/skills</h2>
                     <p class="page-subtitle">Technical capabilities &amp; expertise</p>
                 </div>
 
@@ -262,43 +410,43 @@
                         </div>
                         <div class="skills-listing">
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/core/</h2>
+                                <h3 class="skills-path">~/skills/core/</h3>
                                 <div class="skills-ls">
                                     <span>javascript</span><span>typescript</span><span>angular</span><span>node.js</span><span>express</span><span>mongodb</span><span>next.js</span><span>react</span><span>ionic</span><span>capacitor</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/ui/</h2>
+                                <h3 class="skills-path">~/skills/ui/</h3>
                                 <div class="skills-ls">
                                     <span>tailwindcss</span><span>bootstrap</span><span>primefaces</span><span>shadcn/ui</span><span>figma</span><span>balsamiq</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/mobile/</h2>
+                                <h3 class="skills-path">~/skills/mobile/</h3>
                                 <div class="skills-ls">
                                     <span>ionic-hybrid</span><span>play-store</span><span>app-store</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/testing/</h2>
+                                <h3 class="skills-path">~/skills/testing/</h3>
                                 <div class="skills-ls">
                                     <span>jasmine</span><span>karma</span><span>nightwatch</span><span>vitest</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/cloud/</h2>
+                                <h3 class="skills-path">~/skills/cloud/</h3>
                                 <div class="skills-ls">
                                     <span>aws</span><span>redis</span><span>docker</span><span>firebase</span><span>cloud-functions</span><span>realtime-db</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/tools/</h2>
+                                <h3 class="skills-path">~/skills/tools/</h3>
                                 <div class="skills-ls">
                                     <span>git</span><span>github</span><span>jira</span><span>rest-apis</span><span>responsive-design</span>
                                 </div>
                             </div>
                             <div class="skills-block">
-                                <h2 class="skills-path">~/skills/strengths/</h2>
+                                <h3 class="skills-path">~/skills/strengths/</h3>
                                 <div class="skills-ls skills-ls--phrases">
                                     <span>communication</span><span>attention-to-detail</span><span>clean-code</span><span>ownership</span><span>continuous-learning</span>
                                 </div>
@@ -318,13 +466,13 @@
         <section id="timeline" class="section">
             <div class="container">
                 <div class="page-header">
-                    <h1 class="page-title">Professional Timeline</h1>
+                    <h2 class="page-title">Professional Timeline</h2>
                     <p class="page-subtitle">Career Journey & Experience</p>
                 </div>
 
                 <div class="timeline-container">
                     <div class="timeline-item">
-                        <div class="timeline-date">Jul 2026 – Present</div>
+                        <div class="timeline-date"><time datetime="2026-07">Jul 2026 – Present</time></div>
                         <div class="timeline-content">
                             <h3 class="timeline-company timeline-company-with-external">
                                 <span>EntelXCore</span>
@@ -360,7 +508,7 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="timeline-date">Jan 2026 – Present</div>
+                        <div class="timeline-date"><time datetime="2026-01">Jan 2026 – Present</time></div>
                         <div class="timeline-content">
                             <h3 class="timeline-company timeline-company-with-external">
                                 <span>RE18</span>
@@ -401,7 +549,7 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="timeline-date">2021 – 2025</div>
+                        <div class="timeline-date"><time datetime="2021/2025">2021 – 2025</time></div>
                         <div class="timeline-content">
                             <h3 class="timeline-company timeline-company-with-external">
                                 <span>RAW Labs</span>
@@ -441,7 +589,7 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="timeline-date">2019 – 2021</div>
+                        <div class="timeline-date"><time datetime="2019/2021">2019 – 2021</time></div>
                         <div class="timeline-content">
                             <h3 class="timeline-company timeline-company-with-external">
                                 <span>INTELIQUA</span>
@@ -477,7 +625,7 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="timeline-date">2015 – 2019</div>
+                        <div class="timeline-date"><time datetime="2015/2019">2015 – 2019</time></div>
                         <div class="timeline-content">
                             <h3 class="timeline-company timeline-company-with-external">
                                 <span>Study in Greece (NGO)</span>
@@ -518,12 +666,12 @@
         <section id="projects" class="section">
             <div class="container">
                 <div class="page-header">
-                    <h1 class="page-title">Project Archive</h1>
+                    <h2 class="page-title">Project Archive</h2>
                     <p class="page-subtitle">Selected Works & Creations</p>
                 </div>
 
                 <div class="projects-grid">
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">EntelXCore Free Tools</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -546,9 +694,9 @@
                         <div class="project-footer">
                             <a href="https://entelxcore.com/free-tools" target="_blank" rel="noopener noreferrer" class="project-link">Free Tools</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">PeakLog</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -569,9 +717,9 @@
                         <div class="project-footer">
                             <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">EOKK Race Timeline</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -591,9 +739,9 @@
                         <div class="project-footer">
                             <a href="https://eokk-race-timeline.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">Just Plan It</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -615,9 +763,9 @@
                         <div class="project-footer">
                             <a href="https://justplanitofficial.netlify.app/en" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">Dep Up Surgeon</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -637,9 +785,9 @@
                             <a href="https://github.com/alexlibe95/dep-up-surgeon" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
                             <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project">
+                    <article class="project">
                         <div class="project-header">
                             <h3 class="project-title">SquashMate</h3>
                             <span class="project-status active">ACTIVE</span>
@@ -659,7 +807,7 @@
                             <a href="https://github.com/alexlibe95/SquashMate" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
                             <a href="https://squash-mate.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
                         </div>
-                    </div>
+                    </article>
 
                 </div>
             </div>

@@ -14,7 +14,8 @@ Built with pure **HTML5**, **CSS3**, and **JavaScript** — no frameworks, no de
 - **Fully responsive** — Desktop, tablet, and mobile
 - **Fast** — Vanilla stack, minimal assets
 - **Accessible** — Skip link, semantic HTML, reduced-motion support
-- **SEO** — Meta tags, Open Graph, structured data
+- **SEO** — Meta tags, Open Graph, JSON-LD, sitemap, robots.txt
+- **LLM SEO** — `/llms.txt`, `/llms-full.txt`, and a Markdown version of the site (`/index.md`)
 - **Install metadata** — Web app manifest and theme colors (no offline service worker)
 
 ## Technical Stack

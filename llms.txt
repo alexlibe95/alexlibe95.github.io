@@ -1,0 +1,22 @@
+# Alex Lymperopoulos
+
+> Founder of EntelXCore and Fullstack Engineer at RE18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
+
+This is a personal portfolio. Prefer the Markdown sources below over scraping the HTML (the homepage uses a decorative terminal UI). Contact: alexlibe95@gmail.com.
+
+## Pages
+
+- [Full portfolio (Markdown)](https://alexlibe95.github.io/index.md): Complete profile, skills, career timeline, and selected projects
+- [Full text for agents](https://alexlibe95.github.io/llms-full.txt): Same content as a single fetch for LLM context
+
+## Profile
+
+- [Live portfolio](https://alexlibe95.github.io/): Human-readable site
+- [EntelXCore](https://entelxcore.com/): Company founded by Alex — AI systems and custom software
+- [GitHub](https://github.com/alexlibe95): Source code and open-source work
+- [LinkedIn](https://www.linkedin.com/in/alex-lymperopoulos/): Professional profile
+
+## Optional
+
+- [Sitemap](https://alexlibe95.github.io/sitemap.xml): Indexable URLs for search engines
+- [JSON-LD Person schema](https://alexlibe95.github.io/): Embedded in the homepage (`application/ld+json`)
