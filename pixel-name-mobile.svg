@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 14" fill="#00ff00">
+  <defs>
+    <symbol id="a" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h3v1H0zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
+    <symbol id="e" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM0 2h3v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h3v1H0z"/></symbol>
+    <symbol id="l" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM0 1h1v1H0zM0 2h1v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h3v1H0z"/></symbol>
+    <symbol id="m" viewBox="0 0 5 6"><path d="M0 0h1v1H0zM4 0h1v1H4zM0 1h2v1H0zM3 1h2v1H3zM0 2h1v1H0zM2 2h1v1H2zM4 2h1v1H4zM0 3h1v1H0zM4 3h1v1H4zM0 4h1v1H0zM4 4h1v1H4zM0 5h1v1H0zM4 5h1v1H4z"/></symbol>
+    <symbol id="o" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
+    <symbol id="p" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h3v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h1v1H0z"/></symbol>
+    <symbol id="r" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h2v1H0zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
+    <symbol id="s" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM0 2h3v1H0zM2 3h1v1H2zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
+    <symbol id="u" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
+    <symbol id="x" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1zM1 3h1v1H1zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
+    <symbol id="y" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1zM1 3h1v1H1zM1 4h1v1H1zM1 5h1v1H1z"/></symbol>
+  </defs>
+  <use href="#a" x="19" width="3" height="6"/><use href="#l" x="23" width="3" height="6"/><use href="#e" x="27" width="3" height="6"/><use href="#x" x="31" width="3" height="6"/>
+  <use href="#l" x="0" y="8" width="3" height="6"/><use href="#y" x="4" y="8" width="3" height="6"/><use href="#m" x="8" y="8" width="5" height="6"/><use href="#p" x="14" y="8" width="3" height="6"/><use href="#e" x="18" y="8" width="3" height="6"/><use href="#r" x="22" y="8" width="3" height="6"/><use href="#o" x="26" y="8" width="3" height="6"/><use href="#p" x="30" y="8" width="3" height="6"/><use href="#o" x="34" y="8" width="3" height="6"/><use href="#u" x="38" y="8" width="3" height="6"/><use href="#l" x="42" y="8" width="3" height="6"/><use href="#o" x="46" y="8" width="3" height="6"/><use href="#s" x="50" y="8" width="3" height="6"/>
+  <path transform="translate(46 8)" d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h3v1H0z"/>
+  <path transform="translate(50 8)" d="M0 0h3v1H0zM0 1h1v1H0zM0 2h3v1H0zM2 3h1v1H2zM2 4h1v1H2zM0 5h3v1H0z"/>
+</svg>

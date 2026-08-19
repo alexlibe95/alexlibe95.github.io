@@ -328,8 +328,6 @@ body.nav-open {
 
 /* Prevent horizontal scroll from ASCII name on small widths */
 @media (max-width: 800px) {
-    .ascii-name { overflow-x: hidden; }
-    pre.ascii-name { display: none !important; }
     .terminal-body { overflow-x: hidden; }
 }
 
@@ -830,52 +828,30 @@ html.js #home-terminal.is-typing #intro-skip svg {
 
 .ascii-name {
     color: var(--matrix-green);
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    line-height: 1.2;
-    text-shadow: 0 0 10px var(--matrix-green);
-    margin: 0.5rem 0;
-    overflow-x: auto;
+    fill: currentColor;
+    width: min(100%, 58rem);
+    height: auto;
+    margin: 0.75rem 0;
+    overflow: visible;
 }
 
-/* Larger ASCII name on big screens */
-@media (min-width: 1200px) {
-    .ascii-name {
-        font-size: 1.2rem;
-        line-height: 1.25;
+.pixel-font-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .ascii-name-mobile {
+        width: min(calc(100% - 0.75rem), 24rem);
     }
 }
 
-@media (min-width: 1400px) {
-    .ascii-name {
-        font-size: 1.35rem;
-        line-height: 1.28;
-        text-shadow: 0 0 14px var(--matrix-green);
+@media (max-width: 480px) {
+    .ascii-name-mobile {
+        margin-block: 0.6rem;
     }
-}
-
-@media (min-width: 1600px) {
-    .ascii-name {
-        font-size: 1.5rem;
-        line-height: 1.3;
-        text-shadow: 0 0 16px var(--matrix-green);
-    }
-}
-
-/* Half-block rows must butt against each other or the letter strokes show seams */
-pre.ascii-name-full {
-    line-height: 1;
-    letter-spacing: 0;
-}
-
-.simple-name {
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--matrix-green);
-    text-shadow: 0 0 15px var(--matrix-green);
-    letter-spacing: 2px;
-    text-align: left;
 }
 
 /* Page Headers */
@@ -1619,12 +1595,6 @@ pre.ascii-name-full {
     
     .container {
         padding: 0 0.5rem;
-    }
-    
-    /* Adjust simple name for very small screens */
-    .simple-name {
-        font-size: 1.2rem;
-        letter-spacing: 1px;
     }
     
     .title {
