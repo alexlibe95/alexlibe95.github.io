@@ -1,5 +1,7 @@
 # Alex Lymperopoulos
 
+Also known as **Alexandros Lymperopoulos** and **Αλεξανδρος Λυμπεροπουλος**.
+
 Founder of [EntelXCore](https://entelxcore.com/) and Fullstack Engineer at [RE18](https://re18.com/). 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
 - **Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)

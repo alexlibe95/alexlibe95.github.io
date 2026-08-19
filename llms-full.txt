@@ -2,11 +2,15 @@
 
 > Founder of EntelXCore and Fullstack Engineer at RE18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
+Also known as Alexandros Lymperopoulos and Αλεξανδρος Λυμπεροπουλος.
+
 This file is the full-text companion to /llms.txt. Use it when an agent needs the complete profile in one fetch.
 
 ## Identity
 
 - Name: Alex Lymperopoulos
+- Full name: Alexandros Lymperopoulos
+- Greek name: Αλεξανδρος Λυμπεροπουλος
 - Roles: Founder (EntelXCore), Fullstack Engineer (RE18)
 - Experience: 8+ years across web and mobile
 - Email: alexlibe95@gmail.com

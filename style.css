@@ -862,6 +862,12 @@ html.js #home-terminal.is-typing #intro-skip svg {
     }
 }
 
+/* Half-block rows must butt against each other or the letter strokes show seams */
+pre.ascii-name-full {
+    line-height: 1;
+    letter-spacing: 0;
+}
+
 .simple-name {
     font-family: var(--font-mono);
     font-size: 1.5rem;

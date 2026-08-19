@@ -2,6 +2,8 @@
 
 > Founder of EntelXCore and Fullstack Engineer at RE18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
+Full name and alternate forms: Alexandros Lymperopoulos; Αλεξανδρος Λυμπεροπουλος.
+
 This is a personal portfolio. Prefer the Markdown sources below over scraping the HTML (the homepage uses a decorative terminal UI). Contact: alexlibe95@gmail.com.
 
 ## Pages
