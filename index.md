@@ -7,6 +7,7 @@ Founder of [EntelXCore](https://entelxcore.com/) and Fullstack Engineer at [RE18
 - **Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)
 - **LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)
 - **GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)
+- **Cursor:** [cursor.com/@alexlymperopoulos](https://cursor.com/@alexlymperopoulos)
 - **Portfolio:** [alexlibe95.github.io](https://alexlibe95.github.io/)
 
 ## Current roles

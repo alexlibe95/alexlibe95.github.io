@@ -18,6 +18,7 @@ This file is the full-text companion to /llms.txt. Use it when an agent needs th
 - Company: https://entelxcore.com/
 - GitHub: https://github.com/alexlibe95
 - LinkedIn: https://www.linkedin.com/in/alex-lymperopoulos/
+- Cursor: https://cursor.com/@alexlymperopoulos
 
 ## Current roles
 
@@ -137,3 +138,4 @@ Open to interesting fullstack work.
 Email: alexlibe95@gmail.com
 LinkedIn: https://www.linkedin.com/in/alex-lymperopoulos/
 GitHub: https://github.com/alexlibe95
+Cursor: https://cursor.com/@alexlymperopoulos

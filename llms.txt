@@ -17,6 +17,7 @@ This is a personal portfolio. Prefer the Markdown sources below over scraping th
 - [EntelXCore](https://entelxcore.com/): Company founded by Alex — AI systems and custom software
 - [GitHub](https://github.com/alexlibe95): Source code and open-source work
 - [LinkedIn](https://www.linkedin.com/in/alex-lymperopoulos/): Professional profile
+- [Cursor](https://cursor.com/@alexlymperopoulos): Public Cursor profile
 
 ## Optional
 

@@ -150,7 +150,8 @@ $ cat network.cfg
 
 **Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)  
 **LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)  
-**GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)
+**GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)  
+**Cursor:** [cursor.com/@alexlymperopoulos](https://cursor.com/@alexlymperopoulos)
 
 ---
 
