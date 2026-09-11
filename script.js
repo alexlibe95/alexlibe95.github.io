@@ -98,12 +98,34 @@
 
     navLinks.forEach((link) => link.addEventListener('click', () => setMenu(false)));
 
+    // Hide the floating header on scroll down, reveal it on scroll up.
+    // A small threshold avoids flicker from trackpad/rubber-band jitter, and the
+    // header always stays put near the top and while the mobile menu is open.
+    const siteHeader = document.querySelector('.site-header');
+    const HIDE_THRESHOLD = 12;
+    const REVEAL_ZONE = 80;
+    let lastY = window.scrollY;
     let scrollTicking = false;
+
     function onScroll() {
         if (scrollTicking) return;
         scrollTicking = true;
         requestAnimationFrame(() => {
-            if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 24);
+            const y = Math.max(0, window.scrollY);
+            if (nav) nav.classList.toggle('is-scrolled', y > 24);
+
+            if (siteHeader && !isMenuOpen()) {
+                const delta = y - lastY;
+                if (y <= REVEAL_ZONE) {
+                    siteHeader.classList.remove('is-hidden');
+                } else if (delta > HIDE_THRESHOLD) {
+                    siteHeader.classList.add('is-hidden');
+                } else if (delta < -HIDE_THRESHOLD) {
+                    siteHeader.classList.remove('is-hidden');
+                }
+            }
+
+            lastY = y;
             scrollTicking = false;
         });
     }

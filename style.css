@@ -558,6 +558,16 @@ code {
     z-index: 1000;
     padding: calc(12px + var(--safe-top)) calc(var(--gutter) + var(--safe-right)) 0 calc(var(--gutter) + var(--safe-left));
     pointer-events: none;
+    transition: transform 0.45s var(--ease-out), opacity 0.35s ease;
+}
+
+.site-header.is-hidden {
+    transform: translateY(calc(-100% - 24px));
+    opacity: 0;
+    /* Delay visibility until the slide-out finishes, so it can't be tabbed to while off-screen;
+       showing again is instant since visibility isn't in the base transition list. */
+    visibility: hidden;
+    transition: transform 0.45s var(--ease-out), opacity 0.35s ease, visibility 0s linear 0.45s;
 }
 
 .nav {
@@ -1840,5 +1850,9 @@ html.js .reveal.is-visible {
 
     .project:hover .project-cover > * {
         transform: none;
+    }
+
+    .site-header {
+        transition: none;
     }
 }
