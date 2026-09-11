@@ -4,6 +4,38 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   0. Fonts
+   Self-hosted rather than linked from fonts.googleapis.com: a Google Fonts
+   <link> is its own render-blocking request that then points at a second
+   font file on fonts.gstatic.com — a three-hop, two-domain chain before any
+   text can use its real font. Same-origin files served alongside this
+   stylesheet collapse that to one hop, no extra DNS/TLS negotiation.
+   Geist and Geist Mono are each shipped by Google as a single variable-weight
+   file, so one download per family covers every weight in use. Subsetted to
+   the "latin" unicode-range block (Basic Latin + Latin-1 + general
+   punctuation) — the only range this site's visible text uses; the unicode-range
+   below matches Google's own so browsers still fall back correctly for
+   anything outside it (e.g. the screen-reader-only Greek name).
+   -------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('assets/fonts/geist-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+    src: url('assets/fonts/geist-mono-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* --------------------------------------------------------------------------
    1. Tokens
    -------------------------------------------------------------------------- */
 :root {
@@ -1782,7 +1814,10 @@ html.js .reveal.is-visible {
 }
 
 .footer-text {
-    color: var(--text-3);
+    /* --text-3 measures under 4:1 against --bg in both themes — short of WCAG AA's 4.5:1
+       minimum for normal-size text. --text-2 clears it comfortably (~7-8:1) and is already
+       the site's standard secondary-text color. */
+    color: var(--text-2);
     font-size: 0.85rem;
 }
 
@@ -1792,9 +1827,22 @@ html.js .reveal.is-visible {
     transition: color 0.2s ease;
 }
 
+/* This link sits inline inside a sentence, so color alone can't mark it as a link —
+   give it an underline the surrounding text doesn't have. Links in .footer-links stand
+   alone in a list (not inside prose), so they're unaffected. */
+.footer-note a {
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+    text-underline-offset: 0.15em;
+}
+
 .footer-note a:hover,
 .footer-links a:hover {
     color: var(--text);
+}
+
+.footer-note a:hover {
+    text-decoration-color: currentColor;
 }
 
 .footer-links {
