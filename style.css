@@ -61,6 +61,12 @@
     --container: 1120px;
     --gutter: clamp(1.25rem, 4vw, 2.5rem);
     --nav-h: 60px;
+
+    /* Device safe areas (notch / Dynamic Island / home indicator) — 0 outside standalone mode */
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
 }
 
 /* Light theme */
@@ -140,7 +146,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--nav-h) + 24px);
+    scroll-padding-top: calc(var(--nav-h) + 24px + var(--safe-top));
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -234,12 +240,12 @@ code {
 }
 
 .skip-link:focus-visible {
-    top: 1rem;
+    top: calc(1rem + var(--safe-top));
     outline-offset: 4px;
 }
 
 .container {
-    width: min(var(--container), 100% - var(--gutter) * 2);
+    width: min(var(--container), 100% - var(--gutter) * 2 - var(--safe-left) - var(--safe-right));
     margin-inline: auto;
 }
 
@@ -550,7 +556,7 @@ code {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 12px var(--gutter) 0;
+    padding: calc(12px + var(--safe-top)) calc(var(--gutter) + var(--safe-right)) 0 calc(var(--gutter) + var(--safe-left));
     pointer-events: none;
 }
 
@@ -738,7 +744,7 @@ code {
    5. Hero
    -------------------------------------------------------------------------- */
 .main {
-    padding-top: calc(var(--nav-h) + 12px);
+    padding-top: calc(var(--nav-h) + 12px + var(--safe-top));
 }
 
 .hero {
@@ -1011,7 +1017,7 @@ html.js .rise {
    -------------------------------------------------------------------------- */
 .section {
     padding: clamp(4.5rem, 10vw, 7.5rem) 0;
-    scroll-margin-top: var(--nav-h);
+    scroll-margin-top: calc(var(--nav-h) + var(--safe-top));
 }
 
 .section-head {
@@ -1492,7 +1498,7 @@ html.js .reveal.is-visible {
     gap: 0.5rem;
     align-self: start;
     position: sticky;
-    top: calc(var(--nav-h) + 32px);
+    top: calc(var(--nav-h) + 32px + var(--safe-top));
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--text-3);
@@ -1746,7 +1752,7 @@ html.js .reveal.is-visible {
 
 .footer {
     border-top: 1px solid var(--border);
-    padding: 1.75rem 0 calc(1.75rem + env(safe-area-inset-bottom));
+    padding: 1.75rem 0 calc(1.75rem + var(--safe-bottom));
 }
 
 .footer-inner {
