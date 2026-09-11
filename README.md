@@ -1,6 +1,6 @@
 # Alex Lymperopoulos - Portfolio
 
-> **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at RE18**. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
+> **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at Re18**. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit_Site-a8f542?style=for-the-badge)](https://alexlibe95.github.io)
 
@@ -30,14 +30,14 @@ Built with pure **HTML5**, **CSS3**, and **JavaScript** — no frameworks, no de
 
 ```bash
 $ whoami
-Alex Lymperopoulos - Founder @ EntelXCore · Fullstack Engineer @ RE18
+Alex Lymperopoulos - Founder @ EntelXCore · Fullstack Engineer @ Re18
 
 $ cat experience.json
 {
   "years_of_experience": "8+",
   "current_roles": [
     "Founder at EntelXCore (Jul 2026 – Present)",
-    "Fullstack Engineer at RE18 (Jan 2026 – Present)"
+    "Fullstack Engineer at Re18 (Jan 2026 – Present)"
   ],
   "specialties": [
     "AI systems & custom software",
@@ -58,7 +58,7 @@ Founded [EntelXCore](https://entelxcore.com/) to build AI systems and custom sof
 
 **Tech:** AI Systems • TypeScript • Node.js • Angular • React • Cloud • APIs
 
-#### **Jan 2026 – Present | RE18 - Fullstack Engineer**
+#### **Jan 2026 – Present | Re18 - Fullstack Engineer**
 Delivering end-to-end features across frontend and backend using the full MEAN stack.
 - Designing and building scalable services and responsive UIs
 - Owning features from planning to production with cross-functional teams

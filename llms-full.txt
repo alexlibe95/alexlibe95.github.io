@@ -1,6 +1,6 @@
 # Alex Lymperopoulos
 
-> Founder of EntelXCore and Fullstack Engineer at RE18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
+> Founder of EntelXCore and Fullstack Engineer at Re18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
 Also known as Alexandros Lymperopoulos and Αλεξανδρος Λυμπεροπουλος.
 
@@ -11,7 +11,7 @@ This file is the full-text companion to /llms.txt. Use it when an agent needs th
 - Name: Alex Lymperopoulos
 - Full name: Alexandros Lymperopoulos
 - Greek name: Αλεξανδρος Λυμπεροπουλος
-- Roles: Founder (EntelXCore), Fullstack Engineer (RE18)
+- Roles: Founder (EntelXCore), Fullstack Engineer (Re18)
 - Experience: 8+ years across web and mobile
 - Email: alexlibe95@gmail.com
 - Website: https://alexlibe95.github.io/
@@ -23,7 +23,7 @@ This file is the full-text companion to /llms.txt. Use it when an agent needs th
 ## Current roles
 
 - Founder at EntelXCore (Jul 2026 – Present) — AI systems, custom software, product design, and cloud architecture
-- Fullstack Engineer at RE18 (Jan 2026 – Present) — MEAN stack delivery (MongoDB, Express, Angular, Node.js)
+- Fullstack Engineer at Re18 (Jan 2026 – Present) — MEAN stack delivery (MongoDB, Express, Angular, Node.js)
 
 ## Skills
 
@@ -52,7 +52,7 @@ Founded EntelXCore (https://entelxcore.com/) to build AI systems and custom soft
 
 Tech: AI Systems, TypeScript, Node.js, Angular, React, Cloud, APIs, Product Design
 
-### RE18 — Fullstack Engineer (Jan 2026 – Present)
+### Re18 — Fullstack Engineer (Jan 2026 – Present)
 
 Delivering end-to-end features across frontend and backend using the full MEAN stack.
 
