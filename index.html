@@ -2,32 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
     <!-- SEO Meta Tags -->
     <title>Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore</title>
-    <meta name="description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta name="description" content="Alex Lymperopoulos: founder of EntelXCore and fullstack engineer at RE18. Building AI systems, custom software, and MEAN stack products end‑to‑end for 8+ years.">
     <meta name="keywords" content="Alex Lymperopoulos, Alexandros Lymperopoulos, Αλεξανδρος Λυμπεροπουλος, Fullstack Engineer, EntelXCore, MEAN Stack, Node.js, Angular, MongoDB, Express, JavaScript, TypeScript, AWS, Docker">
     <meta name="author" content="Alexandros Lymperopoulos">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="language" content="en">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
+
     <!-- Theme / install metadata (manifest only; no offline service worker) -->
-    <meta name="theme-color" content="#000000">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-navbutton-color" content="#000000">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f5">
+    <meta name="msapplication-TileColor" content="#0a0a0b">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Alex Portfolio">
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://alexlibe95.github.io/">
     <meta property="og:title" content="Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore">
-    <meta property="og:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta property="og:description" content="Alex Lymperopoulos: founder of EntelXCore and fullstack engineer at RE18. Building AI systems, custom software, and MEAN stack products end‑to‑end for 8+ years.">
     <meta property="og:image" content="https://alexlibe95.github.io/og-image.png">
     <meta property="og:image:alt" content="Alex Lymperopoulos — Fullstack Engineer portfolio">
     <meta property="og:image:width" content="1200">
@@ -37,24 +38,26 @@
     <meta property="og:locale" content="en_US">
     <meta property="profile:first_name" content="Alexandros">
     <meta property="profile:last_name" content="Lymperopoulos">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://alexlibe95.github.io/">
     <meta name="twitter:title" content="Alex Lymperopoulos | Fullstack Engineer &amp; Founder of EntelXCore">
-    <meta name="twitter:description" content="Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end‑to‑end. 8+ years delivering web and mobile products.">
+    <meta name="twitter:description" content="Alex Lymperopoulos: founder of EntelXCore and fullstack engineer at RE18. Building AI systems, custom software, and MEAN stack products end‑to‑end for 8+ years.">
     <meta name="twitter:image" content="https://alexlibe95.github.io/og-image.png">
     <meta name="twitter:image:alt" content="Alex Lymperopoulos — Fullstack Engineer portfolio">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://alexlibe95.github.io/">
+    <link rel="alternate" hreflang="en" href="https://alexlibe95.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://alexlibe95.github.io/">
     <link rel="sitemap" type="application/xml" href="https://alexlibe95.github.io/sitemap.xml">
     <link rel="author" href="https://alexlibe95.github.io/">
     <link rel="me" href="https://github.com/alexlibe95">
@@ -66,27 +69,25 @@
     <link rel="alternate" type="text/markdown" href="https://alexlibe95.github.io/index.md" title="Markdown version">
     <link rel="describedby" type="text/markdown" href="https://alexlibe95.github.io/llms.txt" title="LLM index">
     <link rel="alternate" type="text/plain" href="https://alexlibe95.github.io/llms-full.txt" title="Full text for LLMs">
-    
-    <!-- Preconnect for performance -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Enable progressive-enhancement styles before CSS applies -->
-    <script>document.documentElement.classList.add('js');</script>
-    <style>
-      /* Critical: hide home typing content before style.css loads (prevents flash) */
-      html.js #home-terminal.is-typing .terminal-body > .command-line,
-      html.js #home-terminal.is-typing .ascii-name,
-      html.js #home-terminal.is-typing .ls-output,
-      html.js #home-terminal.is-typing .status,
-      html.js #home-terminal.is-typing .network-config,
-      html.js #home-terminal.is-typing .hero-actions,
-      html.js #home-terminal.is-typing .title,
-      html.js #home-terminal.is-typing .description { display: none; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+    <!-- Theme bootstrap: apply the saved theme before first paint, flag JS availability -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -97,12 +98,13 @@
                 "@id": "https://alexlibe95.github.io/#webpage",
                 "url": "https://alexlibe95.github.io/",
                 "name": "Alex Lymperopoulos | Fullstack Engineer & Founder of EntelXCore",
-                "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Building AI systems, custom software, and MEAN stack features end-to-end. 8+ years delivering web and mobile products.",
+                "description": "Alex Lymperopoulos: founder of EntelXCore and fullstack engineer at RE18. Building AI systems, custom software, and MEAN stack products end-to-end for 8+ years.",
                 "inLanguage": "en",
                 "isPartOf": { "@id": "https://alexlibe95.github.io/#website" },
                 "about": { "@id": "https://alexlibe95.github.io/#person" },
                 "mainEntity": { "@id": "https://alexlibe95.github.io/#person" },
-                "dateModified": "2026-08-30"
+                "dateCreated": "2025-08-06",
+                "dateModified": "2026-09-11"
             },
             {
                 "@type": "WebSite",
@@ -126,6 +128,7 @@
                 "jobTitle": ["Founder", "Fullstack Engineer"],
                 "description": "Founder of EntelXCore and Fullstack Engineer at RE18. Strong frontend background — building AI systems, custom software, and MEAN stack features end-to-end. 8+ years across web and mobile.",
                 "url": "https://alexlibe95.github.io/",
+                "mainEntityOfPage": { "@id": "https://alexlibe95.github.io/#webpage" },
                 "image": "https://alexlibe95.github.io/og-image.png",
                 "email": "mailto:alexlibe95@gmail.com",
                 "sameAs": [
@@ -197,9 +200,10 @@
                             "@type": "SoftwareApplication",
                             "name": "EntelXCore Free Tools",
                             "url": "https://entelxcore.com/free-tools",
-                            "description": "Free macOS menu bar suite: CommitBar, RunBar, and UsageBar.",
+                            "description": "Free macOS menu bar suite: CommitBar, RunBar, StackBar, UsageBar, and BuildBar.",
                             "applicationCategory": "DeveloperApplication",
                             "operatingSystem": "macOS",
+                            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                             "author": { "@id": "https://alexlibe95.github.io/#person" }
                         }
                     },
@@ -274,593 +278,530 @@
     </script>
 </head>
 <body>
-    <a href="#home" class="skip-link">Skip to content</a>
-    <!-- Matrix Rain Background -->
-    <div class="matrix-bg">
-        <canvas id="matrix"></canvas>
-    </div>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- Icon sprite -->
+    <svg class="sr-only" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+            <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+            <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+            <symbol id="i-cursor" viewBox="0 0 49 56" fill="currentColor"><path d="M48.0226 13.2547L25.6601 0.311786C24.942 -0.103929 24.0559 -0.103929 23.3378 0.311786L0.976347 13.2547C0.372691 13.6041 0 14.2503 0 14.9502V41.0498C0 41.7496 0.372691 42.3958 0.976347 42.7453L23.3389 55.6882C24.057 56.1039 24.943 56.1039 25.6611 55.6882L48.0237 42.7453C48.6273 42.3958 49 41.7496 49 41.0498V14.9502C49 14.2503 48.6273 13.6041 48.0237 13.2547H48.0226ZM46.6179 15.9964L25.0302 53.4802C24.8842 53.7328 24.4989 53.6296 24.4989 53.337V28.793C24.4989 28.3026 24.2375 27.849 23.8134 27.6027L2.61094 15.3312C2.35898 15.1849 2.46186 14.7987 2.75372 14.7987H45.9292C46.5423 14.7987 46.9255 15.4649 46.619 15.9974L46.6179 15.9964Z"/></symbol>
+            <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></symbol>
+            <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+            <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></symbol>
+        </defs>
+    </svg>
+
+    <div class="bg" aria-hidden="true"></div>
 
     <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo" aria-label="Alex Lymperopoulos - Go to home">
-                <span class="logo-icon" aria-hidden="true">&lt;/&gt;</span>
-                <span class="logo-text">ALEXLYMPE.sh</span>
+    <header class="site-header">
+        <nav class="nav" aria-label="Main navigation">
+            <a href="#home" class="brand" aria-label="Alex Lymperopoulos — home">
+                <span class="brand-mark" aria-hidden="true">AL</span>
+                <span class="brand-name">Alex Lymperopoulos</span>
             </a>
-            <button type="button" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-                <span class="nav-toggle-bar"></span>
-            </button>
-            <ul id="nav-menu" class="nav-menu">
-                <li><a href="#home" class="nav-link active">HOME</a></li>
-                <li><a href="#skills" class="nav-link">SKILLS</a></li>
-                <li><a href="#timeline" class="nav-link">TIMELINE</a></li>
-                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+
+            <ul id="nav-menu" class="nav-links">
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#timeline" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+
+            <div class="nav-actions">
+                <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch to light theme" title="Toggle theme">
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                </button>
+                <a href="mailto:alexlibe95@gmail.com" class="btn btn-primary btn-sm nav-cta">Email me</a>
+                <button type="button" class="icon-btn nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                    <span class="nav-toggle-bar" aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <!-- Main Content -->
-    <main class="main">
-        <!-- Home Section -->
-        <section id="home" class="section section-active in-view" aria-labelledby="home-heading">
-            <h1 id="home-heading" class="sr-only">Alex Lymperopoulos (Alexandros Lymperopoulos, Αλεξανδρος Λυμπεροπουλος) — Founder of EntelXCore and Fullstack Engineer</h1>
+    <main id="main" class="main">
+        <!-- Hero -->
+        <section id="home" class="hero" aria-labelledby="home-heading">
             <div class="container">
-                <div class="page-header">
-                    <div id="home-terminal" class="terminal is-typing">
-                        <div class="terminal-header">
-                            <span class="terminal-title">user@alex-portfolio:~</span>
-                            <div class="terminal-controls">
-                                <button type="button" id="intro-skip" class="terminal-btn" aria-label="Skip typing animation" title="Skip">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5v14l8-7-8-7Zm9 0v14h3V5h-3Z"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="command-line">
-                                <span class="prompt">$</span>
-                                <span class="command">whoami</span>
-                            </div>
-                            <div class="output">
-                                <svg class="pixel-font-defs" aria-hidden="true">
-                                    <defs>
-                                        <symbol id="pixel-a" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h3v1H0zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
-                                        <symbol id="pixel-e" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM0 2h3v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h3v1H0z"/></symbol>
-                                        <symbol id="pixel-l" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM0 1h1v1H0zM0 2h1v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h3v1H0z"/></symbol>
-                                        <symbol id="pixel-m" viewBox="0 0 5 6"><path d="M0 0h1v1H0zM4 0h1v1H4zM0 1h2v1H0zM3 1h2v1H3zM0 2h1v1H0zM2 2h1v1H2zM4 2h1v1H4zM0 3h1v1H0zM4 3h1v1H4zM0 4h1v1H0zM4 4h1v1H4zM0 5h1v1H0zM4 5h1v1H4z"/></symbol>
-                                        <symbol id="pixel-o" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
-                                        <symbol id="pixel-p" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h3v1H0zM0 3h1v1H0zM0 4h1v1H0zM0 5h1v1H0z"/></symbol>
-                                        <symbol id="pixel-r" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM2 1h1v1H2zM0 2h2v1H0zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
-                                        <symbol id="pixel-s" viewBox="0 0 3 6"><path d="M0 0h3v1H0zM0 1h1v1H0zM0 2h3v1H0zM2 3h1v1H2zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
-                                        <symbol id="pixel-u" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM0 2h1v1H0zM2 2h1v1H2zM0 3h1v1H0zM2 3h1v1H2zM0 4h1v1H0zM2 4h1v1H2zM0 5h3v1H0z"/></symbol>
-                                        <symbol id="pixel-x" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1zM1 3h1v1H1zM0 4h1v1H0zM2 4h1v1H2zM0 5h1v1H0zM2 5h1v1H2z"/></symbol>
-                                        <symbol id="pixel-y" viewBox="0 0 3 6"><path d="M0 0h1v1H0zM2 0h1v1H2zM0 1h1v1H0zM2 1h1v1H2zM1 2h1v1H1zM1 3h1v1H1zM1 4h1v1H1zM1 5h1v1H1z"/></symbol>
-                                    </defs>
-                                </svg>
-                                <svg class="ascii-name ascii-name-full" viewBox="0 0 71 6" role="img" aria-label="Alex Lymperopoulos" shape-rendering="crispEdges">
-                                    <use href="#pixel-a" x="0" width="3" height="6"/><use href="#pixel-l" x="4" width="3" height="6"/><use href="#pixel-e" x="8" width="3" height="6"/><use href="#pixel-x" x="12" width="3" height="6"/>
-                                    <use href="#pixel-l" x="18" width="3" height="6"/><use href="#pixel-y" x="22" width="3" height="6"/><use href="#pixel-m" x="26" width="5" height="6"/><use href="#pixel-p" x="32" width="3" height="6"/><use href="#pixel-e" x="36" width="3" height="6"/><use href="#pixel-r" x="40" width="3" height="6"/><use href="#pixel-o" x="44" width="3" height="6"/><use href="#pixel-p" x="48" width="3" height="6"/><use href="#pixel-o" x="52" width="3" height="6"/><use href="#pixel-u" x="56" width="3" height="6"/><use href="#pixel-l" x="60" width="3" height="6"/><use href="#pixel-o" x="64" width="3" height="6"/><use href="#pixel-s" x="68" width="3" height="6"/>
-                                </svg>
-                                <img class="ascii-name ascii-name-mobile" src="/pixel-name-mobile.svg" alt="Alex Lymperopoulos" width="53" height="14">
-                                <p class="title">Fullstack Engineer</p>
-                                <p class="description">Founder of EntelXCore — building AI systems and custom software — and Fullstack Engineer at RE18, shipping MEAN stack features end‑to‑end.</p>
-                            </div>
-                            <div class="command-line">
-                                <span class="prompt">$</span>
-                                <span class="command">ls core-skills/</span>
-                            </div>
-                            <div class="output">
-                                <div class="ls-output">
-                                    <div class="ls-line ls-line-desktop">angular    node.js    express    mongodb    typescript    next.js    firebase</div>
-                                    <div class="ls-line ls-line-mobile">
-                                        <div>angular    node.js    express</div>
-                                        <div>mongodb    typescript    next.js</div>
-                                        <div>firebase</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="command-line">
-                                <span class="prompt">$</span>
-                                <span class="command">cat status.txt</span>
-                            </div>
-                            <div class="output">
-                                <p class="status">Founder @ EntelXCore · Fullstack @ RE18 · Ready to build</p>
-                            </div>
-                            <div class="command-line">
-                                <span class="prompt">$</span>
-                                <span class="command">cat network.cfg</span>
-                            </div>
-                            <div class="output">
-                                <div class="network-config">
-                                    <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                            <path fill="currentColor" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.887.732-1.636 1.636-1.636h.906L12 12.94l9.458-9.119h.906c.904 0 1.636.749 1.636 1.636Z"/>
-                                        </svg>
-                                        <a href="mailto:alexlibe95@gmail.com" class="network-link">alexlibe95@gmail.com</a>
-                                    </div>
-                                    <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                            <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                        </svg>
-                                        <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="network-link">linkedin.com/in/alex-lymperopoulos</a>
-                                    </div>
-                                    <div class="network-line">
-                                        <svg class="network-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                            <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                                        </svg>
-                                        <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="network-link">github.com/alexlibe95</a>
-                                    </div>
-                                    <div class="network-line">
-                                        <svg class="network-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 56" width="18" height="18" aria-hidden="true">
-                                            <path fill="currentColor" d="M48.0226 13.2547L25.6601 0.311786C24.942 -0.103929 24.0559 -0.103929 23.3378 0.311786L0.976347 13.2547C0.372691 13.6041 0 14.2503 0 14.9502V41.0498C0 41.7496 0.372691 42.3958 0.976347 42.7453L23.3389 55.6882C24.057 56.1039 24.943 56.1039 25.6611 55.6882L48.0237 42.7453C48.6273 42.3958 49 41.7496 49 41.0498V14.9502C49 14.2503 48.6273 13.6041 48.0237 13.2547H48.0226ZM46.6179 15.9964L25.0302 53.4802C24.8842 53.7328 24.4989 53.6296 24.4989 53.337V28.793C24.4989 28.3026 24.2375 27.849 23.8134 27.6027L2.61094 15.3312C2.35898 15.1849 2.46186 14.7987 2.75372 14.7987H45.9292C46.5423 14.7987 46.9255 15.4649 46.619 15.9974L46.6179 15.9964Z"/>
-                                        </svg>
-                                        <a href="https://cursor.com/@alexlymperopoulos" target="_blank" rel="noopener noreferrer" class="network-link">cursor.com/@alexlymperopoulos</a>
-                                    </div>
-                                </div>
-                                <div class="hero-actions">
-                                    <a href="mailto:alexlibe95@gmail.com" class="cta-btn">Email me</a>
-                                </div>
-                            </div>
-                            <div class="command-line">
-                                <span class="prompt">$</span>
-                                <span class="command"></span>
-                                <span class="cursor" aria-hidden="true">_</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#skills" class="scroll-hint">
-                    <span class="scroll-hint-label">Explore</span>
-                    <span class="scroll-hint-chevron" aria-hidden="true"></span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">~/skills</h2>
-                    <p class="page-subtitle">Technical capabilities &amp; expertise</p>
+                <p class="hero-status rise" style="--d: 0">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Open to fullstack work
+                </p>
+                <h1 id="home-heading" class="hero-title rise" style="--d: 1">
+                    Alex Lymperopoulos
+                    <span class="sr-only">(Alexandros Lymperopoulos, Αλεξανδρος Λυμπεροπουλος)</span>
+                </h1>
+                <p class="hero-tagline rise" style="--d: 2">
+                    Fullstack engineer &amp; founder of <a href="https://entelxcore.com/" target="_blank" rel="noopener noreferrer">EntelXCore</a> —
+                    building AI systems and custom software <em class="serif">end‑to‑end</em>.
+                </p>
+                <p class="hero-lede rise" style="--d: 3">
+                    8+ years shipping web and mobile products. Currently delivering MEAN‑stack features at RE18
+                    and leading EntelXCore from idea to launch.
+                </p>
+                <div class="hero-actions rise" style="--d: 4">
+                    <a href="mailto:alexlibe95@gmail.com" class="btn btn-primary">
+                        Email me
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                    </a>
+                    <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+                        LinkedIn
+                    </a>
                 </div>
 
-                <div class="skills-terminal terminal">
-                    <div class="terminal-header">
-                        <span class="terminal-title">user@alex-portfolio:~/skills</span>
-                    </div>
-                    <div class="terminal-body skills-terminal-body">
-                        <div class="command-line">
-                            <span class="prompt">$</span>
-                            <span class="command">ls ~/skills/</span>
-                        </div>
-                        <div class="skills-listing">
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/core/</h3>
-                                <div class="skills-ls">
-                                    <span>javascript</span><span>typescript</span><span>angular</span><span>node.js</span><span>express</span><span>mongodb</span><span>next.js</span><span>react</span><span>ionic</span><span>capacitor</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/ui/</h3>
-                                <div class="skills-ls">
-                                    <span>tailwindcss</span><span>bootstrap</span><span>primefaces</span><span>shadcn/ui</span><span>figma</span><span>balsamiq</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/mobile/</h3>
-                                <div class="skills-ls">
-                                    <span>ionic-hybrid</span><span>play-store</span><span>app-store</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/testing/</h3>
-                                <div class="skills-ls">
-                                    <span>jasmine</span><span>karma</span><span>nightwatch</span><span>vitest</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/cloud/</h3>
-                                <div class="skills-ls">
-                                    <span>aws</span><span>redis</span><span>docker</span><span>firebase</span><span>cloud-functions</span><span>realtime-db</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/tools/</h3>
-                                <div class="skills-ls">
-                                    <span>git</span><span>github</span><span>jira</span><span>rest-apis</span><span>responsive-design</span>
-                                </div>
-                            </div>
-                            <div class="skills-block">
-                                <h3 class="skills-path">~/skills/strengths/</h3>
-                                <div class="skills-ls skills-ls--phrases">
-                                    <span>communication</span><span>attention-to-detail</span><span>clean-code</span><span>ownership</span><span>continuous-learning</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="command-line">
-                            <span class="prompt">$</span>
-                            <span class="command"></span>
-                            <span class="cursor" aria-hidden="true">_</span>
-                        </div>
-                    </div>
+                <div class="bento rise" style="--d: 5">
+                    <article class="card spot bento-now">
+                        <h2 class="eyebrow">Now</h2>
+                        <ul class="now-list">
+                            <li class="now-item">
+                                <span class="now-role">Founder</span>
+                                <a href="https://entelxcore.com/" target="_blank" rel="noopener noreferrer" class="now-org">EntelXCore <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                                <time class="now-date" datetime="2026-07">Jul 2026 → present</time>
+                            </li>
+                            <li class="now-item">
+                                <span class="now-role">Fullstack Engineer</span>
+                                <a href="https://re18.com/" target="_blank" rel="noopener noreferrer" class="now-org">RE18 <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                                <time class="now-date" datetime="2026-01">Jan 2026 → present</time>
+                            </li>
+                        </ul>
+                    </article>
+                    <article class="card spot bento-links">
+                        <h2 class="eyebrow">Elsewhere</h2>
+                        <ul class="link-list">
+                            <li><a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+                            <li><a href="https://cursor.com/@alexlymperopoulos" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-cursor"/></svg>Cursor</a></li>
+                            <li><a href="mailto:alexlibe95@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
+                        </ul>
+                    </article>
                 </div>
             </div>
+
+            <section class="marquee rise" style="--d: 6" aria-label="Core stack">
+                <div class="marquee-track">
+                    <ul class="marquee-list">
+                        <li>Angular</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>TypeScript</li><li>Next.js</li><li>React</li><li>Firebase</li><li>AWS</li><li>Docker</li><li>Redis</li><li>Ionic</li><li>Tailwind CSS</li><li>Figma</li>
+                    </ul>
+                    <ul class="marquee-list" aria-hidden="true">
+                        <li>Angular</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>TypeScript</li><li>Next.js</li><li>React</li><li>Firebase</li><li>AWS</li><li>Docker</li><li>Redis</li><li>Ionic</li><li>Tailwind CSS</li><li>Figma</li>
+                    </ul>
+                </div>
+            </section>
         </section>
 
-        <!-- Timeline Section -->
-        <section id="timeline" class="section">
+        <!-- Projects -->
+        <section id="projects" class="section" aria-labelledby="projects-heading">
             <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">Professional Timeline</h2>
-                    <p class="page-subtitle">Career Journey & Experience</p>
-                </div>
+                <header class="section-head reveal">
+                    <p class="eyebrow">01 / Projects</p>
+                    <h2 id="projects-heading" class="section-title">Selected work</h2>
+                    <p class="section-lede">Products, tools, and platforms I've shipped — from macOS menu bar apps to bilingual web platforms.</p>
+                </header>
 
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <div class="timeline-date"><time datetime="2026-07">Jul 2026 – Present</time></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-company timeline-company-with-external">
-                                <span>EntelXCore</span>
-                                <a
-                                    href="https://entelxcore.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="timeline-external-btn"
-                                    aria-label="EntelXCore website (opens in new tab)"
-                                >
-                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                                    </svg>
-                                </a>
-                            </h3>
-                            <h4 class="timeline-role">Founder</h4>
-                            <div class="timeline-description">
-                                <div class="timeline-bullet">Founded EntelXCore to build AI systems and custom software for businesses that need technology done right</div>
-                                <div class="timeline-bullet">Leading product vision, architecture, and delivery across AI assistants, web/mobile apps, and cloud platforms</div>
-                                <div class="timeline-bullet">Partnering with clients from idea to launch — and continuing to evolve products after ship</div>
-                            </div>
-                            <div class="timeline-tech">
-                                <span class="tech-tag">AI Systems</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Cloud</span>
-                                <span class="tech-tag">APIs</span>
-                                <span class="tech-tag">Product Design</span>
+                <div class="project-grid">
+                    <article class="project card spot reveal wide" style="--hue: 128; --i: 0">
+                        <div class="project-cover" aria-hidden="true">
+                            <div class="mock-menubar">
+                                <span class="mock-menubar-item"><i class="mock-dot"></i>CommitBar</span>
+                                <span class="mock-menubar-item"><i class="mock-play"></i>RunBar</span>
+                                <span class="mock-menubar-item"><i class="mock-stack"></i>StackBar</span>
+                                <span class="mock-menubar-item"><i class="mock-ring"></i>UsageBar</span>
+                                <span class="mock-menubar-item"><i class="mock-build"></i>BuildBar</span>
+                                <span class="mock-menubar-time">9:41</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><time datetime="2026-01">Jan 2026 – Present</time></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-company timeline-company-with-external">
-                                <span>RE18</span>
-                                <a
-                                    href="https://re18.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="timeline-external-btn"
-                                    aria-label="RE18 website (opens in new tab)"
-                                >
-                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                                    </svg>
-                                </a>
-                            </h3>
-                            <h4 class="timeline-role">Fullstack Engineer</h4>
-                            <div class="timeline-description">
-                                <div class="timeline-bullet">Delivering end-to-end features across frontend and backend using the full MEAN stack</div>
-                                <div class="timeline-bullet">Designing and building scalable services and responsive user interfaces with attention to detail</div>
-                                <div class="timeline-bullet">Collaborating closely with cross-functional teams and owning features from planning to production</div>
-                                <div class="timeline-bullet">Applying clean-code standards, best practices, and a get-things-done mindset in daily delivery</div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">macOS suite</span>
                             </div>
-                            <div class="timeline-tech">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">AWS</span>
-                                <span class="tech-tag">Redis</span>
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Jira</span>
-                                <span class="tech-tag">GitHub</span>
-                                <span class="tech-tag">Figma</span>
+                            <h3 class="project-title">
+                                <a href="https://entelxcore.com/free-tools" target="_blank" rel="noopener noreferrer" class="project-link-cover">EntelXCore Free Tools</a>
+                            </h3>
+                            <p class="project-desc">
+                                Five free macOS menu bar apps, one family: CommitBar for Git commits and push, RunBar for project
+                                scripts with Kill &amp; Retry, StackBar for runtime versions with one‑click updates, UsageBar for Claude,
+                                Cursor, and ChatGPT usage, and BuildBar for Netlify deploy status — free for personal and public use.
+                            </p>
+                            <ul class="chips">
+                                <li>macOS</li><li>Menu bar</li><li>CommitBar</li><li>RunBar</li><li>StackBar</li><li>UsageBar</li><li>BuildBar</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Free tools <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item">
-                        <div class="timeline-date"><time datetime="2021/2025">2021 – 2025</time></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-company timeline-company-with-external">
-                                <span>RAW Labs</span>
-                                <a
-                                    href="https://raw-labs.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="timeline-external-btn"
-                                    aria-label="RAW Labs website (opens in new tab)"
-                                >
-                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                                    </svg>
-                                </a>
-                            </h3>
-                            <h4 class="timeline-role">Frontend Developer</h4>
-                            <div class="timeline-description">
-                                <div class="timeline-bullet">Building the next-generation data platform enabling AI-driven applications via secure, real-time data APIs</div>
-                                <div class="timeline-bullet">Developed new features and maintained complex interfaces</div>
-                                <div class="timeline-bullet">Delivered responsive, cross-browser UI for enterprise clients</div>
-                                <div class="timeline-bullet">Integrated APIs and ensured seamless data flow with backend teams</div>
-                                <div class="timeline-bullet">Created high-fidelity mockups and transformed them into production-ready interfaces</div>
-                            </div>
-                            <div class="timeline-tech">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">TailwindCSS</span>
-                                <span class="tech-tag">PrimeFaces</span>
-                                <span class="tech-tag">Figma</span>
-                                <span class="tech-tag">Balsamiq</span>
-                                <span class="tech-tag">Jasmine</span>
-                                <span class="tech-tag">Karma</span>
-                                <span class="tech-tag">Nightwatch</span>
+                    <article class="project card spot reveal" style="--hue: 200; --i: 1">
+                        <div class="project-cover" aria-hidden="true">
+                            <div class="mock-chart">
+                                <i style="--h: 40%"></i><i style="--h: 62%"></i><i style="--h: 48%"></i><i style="--h: 80%"></i><i style="--h: 70%"></i><i style="--h: 92%"></i><i style="--h: 58%"></i>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date"><time datetime="2019/2021">2019 – 2021</time></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-company timeline-company-with-external">
-                                <span>INTELIQUA</span>
-                                <a
-                                    href="https://www.inteliqua.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="timeline-external-btn"
-                                    aria-label="INTELIQUA website (opens in new tab)"
-                                >
-                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                                    </svg>
-                                </a>
-                            </h3>
-                            <h4 class="timeline-role">Frontend & Mobile Application Developer</h4>
-                            <div class="timeline-description">
-                                <div class="timeline-bullet">Contributed to the "QivosCloud Platform" and maintained a suite of hybrid mobile applications</div>
-                                <div class="timeline-bullet">Migrated legacy apps from Ionic 3 to Ionic 5+ for continued deployment support</div>
-                                <div class="timeline-bullet">Upgraded web platform from AngularJS to modern Angular</div>
-                                <div class="timeline-bullet">Ensured consistent app performance across platforms</div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">Cross‑platform app</span>
                             </div>
-                            <div class="timeline-tech">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">Ionic</span>
-                                <span class="tech-tag">Capacitor</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Jasmine</span>
-                                <span class="tech-tag">Karma</span>
-                                <span class="tech-tag">Nightwatch</span>
+                            <h3 class="project-title">
+                                <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link-cover">PeakLog</a>
+                            </h3>
+                            <p class="project-desc">
+                                Lightweight athlete performance and training tracker for coaches and teams. Flutter and Firebase,
+                                cross‑platform (web, iOS, Android), optimized for real‑world use in endurance and watersports teams.
+                            </p>
+                            <ul class="chips">
+                                <li>Flutter</li><li>Firebase</li><li>Web</li><li>iOS</li><li>Android</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Visit <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item">
-                        <div class="timeline-date"><time datetime="2015/2019">2015 – 2019</time></div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-company timeline-company-with-external">
-                                <span>Study in Greece (NGO)</span>
-                                <a
-                                    href="https://studyingreece.edu.gr/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="timeline-external-btn"
-                                    aria-label="Study in Greece website (opens in new tab)"
-                                >
-                                    <svg class="timeline-external-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                                        <path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                                    </svg>
-                                </a>
-                            </h3>
-                            <h4 class="timeline-role">Web Application Developer</h4>
-                            <div class="timeline-description">
-                                <div class="timeline-bullet">Developed and maintained the official web portal for international students in Greece</div>
-                                <div class="timeline-bullet">Built the platform for showcasing Bachelor's & Master's programs</div>
-                                <div class="timeline-bullet">Organized and supported educational events for international students</div>
-                                <div class="timeline-bullet">Maintained the main website and led content updates</div>
-                            </div>
-                            <div class="timeline-tech">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS3</span>
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Node.js</span>
+                    <article class="project card spot reveal" style="--hue: 40; --i: 2">
+                        <div class="project-cover" aria-hidden="true">
+                            <div class="mock-schedule">
+                                <div class="mock-row"><span>10:20</span><span>K1 500m</span><span class="mock-tag">Heat 2</span></div>
+                                <div class="mock-row is-live"><span>10:36</span><span>C2 1000m</span><span class="mock-tag">Final</span></div>
+                                <div class="mock-row"><span>10:52</span><span>K2 200m</span><span class="mock-tag">Semi</span></div>
                             </div>
                         </div>
-                    </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">Web app</span>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="https://eokk-race-timeline.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link-cover">EOKK Race Timeline</a>
+                            </h3>
+                            <p class="project-desc">
+                                Live race schedule for the 36th Panhellenic Canoe‑Kayak Sprint Championship 2026. Athletes, coaches, and
+                                spectators filter heats by club, athlete, race type, and day — built for and used on‑site at the championship I competed in.
+                            </p>
+                            <ul class="chips">
+                                <li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Netlify</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Visit <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project card spot reveal wide" style="--hue: 330; --i: 3">
+                        <div class="project-cover" aria-hidden="true">
+                            <div class="mock-steps">
+                                <div class="mock-lang"><span class="is-on">EN</span><span>EL</span></div>
+                                <ol class="mock-stepper"><li class="is-done">Category</li><li class="is-on">Event type</li><li>Professionals</li></ol>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">Platform</span>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="https://justplanitofficial.netlify.app/en" target="_blank" rel="noopener noreferrer" class="project-link-cover">Just Plan It</a>
+                            </h3>
+                            <p class="project-desc">
+                                Event planning platform for Greece — browse nine categories and dozens of event types, discover curated
+                                professionals, and move from idea to outreach. Bilingual (English &amp; Greek) with a guided three‑step flow.
+                            </p>
+                            <ul class="chips">
+                                <li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>i18n</li><li>Netlify</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Visit <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project card spot reveal half" style="--hue: 80; --i: 4">
+                        <div class="project-cover" aria-hidden="true">
+                            <pre class="mock-term"><span class="mock-prompt">$</span> dep-up-surgeon
+<span class="mock-ok">✓</span> react        18.3.1 → 19.1.0
+<span class="mock-ok">✓</span> typescript    5.6.3 → 5.9.2
+<span class="mock-err">↺</span> vite         rolled back</pre>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">CLI</span>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link-cover">Dep Up Surgeon</a>
+                            </h3>
+                            <p class="project-desc">
+                                Production‑oriented CLI that upgrades npm dependencies with install and validation after each bump, and rolls
+                                back on failure. Framework‑agnostic; supports npm, pnpm, and yarn — including workspaces and monorepos.
+                            </p>
+                            <ul class="chips">
+                                <li>TypeScript</li><li>Node.js</li><li>CLI</li><li>npm</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Visit <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                                <a href="https://github.com/alexlibe95/dep-up-surgeon" target="_blank" rel="noopener noreferrer" class="text-link text-link-secondary">Source <svg class="icon icon-xs" aria-hidden="true"><use href="#i-github"/></svg></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project card spot reveal half" style="--hue: 260; --i: 5">
+                        <div class="project-cover" aria-hidden="true">
+                            <pre class="mock-term"><span class="mock-prompt">›</span> obsidian.AppImage
+<span class="mock-ok">✓</span> moved to ~/Applications
+<span class="mock-ok">✓</span> launcher + icon created
+<span class="mock-ok">✓</span> wrapper on PATH</pre>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="badge badge-live">Live</span>
+                                <span class="project-kind">Desktop app</span>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="https://squash-mate.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link-cover">SquashMate</a>
+                            </h3>
+                            <p class="project-desc">
+                                Linux desktop helper for AppImage and <code>.deb</code> installs: guided flows, launchers, wrappers, tidy
+                                uninstalls, and clear logs — without living in the terminal.
+                            </p>
+                            <ul class="chips">
+                                <li>Python</li><li>PyQt5</li><li>Shell</li><li>Linux</li>
+                            </ul>
+                            <div class="project-links">
+                                <span class="text-link">Visit <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+                                <a href="https://github.com/alexlibe95/SquashMate" target="_blank" rel="noopener noreferrer" class="text-link text-link-secondary">Source <svg class="icon icon-xs" aria-hidden="true"><use href="#i-github"/></svg></a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
+        <!-- Experience -->
+        <section id="timeline" class="section" aria-labelledby="timeline-heading">
             <div class="container">
-                <div class="page-header">
-                    <h2 class="page-title">Project Archive</h2>
-                    <p class="page-subtitle">Selected Works & Creations</p>
-                </div>
+                <header class="section-head reveal">
+                    <p class="eyebrow">02 / Experience</p>
+                    <h2 id="timeline-heading" class="section-title">Where I've worked</h2>
+                    <p class="section-lede">Frontend roots, fullstack today — a decade across NGOs, product companies, and my own studio.</p>
+                </header>
 
-                <div class="projects-grid">
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">EntelXCore Free Tools</h3>
-                            <span class="project-status active">ACTIVE</span>
+                <ol class="xp-list">
+                    <li class="xp-item reveal" style="--i: 0">
+                        <div class="xp-when">
+                            <time datetime="2026-07">Jul 2026 — present</time>
+                            <span class="xp-current"><span class="status-dot" aria-hidden="true"></span>Current</span>
                         </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                Free macOS menu bar suite from EntelXCore: CommitBar for Git commits and push,
-                                RunBar for package-manager scripts with kill &amp; retry, and UsageBar for Claude,
-                                Cursor, and ChatGPT usage at a glance — free for personal and public use.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">macOS</span>
-                                <span class="tech-tag">Menu Bar</span>
-                                <span class="tech-tag">CommitBar</span>
-                                <span class="tech-tag">RunBar</span>
-                                <span class="tech-tag">UsageBar</span>
-                                <span class="tech-tag">EntelXCore</span>
-                            </div>
+                        <div class="xp-body">
+                            <h3 class="xp-org">
+                                <a href="https://entelxcore.com/" target="_blank" rel="noopener noreferrer">EntelXCore <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            </h3>
+                            <p class="xp-role">Founder</p>
+                            <ul class="xp-points">
+                                <li>Founded EntelXCore to build AI systems and custom software for businesses that need technology done right</li>
+                                <li>Leading product vision, architecture, and delivery across AI assistants, web/mobile apps, and cloud platforms</li>
+                                <li>Partnering with clients from idea to launch — and continuing to evolve products after ship</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>AI Systems</li><li>TypeScript</li><li>Node.js</li><li>Angular</li><li>React</li><li>Cloud</li><li>APIs</li><li>Product Design</li>
+                            </ul>
                         </div>
-                        <div class="project-footer">
-                            <a href="https://entelxcore.com/free-tools" target="_blank" rel="noopener noreferrer" class="project-link">Free Tools</a>
-                        </div>
-                    </article>
+                    </li>
 
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">PeakLog</h3>
-                            <span class="project-status active">ACTIVE</span>
+                    <li class="xp-item reveal" style="--i: 1">
+                        <div class="xp-when">
+                            <time datetime="2026-01">Jan 2026 — present</time>
+                            <span class="xp-current"><span class="status-dot" aria-hidden="true"></span>Current</span>
                         </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                PeakLog is a lightweight athlete performance and training tracker for coaches and teams.
-                                Built with Flutter and Firebase — cross-platform (web, iOS, Android) and optimized for real-world use in endurance and watersports teams.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Flutter</span>
-                                <span class="tech-tag">Firebase</span>
-                                <span class="tech-tag">Web</span>
-                                <span class="tech-tag">iOS</span>
-                                <span class="tech-tag">Android</span>
-                            </div>
+                        <div class="xp-body">
+                            <h3 class="xp-org">
+                                <a href="https://re18.com/" target="_blank" rel="noopener noreferrer">RE18 <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            </h3>
+                            <p class="xp-role">Fullstack Engineer</p>
+                            <ul class="xp-points">
+                                <li>Delivering end‑to‑end features across frontend and backend using the full MEAN stack</li>
+                                <li>Designing and building scalable services and responsive user interfaces with attention to detail</li>
+                                <li>Collaborating closely with cross‑functional teams and owning features from planning to production</li>
+                                <li>Applying clean‑code standards, best practices, and a get‑things‑done mindset in daily delivery</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>Angular</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>TypeScript</li><li>AWS</li><li>Redis</li><li>Docker</li><li>Bootstrap</li><li>Jira</li><li>GitHub</li><li>Figma</li>
+                            </ul>
                         </div>
-                        <div class="project-footer">
-                            <a href="https://peaklog-official.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
-                        </div>
-                    </article>
+                    </li>
 
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">EOKK Race Timeline</h3>
-                            <span class="project-status active">ACTIVE</span>
+                    <li class="xp-item reveal" style="--i: 2">
+                        <div class="xp-when">
+                            <time datetime="2021">2021</time> — <time datetime="2025">2025</time>
                         </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026.
-                                Athletes, coaches, and spectators filter heats by club, athlete, race type, and day—built for and used on-site at the championship I competed in.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">TailwindCSS</span>
-                                <span class="tech-tag">Netlify</span>
-                            </div>
+                        <div class="xp-body">
+                            <h3 class="xp-org">
+                                <a href="https://raw-labs.com/" target="_blank" rel="noopener noreferrer">RAW Labs <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            </h3>
+                            <p class="xp-role">Frontend Developer</p>
+                            <ul class="xp-points">
+                                <li>Building the next‑generation data platform enabling AI‑driven applications via secure, real‑time data APIs</li>
+                                <li>Developed new features and maintained complex interfaces</li>
+                                <li>Delivered responsive, cross‑browser UI for enterprise clients</li>
+                                <li>Integrated APIs and ensured seamless data flow with backend teams</li>
+                                <li>Created high‑fidelity mockups and transformed them into production‑ready interfaces</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>Angular</li><li>TypeScript</li><li>Next.js</li><li>Tailwind CSS</li><li>PrimeFaces</li><li>Figma</li><li>Balsamiq</li><li>Jasmine</li><li>Karma</li><li>Nightwatch</li>
+                            </ul>
                         </div>
-                        <div class="project-footer">
-                            <a href="https://eokk-race-timeline.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
-                        </div>
-                    </article>
+                    </li>
 
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">Just Plan It</h3>
-                            <span class="project-status active">ACTIVE</span>
+                    <li class="xp-item reveal" style="--i: 3">
+                        <div class="xp-when">
+                            <time datetime="2019">2019</time> — <time datetime="2021">2021</time>
                         </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                Event planning platform for Greece — browse nine categories and dozens of event types,
-                                discover curated professionals, and move from idea to outreach without spreadsheet fatigue.
-                                Bilingual (English &amp; Greek) marketing experience with a guided three-step flow.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Next.js</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">TailwindCSS</span>
-                                <span class="tech-tag">i18n</span>
-                                <span class="tech-tag">Netlify</span>
-                            </div>
+                        <div class="xp-body">
+                            <h3 class="xp-org">
+                                <a href="https://www.inteliqua.com/" target="_blank" rel="noopener noreferrer">INTELIQUA <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            </h3>
+                            <p class="xp-role">Frontend &amp; Mobile Application Developer</p>
+                            <ul class="xp-points">
+                                <li>Contributed to the QivosCloud Platform and maintained a suite of hybrid mobile applications</li>
+                                <li>Migrated legacy apps from Ionic 3 to Ionic 5+ for continued deployment support</li>
+                                <li>Upgraded the web platform from AngularJS to modern Angular</li>
+                                <li>Ensured consistent app performance across platforms</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>Angular</li><li>Ionic</li><li>Capacitor</li><li>JavaScript</li><li>Jasmine</li><li>Karma</li><li>Nightwatch</li>
+                            </ul>
                         </div>
-                        <div class="project-footer">
-                            <a href="https://justplanitofficial.netlify.app/en" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
-                        </div>
-                    </article>
+                    </li>
 
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">Dep Up Surgeon</h3>
-                            <span class="project-status active">ACTIVE</span>
+                    <li class="xp-item reveal" style="--i: 4">
+                        <div class="xp-when">
+                            <time datetime="2015">2015</time> — <time datetime="2019">2019</time>
                         </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                Production-oriented CLI that upgrades npm dependencies with install + validation after each bump and rolls back on failure. Framework-agnostic; supports npm, pnpm, and yarn—including workspaces and monorepos.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">CLI</span>
-                                <span class="tech-tag">npm</span>
-                            </div>
+                        <div class="xp-body">
+                            <h3 class="xp-org">
+                                <a href="https://studyingreece.edu.gr/" target="_blank" rel="noopener noreferrer">Study in Greece (NGO) <svg class="icon icon-xs" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                            </h3>
+                            <p class="xp-role">Web Application Developer</p>
+                            <ul class="xp-points">
+                                <li>Developed and maintained the official web portal for international students in Greece</li>
+                                <li>Built the platform for showcasing Bachelor's &amp; Master's programs</li>
+                                <li>Organized and supported educational events for international students</li>
+                                <li>Maintained the main website and led content updates</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>HTML5</li><li>CSS3</li><li>WordPress</li><li>JavaScript</li><li>Bootstrap</li><li>Node.js</li>
+                            </ul>
                         </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/alexlibe95/dep-up-surgeon" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-                            <a href="https://dep-up-surgeon.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
-                        </div>
-                    </article>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                    <article class="project">
-                        <div class="project-header">
-                            <h3 class="project-title">SquashMate</h3>
-                            <span class="project-status active">ACTIVE</span>
-                        </div>
-                        <div class="project-body">
-                            <p class="project-description">
-                                Linux desktop helper for AppImage and <code>.deb</code> installs: guided flows, launchers, wrappers, tidy uninstalls, and clear logs—without living in the terminal.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">PyQt5</span>
-                                <span class="tech-tag">Shell</span>
-                                <span class="tech-tag">Linux</span>
-                            </div>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/alexlibe95/SquashMate" target="_blank" rel="noopener noreferrer" class="project-link">View Code</a>
-                            <a href="https://squash-mate.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">Visit</a>
-                        </div>
-                    </article>
+        <!-- Skills -->
+        <section id="skills" class="section" aria-labelledby="skills-heading">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow">03 / Skills</p>
+                    <h2 id="skills-heading" class="section-title">What I work with</h2>
+                    <p class="section-lede">A MEAN‑stack core with React and Next.js on the side, hybrid mobile, and the cloud plumbing that keeps it all running.</p>
+                </header>
 
+                <div class="skill-grid">
+                    <section class="skill-group reveal" style="--i: 0" aria-labelledby="skill-core">
+                        <h3 id="skill-core" class="skill-label"><span class="skill-index">core</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>JavaScript</li><li>TypeScript</li><li>Angular</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Next.js</li><li>React</li><li>Ionic</li><li>Capacitor</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal" style="--i: 1" aria-labelledby="skill-ui">
+                        <h3 id="skill-ui" class="skill-label"><span class="skill-index">ui</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>Tailwind CSS</li><li>Bootstrap</li><li>PrimeFaces</li><li>shadcn/ui</li><li>Figma</li><li>Balsamiq</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal" style="--i: 2" aria-labelledby="skill-mobile">
+                        <h3 id="skill-mobile" class="skill-label"><span class="skill-index">mobile</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>Ionic hybrid apps</li><li>Google Play</li><li>App Store</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal" style="--i: 3" aria-labelledby="skill-testing">
+                        <h3 id="skill-testing" class="skill-label"><span class="skill-index">testing</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>Jasmine</li><li>Karma</li><li>Nightwatch</li><li>Vitest</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal" style="--i: 4" aria-labelledby="skill-cloud">
+                        <h3 id="skill-cloud" class="skill-label"><span class="skill-index">cloud</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>AWS</li><li>Redis</li><li>Docker</li><li>Firebase</li><li>Cloud Functions</li><li>Realtime databases</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal" style="--i: 5" aria-labelledby="skill-tools">
+                        <h3 id="skill-tools" class="skill-label"><span class="skill-index">tools</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>Git</li><li>GitHub</li><li>Jira</li><li>REST APIs</li><li>Responsive design</li>
+                        </ul>
+                    </section>
+                    <section class="skill-group reveal skill-group-wide" style="--i: 6" aria-labelledby="skill-strengths">
+                        <h3 id="skill-strengths" class="skill-label"><span class="skill-index">strengths</span></h3>
+                        <ul class="chips chips-lg">
+                            <li>Communication</li><li>Attention to detail</li><li>Clean code</li><li>Ownership</li><li>Continuous learning</li>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </section>
 
-
+        <!-- Contact -->
+        <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="contact-card card spot reveal">
+                    <p class="eyebrow">04 / Contact</p>
+                    <h2 id="contact-heading" class="contact-title">Have something to <em class="serif">build</em>?</h2>
+                    <p class="contact-lede">Open to interesting fullstack work — from AI systems to full products. Say hello and let's talk it through.</p>
+                    <div class="contact-actions">
+                        <a href="mailto:alexlibe95@gmail.com" class="btn btn-primary btn-lg">
+                            Email me
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                        </a>
+                        <div class="email-copy">
+                            <code class="email-address">alexlibe95@gmail.com</code>
+                            <button type="button" class="icon-btn icon-btn-sm" data-copy="alexlibe95@gmail.com" aria-label="Copy email address">
+                                <svg class="icon icon-copy" aria-hidden="true"><use href="#i-copy"/></svg>
+                                <svg class="icon icon-check" aria-hidden="true"><use href="#i-check"/></svg>
+                            </button>
+                            <span class="copy-feedback" role="status" aria-live="polite"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-contact">
-                <p class="footer-contact-label">$ cat contact.txt</p>
-                <p class="footer-contact-copy">Open to interesting fullstack work — say hello.</p>
-                <a href="mailto:alexlibe95@gmail.com" class="cta-btn footer-cta">Email me</a>
-                <div class="footer-links">
-                    <a href="mailto:alexlibe95@gmail.com" class="footer-link">alexlibe95@gmail.com</a>
-                    <span class="footer-sep">•</span>
-                    <a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-                    <span class="footer-sep">•</span>
-                    <a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-                    <span class="footer-sep">•</span>
-                    <a href="https://cursor.com/@alexlymperopoulos" target="_blank" rel="noopener noreferrer" class="footer-link">Cursor</a>
-                </div>
-            </div>
-            <div class="footer-container">
-                <p class="footer-text">© <span id="footer-year">2026</span> Alex Lymperopoulos</p>
-            </div>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-text">© <span id="footer-year">2026</span> Alex Lymperopoulos</p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/alexlibe95" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/alex-lymperopoulos/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://cursor.com/@alexlymperopoulos" target="_blank" rel="noopener noreferrer">Cursor</a></li>
+                <li><a href="https://entelxcore.com/" target="_blank" rel="noopener noreferrer">EntelXCore</a></li>
+            </ul>
+            <p class="footer-text footer-note">Plain HTML, CSS &amp; JS — no frameworks. <a href="#home" class="footer-top">Back to top ↑</a></p>
         </div>
     </footer>
 

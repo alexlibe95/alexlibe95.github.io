@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Page not found | Alex Lymperopoulos</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0b">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f5">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+      .nf { min-height: 100dvh; display: grid; place-items: center; padding: var(--gutter); }
+      .nf-card { max-width: 34rem; text-align: center; padding: clamp(2rem, 6vw, 3.5rem); }
+      .nf-code { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.12em; color: var(--accent-text); margin-bottom: 0.9rem; }
+      .nf-title { font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; text-wrap: balance; }
+      .nf-lede { color: var(--text-2); margin-bottom: 1.75rem; text-wrap: pretty; }
+      .nf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+    </style>
+</head>
+<body>
+    <div class="bg" aria-hidden="true"></div>
+    <main class="nf">
+        <div class="card nf-card">
+            <p class="nf-code">404 / NOT FOUND</p>
+            <h1 class="nf-title">That page doesn't exist.</h1>
+            <p class="nf-lede">The link may be outdated, or the address was mistyped. Everything lives on the home page.</p>
+            <div class="nf-actions">
+                <a href="/" class="btn btn-primary">Back to home</a>
+                <a href="/#projects" class="btn btn-ghost">See projects</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

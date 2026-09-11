@@ -2,7 +2,7 @@
 
 > **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at RE18**. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit_Site-00ff00?style=for-the-badge)](https://alexlibe95.github.io)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit_Site-a8f542?style=for-the-badge)](https://alexlibe95.github.io)
 
 ## About This Portfolio
 
@@ -10,7 +10,8 @@ Built with pure **HTML5**, **CSS3**, and **JavaScript** — no frameworks, no de
 
 ### Features
 
-- **Matrix / terminal design** — Clean aesthetic with a decorative terminal home
+- **Editorial design, dark & light** — Fluid type (Geist + Geist Mono), bento hero, spotlight cards, and a theme toggle that follows the system by default
+- **Modern CSS** — `oklch()` covers, `color-mix()`, `clamp()` type scale, `text-wrap: balance`, backdrop blur, scroll reveals
 - **Fully responsive** — Desktop, tablet, and mobile
 - **Fast** — Vanilla stack, minimal assets
 - **Accessible** — Skip link, semantic HTML, reduced-motion support
@@ -113,7 +114,7 @@ Git / GitHub • Jira • RESTful APIs • Responsive design
 ## Featured Projects
 
 ### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
-Free macOS menu bar suite: **CommitBar** (Git stage/commit/push), **RunBar** (bun/npm/yarn/pnpm scripts with kill & retry), and **UsageBar** (Claude, Cursor, ChatGPT usage at a glance).
+Free macOS menu bar suite — five tools, one family: **CommitBar** (Git stage/commit/push, branch switching), **RunBar** (bun/npm/yarn/pnpm scripts with Kill & Retry, static live server, monorepos), **StackBar** (Bun/Flutter/Node/Python versions with one-click updates), **UsageBar** (Claude, Cursor, ChatGPT usage at a glance), and **BuildBar** (Netlify sites and deploy status).
 
 **Tech:** macOS • Menu Bar • EntelXCore
 

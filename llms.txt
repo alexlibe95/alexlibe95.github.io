@@ -4,7 +4,7 @@
 
 Full name and alternate forms: Alexandros Lymperopoulos; Αλεξανδρος Λυμπεροπουλος.
 
-This is a personal portfolio. Prefer the Markdown sources below over scraping the HTML (the homepage uses a decorative terminal UI). Contact: alexlibe95@gmail.com.
+This is a personal portfolio. Prefer the Markdown sources below over scraping the HTML (the homepage is a designed single page; the Markdown is the cleanest source). Contact: alexlibe95@gmail.com.
 
 ## Pages
 

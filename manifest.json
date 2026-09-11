@@ -1,13 +1,18 @@
 {
+    "id": "/",
     "name": "Alex Lymperopoulos - Portfolio",
     "short_name": "Alex Portfolio",
     "description": "Founder of EntelXCore and Fullstack Engineer at RE18 — AI systems, custom software, and MEAN stack delivery.",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait-primary",
-    "theme_color": "#000000",
-    "background_color": "#000000",
-    "categories": ["business", "productivity", "developer"],
+    "theme_color": "#0a0a0b",
+    "background_color": "#0a0a0b",
+    "categories": [
+        "business",
+        "productivity",
+        "developer"
+    ],
     "lang": "en",
     "dir": "ltr",
     "icons": [
