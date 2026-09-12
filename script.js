@@ -226,13 +226,12 @@
 
     /* ------------------------------------------------------------------
        Background grid pulses
-       Every few seconds a pulse starts in a random square and spreads
-       outward: each square border it reaches lights up, holds briefly,
-       then fades on its own. Borders light in order of distance, so the
-       fade follows outward too, and the middle starts fading while the
-       edges are still lighting. Each border also gets a small random
-       delay, and outer borders glow less, so the lit area has soft,
-       uneven edges.
+       Every few seconds a pulse fires from a random grid intersection:
+       a few sparks of light leave it along the square borders, each with
+       a bright head, a fading trail and a flash at every crossing. Sparks
+       run at slightly different speeds and turn at random intersections,
+       so the light moves through the grid on uneven paths rather than
+       spreading as one shape, and each spark dims as it travels.
        Drawn on a canvas over the CSS grid with the same cell size, offset
        and mask, so the grid itself still renders without JavaScript.
        ------------------------------------------------------------------ */
@@ -243,13 +242,18 @@
         if (!bg || !ctx) return;
 
         const CELL = 56; // must match .bg::after background-size
-        const SPEED = 260; // px per second the pulse spreads
-        const JITTER_MS = 140; // up to this much extra delay before a border lights
-        const RISE_MS = 180; // how quickly a reached border lights up
-        const HOLD_MS = 200; // each border stays fully lit this long
-        const FADE_MS = 900; // then fades out on its own
-        const GAP_MS = [1200, 3200]; // pause before the next pulse
+        const SPEED = 240; // px per second along the lines
+        const HEAD = 14; // px of glow ahead of each spark
+        const TRAIL = 130; // px of fading trail behind it
+        const TURN_CHANCE = 0.35; // chance a spark turns at an intersection
+        const GAP_MS = [1400, 3600]; // pause before the next pulse
         const MAX_PULSES = 3;
+        const DIRECTIONS = [
+            [1, 0],
+            [0, 1],
+            [-1, 0],
+            [0, -1],
+        ];
 
         let width = 0;
         let height = 0;
@@ -269,7 +273,7 @@
             return t * t * (3 - 2 * t);
         }
 
-        // Stable pseudo-random value in [0, 1) per border, so each pulse lights unevenly.
+        // Stable pseudo-random value in [0, 1) per border, so a spark's brightness varies a little along its path.
         function noise(a, b, seed) {
             let h = Math.imul(a, 374761393) ^ Math.imul(b, 668265263) ^ Math.imul(seed, 1103515245);
             h = Math.imul(h ^ (h >>> 13), 1274126177);
@@ -295,43 +299,64 @@
             originX = ((((width - CELL) / 2) % CELL) + CELL) % CELL;
         }
 
+        // A spark's route: a run of whole borders from the origin, turning left or right now and then, never back.
+        function makeSpark(ox, oy, direction, delay) {
+            const borders = 4 + Math.floor(Math.random() * 6);
+            const points = [[ox, oy]];
+            let [dx, dy] = DIRECTIONS[direction];
+            let x = ox;
+            let y = oy;
+            for (let i = 0; i < borders; i++) {
+                if (i > 0 && Math.random() < TURN_CHANCE) {
+                    [dx, dy] = Math.random() < 0.5 ? [dy, -dx] : [-dy, dx];
+                }
+                x += dx * CELL;
+                y += dy * CELL;
+                points.push([x, y]);
+            }
+            return {
+                points,
+                length: borders * CELL,
+                delay,
+                speed: SPEED * (0.85 + Math.random() * 0.3),
+                seed: (Math.random() * 2147483647) | 0,
+            };
+        }
+
         function spawn() {
             const styles = getComputedStyle(root);
             const rgb = styles.getPropertyValue('--pulse-rgb').trim() || '168, 245, 66';
             const strength = parseFloat(styles.getPropertyValue('--pulse-strength')) || 0.55;
 
-            // Try random squares, keeping one with odds matching how visible the faded grid is there.
-            for (let attempt = 0; attempt < 24; attempt++) {
-                const x0 = originX + Math.floor((Math.random() * width - originX) / CELL) * CELL;
-                const y0 = (1 + Math.floor((Math.random() * height * 0.55) / CELL)) * CELL;
-                const cx = x0 + CELL / 2;
-                const cy = y0 + CELL / 2;
-                if (x0 < 0 || x0 + CELL > width || Math.random() > gridVisibility(cx, cy)) continue;
-                // Don't start on top of a patch that is still lit.
-                if (pulses.some((p) => Math.hypot(p.cx - cx, p.cy - cy) < p.reach + CELL * 2)) continue;
-                pulses.push({
-                    x0,
-                    y0,
-                    cx,
-                    cy,
-                    rgb,
-                    strength,
-                    start: performance.now(),
-                    reach: CELL * (2.5 + Math.random() * 2),
-                    seed: (Math.random() * 2147483647) | 0,
-                });
+            // Pick an intersection, favouring places where the faded grid is actually visible.
+            for (let attempt = 0; attempt < 20; attempt++) {
+                const ox = originX + Math.round((Math.random() * width - originX) / CELL) * CELL;
+                const oy = Math.max(1, Math.round((Math.random() * height * 0.6) / CELL)) * CELL;
+                if (ox < 0 || ox > width || Math.random() > gridVisibility(ox, oy)) continue;
+
+                // 3 to 5 sparks, leaving in different directions first, a moment apart.
+                const order = [0, 1, 2, 3];
+                for (let i = order.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [order[i], order[j]] = [order[j], order[i]];
+                }
+                const count = 3 + Math.floor(Math.random() * 3);
+                const sparks = [];
+                for (let i = 0; i < count; i++) {
+                    sparks.push(makeSpark(ox, oy, order[i % 4], i * 90 + Math.random() * 120));
+                }
+                pulses.push({ ox, oy, rgb, strength, sparks, start: performance.now() });
                 if (!rafId) rafId = requestAnimationFrame(frame);
                 return;
             }
         }
 
-        // One square border: a soft glow plus a crisp core exactly on the 1px grid line.
-        function strokeBorder(x1, y1, x2, y2, rgb, alpha) {
-            if (alpha < 0.004) return;
-            ctx.strokeStyle = `rgba(${rgb}, ${alpha.toFixed(3)})`;
+        // A soft glow plus a crisp core exactly on the 1px grid line.
+        function strokeGlow(x1, y1, x2, y2, style) {
+            ctx.strokeStyle = style;
             ctx.beginPath();
-            ctx.moveTo(x1 + 0.5, y1 + 0.5);
-            ctx.lineTo(x2 + 0.5, y2 + 0.5);
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
             ctx.globalAlpha = 0.3;
             ctx.lineWidth = 4;
             ctx.stroke();
@@ -340,45 +365,79 @@
             ctx.stroke();
         }
 
-        // Brightness of one border at this moment. `a`, `b` and `axis` identify it for the per-border randomness.
-        function borderAlpha(p, x1, y1, x2, y2, elapsed, a, b, axis) {
-            const dist = Math.hypot((x1 + x2) / 2 - p.cx, (y1 + y2) / 2 - p.cy);
-            if (dist > p.reach) return 0;
-            const onAt = (dist / SPEED) * 1000 + noise(a, b, p.seed + axis) * JITTER_MS;
-            const lit = smoothstep(onAt, onAt + RISE_MS, elapsed);
-            if (lit <= 0) return 0;
-            const fadeFrom = onAt + RISE_MS + HOLD_MS;
-            const remaining = 1 - smoothstep(fadeFrom, fadeFrom + FADE_MS, elapsed);
-            if (remaining <= 0) return 0;
-            const settle = 0.85 + 0.15 * (1 - smoothstep(onAt + RISE_MS, onAt + RISE_MS + 400, elapsed)); // slight brightness as it turns on
-            const falloff = 1 - smoothstep(p.reach * 0.35, p.reach, dist); // outer borders glow less
-            const variance = 0.55 + 0.45 * noise(b, a, p.seed ^ (axis + 0x5bd1e995));
-            return p.strength * lit * remaining * settle * falloff * variance;
+        // Lights the part of one border inside a spark's moving band [head - TRAIL, head + HEAD].
+        // (x0, y0) is where the spark enters the border, (ux, uy) its direction of travel,
+        // and `at` how far along its route that entry point is.
+        function drawBorder(x0, y0, ux, uy, at, head, end, alpha, rgb) {
+            const from = Math.max(at, head - TRAIL);
+            const to = Math.min(at + CELL, head + HEAD, end);
+            if (to <= from || alpha < 0.004) return;
+
+            const gradient = ctx.createLinearGradient(
+                x0 + ux * (head - TRAIL - at),
+                y0 + uy * (head - TRAIL - at),
+                x0 + ux * (head + HEAD - at),
+                y0 + uy * (head + HEAD - at),
+            );
+            const peak = TRAIL / (TRAIL + HEAD);
+            gradient.addColorStop(0, `rgba(${rgb}, 0)`);
+            gradient.addColorStop(peak * 0.6, `rgba(${rgb}, ${(alpha * 0.2).toFixed(3)})`);
+            gradient.addColorStop(peak, `rgba(${rgb}, ${alpha.toFixed(3)})`);
+            gradient.addColorStop(1, `rgba(${rgb}, 0)`);
+            strokeGlow(x0 + ux * (from - at), y0 + uy * (from - at), x0 + ux * (to - at), y0 + uy * (to - at), gradient);
+        }
+
+        // A small bright dot on a grid intersection.
+        function flash(x, y, rgb, alpha) {
+            if (alpha < 0.004) return;
+            ctx.fillStyle = `rgba(${rgb}, ${alpha.toFixed(3)})`;
+            ctx.fillRect(x - 1, y - 1, 3, 3);
+        }
+
+        // Returns false once the spark has run its whole route.
+        function drawSpark(p, spark, elapsed) {
+            const t = elapsed - spark.delay;
+            if (t <= 0) return true;
+            const head = (t / 1000) * spark.speed;
+            if (head >= spark.length) return false;
+
+            // Quick fade-in, then dim steadily as it travels.
+            const alpha = p.strength * Math.min(1, t / 160) * (1 - smoothstep(spark.length * 0.3, spark.length, head));
+
+            for (let k = 0; k < spark.points.length - 1; k++) {
+                const at = k * CELL;
+                if (at > head + HEAD) break;
+                if (at + CELL < head - TRAIL) continue;
+                const [ax, ay] = spark.points[k];
+                const [bx, by] = spark.points[k + 1];
+                const variance = 0.6 + 0.4 * noise(k, 0, spark.seed);
+                drawBorder(ax + 0.5, ay + 0.5, (bx - ax) / CELL, (by - ay) / CELL, at, head, spark.length, alpha * variance, p.rgb);
+            }
+
+            // Intersections flash as the spark passes through them.
+            for (let k = 1; k < spark.points.length; k++) {
+                const d = Math.abs(head - k * CELL);
+                if (d <= 20) flash(spark.points[k][0], spark.points[k][1], p.rgb, alpha * (1 - d / 20) ** 2);
+            }
+            return true;
         }
 
         function drawPulse(p, now) {
             const elapsed = Math.max(0, now - p.start);
-            // The farthest border lights last; the pulse is over once that one has faded.
-            const end = (p.reach / SPEED) * 1000 + JITTER_MS + RISE_MS + HOLD_MS + FADE_MS;
-            if (elapsed >= end) return false;
-
-            const n = Math.ceil(p.reach / CELL);
-
-            for (let b = -n; b <= n + 1; b++) {
-                const y = p.y0 + b * CELL;
-                for (let a = -n; a <= n; a++) {
-                    const x = p.x0 + a * CELL;
-                    strokeBorder(x, y, x + CELL, y, p.rgb, borderAlpha(p, x, y, x + CELL, y, elapsed, a, b, 0));
-                }
+            let alive = false;
+            for (const spark of p.sparks) {
+                if (drawSpark(p, spark, elapsed)) alive = true;
             }
-            for (let a = -n; a <= n + 1; a++) {
-                const x = p.x0 + a * CELL;
-                for (let b = -n; b <= n; b++) {
-                    const y = p.y0 + b * CELL;
-                    strokeBorder(x, y, x, y + CELL, p.rgb, borderAlpha(p, x, y, x, y + CELL, elapsed, a, b, 1));
-                }
+
+            // A soft spark where the pulse fires.
+            const glow = 1 - elapsed / 700;
+            if (glow > 0) {
+                ctx.fillStyle = `rgba(${p.rgb}, ${(p.strength * glow * 0.35).toFixed(3)})`;
+                ctx.beginPath();
+                ctx.arc(p.ox + 0.5, p.oy + 0.5, 3 + (1 - glow) * 6, 0, Math.PI * 2);
+                ctx.fill();
             }
-            return true;
+            return alive || glow > 0;
         }
 
         function frame(now) {
