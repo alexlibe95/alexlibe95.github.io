@@ -65,6 +65,8 @@
     /* Background decoration */
     --glow: rgba(168, 245, 66, 0.14);
     --grid: rgba(255, 255, 255, 0.045);
+    --pulse-rgb: 168, 245, 66;
+    --pulse-strength: 0.55;
 
     /* Project covers (oklch lightness / chroma per theme) */
     --cover-l1: 0.28;
@@ -121,6 +123,8 @@
     --accent-glow: rgba(120, 190, 30, 0.28);
     --glow: rgba(150, 220, 60, 0.22);
     --grid: rgba(0, 0, 0, 0.05);
+    --pulse-rgb: 52, 112, 8;
+    --pulse-strength: 0.85;
     --cover-l1: 0.96;
     --cover-l2: 0.9;
     --cover-c: 0.04;
@@ -151,6 +155,8 @@
         --accent-glow: rgba(120, 190, 30, 0.28);
         --glow: rgba(150, 220, 60, 0.22);
         --grid: rgba(0, 0, 0, 0.05);
+        --pulse-rgb: 52, 112, 8;
+        --pulse-strength: 0.85;
         --cover-l1: 0.96;
         --cover-l2: 0.9;
         --cover-c: 0.04;
@@ -283,6 +289,7 @@ code {
 
 /* Background decoration: soft accent glow + fading grid */
 .bg {
+    --grid-mask: radial-gradient(ellipse 90% 70% at 50% 0%, #000 10%, transparent 70%);
     position: fixed;
     inset: 0;
     z-index: -1;
@@ -300,8 +307,21 @@ code {
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
     background-size: 56px 56px;
     background-position: center top;
-    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 10%, transparent 70%);
-    mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 10%, transparent 70%);
+    -webkit-mask-image: var(--grid-mask);
+    mask-image: var(--grid-mask);
+}
+
+/* Pulses travelling along the grid lines, drawn by script.js.
+   Same box and mask as the grid above, painted on top of it. */
+.bg-pulse {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: var(--grid-mask);
+    mask-image: var(--grid-mask);
 }
 
 /* --------------------------------------------------------------------------
@@ -1865,6 +1885,10 @@ html.js .reveal.is-visible {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    .bg-pulse {
+        display: none;
     }
 
     html.js .rise,
