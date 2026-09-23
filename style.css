@@ -1341,7 +1341,8 @@ html.js .reveal.is-visible {
 .mock-play,
 .mock-ring,
 .mock-stack,
-.mock-build {
+.mock-build,
+.mock-pump {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -1360,6 +1361,15 @@ html.js .reveal.is-visible {
     border-radius: 50%;
     background: #4da3ff;
     box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.25);
+}
+
+/* PumpBar pumps versions up */
+.mock-pump {
+    width: 0;
+    height: 0;
+    border-bottom: 9px solid var(--accent);
+    border-left: 5.5px solid transparent;
+    border-right: 5.5px solid transparent;
 }
 
 .mock-dot {

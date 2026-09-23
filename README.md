@@ -114,7 +114,7 @@ Git / GitHub • Jira • RESTful APIs • Responsive design
 ## Featured Projects
 
 ### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
-Free macOS menu bar suite — five tools, one family: **CommitBar** (Git stage/commit/push, branch switching), **RunBar** (bun/npm/yarn/pnpm scripts with Kill & Retry, static live server, monorepos), **StackBar** (Bun/Flutter/Node/Python versions with one-click updates), **UsageBar** (Claude, Cursor, ChatGPT usage at a glance), and **BuildBar** (Netlify sites and deploy status).
+Free macOS menu bar suite — six tools, one family: **CommitBar** (Git stage/commit/push, branch switching), **RunBar** (bun/npm/yarn/pnpm scripts with Kill & Retry, several commands per project, monorepos), **StackBar** (Bun/Flutter/Node/Python versions with one-click updates), **UsageBar** (Claude, Cursor, ChatGPT usage at a glance), **BuildBar** (Netlify sites and deploy status), and **PumpBar** (scheduled, validated dependency upgrades for npm and Flutter projects, powered by Dep Up Surgeon).
 
 **Tech:** macOS • Menu Bar • EntelXCore
 

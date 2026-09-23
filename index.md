@@ -87,9 +87,9 @@ Developed and maintained the official web portal for international students in G
 
 ### [EntelXCore Free Tools](https://entelxcore.com/free-tools)
 
-Free macOS menu bar suite from EntelXCore — five tools, one family: CommitBar for Git commits and push, RunBar for bun/npm/yarn/pnpm scripts and custom commands with Kill & Retry, StackBar for Bun, Flutter, Node, and Python versions with one-click updates, UsageBar for Claude, Cursor, and ChatGPT usage at a glance, and BuildBar for Netlify sites and deploy status — free for personal and public use.
+Free macOS menu bar suite from EntelXCore — six tools, one family: CommitBar for Git commits and push, RunBar for bun/npm/yarn/pnpm scripts and custom commands with Kill & Retry, StackBar for Bun, Flutter, Node, and Python versions with one-click updates, UsageBar for Claude, Cursor, and ChatGPT usage at a glance, BuildBar for Netlify sites and deploy status, and PumpBar for scheduled, validated dependency upgrades across npm and Flutter projects — free for personal and public use.
 
-**Tech:** macOS, menu bar, CommitBar, RunBar, StackBar, UsageBar, BuildBar, EntelXCore
+**Tech:** macOS, menu bar, CommitBar, RunBar, StackBar, UsageBar, BuildBar, PumpBar, EntelXCore
 
 ### [PeakLog](https://peaklog-official.netlify.app/)
 
