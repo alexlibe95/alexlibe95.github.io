@@ -1246,13 +1246,18 @@ html.js .reveal.is-visible {
 }
 
 .project-links {
-    position: relative;
-    z-index: 2;
     display: flex;
     align-items: center;
     gap: 1.1rem;
     margin-top: auto;
     padding-top: 0.5rem;
+}
+
+/* Only real links (e.g. Source) sit above the overlay. The "Visit" labels are
+   plain text, so clicks on them fall through to the card link. */
+.project-links a {
+    position: relative;
+    z-index: 2;
 }
 
 .project-desc {
@@ -1276,6 +1281,23 @@ html.js .reveal.is-visible {
     .project.wide .project-cover {
         aspect-ratio: 16 / 9;
         min-height: 0;
+    }
+}
+
+/* Two columns: an odd last card would sit next to an empty cell, so it
+   spans the row with a banner-height cover instead. */
+@media (min-width: 641px) and (max-width: 1000px) {
+    .project:last-child:nth-child(odd) {
+        grid-column: span 12;
+    }
+
+    .project:last-child:nth-child(odd) .project-cover {
+        aspect-ratio: auto;
+        min-height: 220px;
+    }
+
+    .project:last-child:nth-child(odd) .project-desc {
+        max-width: 60ch;
     }
 }
 
@@ -1530,7 +1552,7 @@ html.js .reveal.is-visible {
 }
 
 .mock-term {
-    width: min(92%, 320px);
+    width: min(96%, 320px);
     margin: 0;
     padding: 0.85rem 1rem;
     border-radius: 10px;
@@ -1555,6 +1577,63 @@ html.js .reveal.is-visible {
 
 .mock-err {
     color: #f4a261;
+}
+
+/* SynapLink: a digital business card and its share QR */
+.mock-bizcard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.85rem;
+    width: min(94%, 300px);
+    padding: 0.85rem 0.9rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-solid) 82%, transparent);
+    border: 1px solid var(--cover-line);
+    box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.6);
+    color: var(--cover-ink);
+}
+
+.mock-avatar {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.65rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+}
+
+.mock-bizcard-name {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.mock-bizcard-role {
+    display: block;
+    margin-top: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    color: var(--cover-ink-2);
+}
+
+/* Real QR codes are dark on light, so this one stays that way in both themes */
+.mock-qr {
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 8px;
+    background: #fff;
+    color: #0a0a0b;
+    box-shadow: 0 0 0 1px var(--cover-line);
 }
 
 /* --------------------------------------------------------------------------

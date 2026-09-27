@@ -8,6 +8,7 @@ Founder of [EntelXCore](https://entelxcore.com/) and Fullstack Engineer at [Re18
 - **LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)
 - **GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)
 - **Cursor:** [cursor.com/@alexlymperopoulos](https://cursor.com/@alexlymperopoulos)
+- **Notion:** [alexlymperopoulos.notion.site](https://alexlymperopoulos.notion.site/Alex-Lymperopoulos-2a39f31f24c881ef8276ead095cde957)
 - **Portfolio:** [alexlibe95.github.io](https://alexlibe95.github.io/)
 
 ## Current roles
@@ -91,17 +92,17 @@ Free macOS menu bar suite from EntelXCore — six tools, one family: CommitBar f
 
 **Tech:** macOS, menu bar, CommitBar, RunBar, StackBar, UsageBar, BuildBar, PumpBar, EntelXCore
 
+### [SynapLink](https://synap-link-official.netlify.app/)
+
+Digital business cards for professionals and their teams. Create a card in minutes, share it by link or vCard QR code, and save the people you meet with notes and tags. Teams get branded company cards, automatic matching by email domain, and admin approval. Works in any browser; native iOS and Android apps are on the way.
+
+**Tech:** Flutter, Firebase, Next.js, Tailwind CSS
+
 ### [PeakLog](https://peaklog-official.netlify.app/)
 
 Lightweight athlete performance and training tracker for coaches and teams. Built with Flutter and Firebase — cross-platform (web, iOS, Android) and optimized for real-world use in endurance and watersports teams.
 
 **Tech:** Flutter, Firebase, Web, iOS, Android
-
-### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
-
-Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026. Athletes, coaches, and spectators filter heats by club, athlete, race type, and day — built for and used on-site at the championship.
-
-**Tech:** Next.js, TypeScript, Tailwind CSS, Netlify
 
 ### [Just Plan It](https://justplanitofficial.netlify.app/en)
 
@@ -109,13 +110,19 @@ Event planning platform for Greece — browse nine categories and dozens of even
 
 **Tech:** Next.js, TypeScript, Tailwind CSS, i18n, Netlify
 
+### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
+
+Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026. Athletes, coaches, and spectators filter heats by club, athlete, race type, and day — built for and used on-site at the championship.
+
+**Tech:** Next.js, TypeScript, Tailwind CSS, Netlify
+
 ### [Dep Up Surgeon](https://dep-up-surgeon.netlify.app/) ([source](https://github.com/alexlibe95/dep-up-surgeon))
 
 Production-oriented CLI that upgrades npm dependencies with install and validation after each bump and rolls back on failure. Framework-agnostic; supports npm, pnpm, and yarn — including workspaces and monorepos.
 
 **Tech:** TypeScript, Node.js, CLI, npm
 
-### [SquashMate](https://squash-mate.netlify.app/) ([source](https://github.com/alexlibe95/SquashMate))
+### [SquashMate](https://github.com/alexlibe95/SquashMate)
 
 Linux desktop helper for AppImage and `.deb` installs: guided flows, launchers, wrappers, tidy uninstalls, and clear logs — without living in the terminal.
 

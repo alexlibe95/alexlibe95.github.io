@@ -118,27 +118,32 @@ Free macOS menu bar suite — six tools, one family: **CommitBar** (Git stage/co
 
 **Tech:** macOS • Menu Bar • EntelXCore
 
+### [SynapLink](https://synap-link-official.netlify.app/)
+Digital business cards for professionals and their teams — share by link or vCard QR code, save the people you meet, and give the whole team branded company cards.
+
+**Tech:** Flutter • Firebase • Next.js • TailwindCSS
+
 ### [PeakLog](https://peaklog-official.netlify.app/)
 PeakLog is a lightweight athlete performance and training tracker for coaches and teams. Built with Flutter and Firebase — cross-platform (web, iOS, Android) and optimized for real-world use in endurance and watersports teams.
 
 **Tech:** Flutter • Firebase • Web • iOS • Android
-
-### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
-Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.
-
-**Tech:** Next.js • TypeScript • TailwindCSS • Netlify
 
 ### [Just Plan It](https://justplanitofficial.netlify.app/en)
 Event planning platform for Greece — browse categories and event types, discover professionals, bilingual (EN/EL) marketing experience.
 
 **Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
 
+### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
+Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.
+
+**Tech:** Next.js • TypeScript • TailwindCSS • Netlify
+
 ### [Dep Up Surgeon](https://github.com/alexlibe95/dep-up-surgeon) | [Live](https://dep-up-surgeon.netlify.app/)
 CLI that upgrades npm dependencies with install + validation after each bump and rolls back on failure.
 
 **Tech:** TypeScript • Node.js • CLI
 
-### [SquashMate](https://github.com/alexlibe95/SquashMate) | [Live](https://squash-mate.netlify.app/)
+### [SquashMate](https://github.com/alexlibe95/SquashMate)
 Linux desktop helper for AppImage and `.deb` installs.
 
 **Tech:** Python • PyQt5 • Shell • Linux
@@ -152,7 +157,8 @@ $ cat network.cfg
 **Email:** [alexlibe95@gmail.com](mailto:alexlibe95@gmail.com)  
 **LinkedIn:** [linkedin.com/in/alex-lymperopoulos](https://www.linkedin.com/in/alex-lymperopoulos/)  
 **GitHub:** [github.com/alexlibe95](https://github.com/alexlibe95)  
-**Cursor:** [cursor.com/@alexlymperopoulos](https://cursor.com/@alexlymperopoulos)
+**Cursor:** [cursor.com/@alexlymperopoulos](https://cursor.com/@alexlymperopoulos)  
+**Notion:** [alexlymperopoulos.notion.site](https://alexlymperopoulos.notion.site/Alex-Lymperopoulos-2a39f31f24c881ef8276ead095cde957)
 
 ---
 

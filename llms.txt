@@ -18,6 +18,7 @@ This is a personal portfolio. Prefer the Markdown sources below over scraping th
 - [GitHub](https://github.com/alexlibe95): Source code and open-source work
 - [LinkedIn](https://www.linkedin.com/in/alex-lymperopoulos/): Professional profile
 - [Cursor](https://cursor.com/@alexlymperopoulos): Public Cursor profile
+- [Notion](https://alexlymperopoulos.notion.site/Alex-Lymperopoulos-2a39f31f24c881ef8276ead095cde957): Personal Notion page — bio, current projects, and links
 
 ## Optional
 
