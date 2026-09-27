@@ -1552,7 +1552,7 @@ html.js .reveal.is-visible {
 }
 
 .mock-term {
-    width: min(96%, 320px);
+    width: min(92%, 320px);
     margin: 0;
     padding: 0.85rem 1rem;
     border-radius: 10px;
@@ -1634,6 +1634,59 @@ html.js .reveal.is-visible {
     background: #fff;
     color: #0a0a0b;
     box-shadow: 0 0 0 1px var(--cover-line);
+}
+
+/* Smallest phones: a smaller QR keeps the name and role on one line each */
+@media (max-width: 360px) {
+    .mock-qr {
+        width: 48px;
+        height: 48px;
+        padding: 4px;
+    }
+}
+
+/* Loywin: a member's points balance and the next reward */
+.mock-points {
+    display: grid;
+    gap: 0.55rem;
+    width: min(92%, 280px);
+    padding: 0.9rem 1rem 1rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-solid) 82%, transparent);
+    border: 1px solid var(--cover-line);
+    box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.6);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cover-ink-2);
+}
+
+.mock-points-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.mock-points .mock-tag {
+    color: var(--accent-text);
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+    letter-spacing: 0;
+}
+
+.mock-points-value {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cover-ink);
+}
+
+.mock-points-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent) var(--p), var(--cover-line) 0);
 }
 
 /* --------------------------------------------------------------------------

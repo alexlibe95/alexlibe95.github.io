@@ -128,6 +128,11 @@ PeakLog is a lightweight athlete performance and training tracker for coaches an
 
 **Tech:** Flutter • Firebase • Web • iOS • Android
 
+### [Loywin](https://loywin-official.netlify.app/)
+Loyalty points for local shops, built by EntelXCore — members earn with a receipt code, a scan, or a photo and spend on offers and prizes; shops run the program with no cards or hardware.
+
+**Tech:** Flutter • Firebase • Next.js • TailwindCSS
+
 ### [Just Plan It](https://justplanitofficial.netlify.app/en)
 Event planning platform for Greece — browse categories and event types, discover professionals, bilingual (EN/EL) marketing experience.
 

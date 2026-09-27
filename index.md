@@ -104,6 +104,12 @@ Lightweight athlete performance and training tracker for coaches and teams. Buil
 
 **Tech:** Flutter, Firebase, Web, iOS, Android
 
+### [Loywin](https://loywin-official.netlify.app/)
+
+Loyalty points and rewards for local shops, built by EntelXCore. Members collect points with a receipt code, a scan, or a photo of the receipt, keep one balance across every shop, and spend it on shop offers and Loywin prizes — each reward waits in their wallet as a QR voucher. Shop owners publish offers priced in points, hand out single-use codes, approve receipt photos, and accept vouchers at the till, with no cards to print and no hardware to buy. Bilingual (English and Greek); works in any browser, with iOS and Android apps on the way.
+
+**Tech:** Flutter, Firebase, Next.js, Tailwind CSS
+
 ### [Just Plan It](https://justplanitofficial.netlify.app/en)
 
 Event planning platform for Greece — browse nine categories and dozens of event types, discover curated professionals, and move from idea to outreach. Bilingual (English and Greek) marketing experience with a guided three-step flow.
