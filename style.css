@@ -1484,7 +1484,8 @@ html.js .reveal.is-visible {
     color: var(--cover-ink);
 }
 
-.mock-lang {
+.mock-lang,
+.mock-seg {
     display: inline-flex;
     padding: 3px;
     border-radius: 999px;
@@ -1492,13 +1493,15 @@ html.js .reveal.is-visible {
     background: color-mix(in srgb, var(--surface-solid) 60%, transparent);
 }
 
-.mock-lang span {
+.mock-lang span,
+.mock-seg span {
     padding: 0.2rem 0.7rem;
     border-radius: 999px;
     color: var(--cover-ink-2);
 }
 
-.mock-lang .is-on {
+.mock-lang .is-on,
+.mock-seg .is-on {
     background: var(--accent);
     color: var(--accent-ink);
     font-weight: 500;
@@ -1552,7 +1555,7 @@ html.js .reveal.is-visible {
 }
 
 .mock-term {
-    width: min(92%, 320px);
+    width: min(96%, 320px);
     margin: 0;
     padding: 0.85rem 1rem;
     border-radius: 10px;
@@ -1687,6 +1690,63 @@ html.js .reveal.is-visible {
     height: 6px;
     border-radius: 999px;
     background: linear-gradient(90deg, var(--accent) var(--p), var(--cover-line) 0);
+}
+
+/* RootSwap: a plant listing and the three ways to pass it on */
+.mock-listing {
+    display: grid;
+    gap: 0.8rem;
+    width: min(92%, 280px);
+    padding: 0.85rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-solid) 82%, transparent);
+    border: 1px solid var(--cover-line);
+    box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.6);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--cover-ink-2);
+}
+
+.mock-listing .mock-seg {
+    justify-self: start;
+}
+
+.mock-listing .mock-seg span {
+    padding: 0.2rem 0.55rem;
+}
+
+.mock-listing-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mock-listing-item b {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cover-ink);
+}
+
+/* A leaf: two opposite corners rounded fully, two left sharp */
+.mock-leaf {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.mock-leaf::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 0 100%;
+    background: var(--accent);
 }
 
 /* --------------------------------------------------------------------------

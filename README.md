@@ -138,6 +138,11 @@ Event planning platform for Greece — browse categories and event types, discov
 
 **Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
 
+### [RootSwap](https://rootswap-official.netlify.app/)
+A neighborhood marketplace for plants — sell, give away, or swap plants, cuttings, seeds, and pots with people nearby, with real-time chat, offers, swap proposals, and a map view.
+
+**Tech:** Flutter • Firebase • Next.js • TailwindCSS • OpenStreetMap
+
 ### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
 Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.
 
