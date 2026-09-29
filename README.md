@@ -56,7 +56,7 @@ Founded [EntelXCore](https://entelxcore.com/) to build AI systems and custom sof
 - Leading product vision, architecture, and delivery across AI, web/mobile, and cloud
 - Partnering with clients from idea to launch and ongoing product evolution
 
-**Tech:** AI Systems • TypeScript • Node.js • Angular • React • Cloud • APIs
+**Tech:** AI Systems • TypeScript • Next.js • Angular • Cloud • Flutter • Firebase • Netlify
 
 #### **Jan 2026 – Present | Re18 - Fullstack Engineer**
 Delivering end-to-end features across frontend and backend using the full MEAN stack.
@@ -73,7 +73,7 @@ Building the next-generation data platform enabling AI-driven applications via s
 - Integrated APIs and ensured seamless data flow with backend teams
 - Created high-fidelity mockups and transformed them into production-ready interfaces
 
-**Tech:** Angular • TypeScript • Next.js • TailwindCSS • PrimeFaces • Figma • Jasmine • Karma • Nightwatch
+**Tech:** Angular • TypeScript • TailwindCSS • PrimeFaces • Figma • Jasmine • Karma • Nightwatch
 
 #### **2019 – 2021 | INTELIQUA - Frontend & Mobile Application Developer**
 Contributed to the "QivosCloud Platform" and maintained a suite of hybrid mobile applications.
@@ -94,22 +94,19 @@ Developed and maintained the official web portal for international students in G
 ## Skills Overview
 
 ### ~/skills/core/
-JavaScript / TypeScript • Angular • Node.js • Express.js • MongoDB • Next.js • React • Ionic + Capacitor
+JavaScript / TypeScript • Angular • Node.js • Express.js • MongoDB • Next.js • React • Flutter
 
 ### ~/skills/ui/
-TailwindCSS • Bootstrap • PrimeFaces • Shadcn/ui • Figma • Balsamiq
-
-### ~/skills/mobile/
-Hybrid Ionic apps • Google Play & App Store deployment
+TailwindCSS • Bootstrap • PrimeFaces • Shadcn/ui • Figma • Balsamiq • Responsive design
 
 ### ~/skills/testing/
 Jasmine + Karma • Nightwatch.js • Vitest
 
 ### ~/skills/cloud/
-AWS • Redis • Docker • Firebase • Cloud Functions • Real-time databases
+AWS • Redis • Docker • Firebase • Cloud Functions
 
 ### ~/skills/tools/
-Git / GitHub • Jira • RESTful APIs • Responsive design
+Git / GitHub • Jira • Apidog
 
 ## Featured Projects
 

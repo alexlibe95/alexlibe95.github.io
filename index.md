@@ -18,17 +18,15 @@ Founder of [EntelXCore](https://entelxcore.com/) and Fullstack Engineer at [Re18
 
 ## Skills
 
-**Core:** JavaScript, TypeScript, Angular, Node.js, Express, MongoDB, Next.js, React, Ionic, Capacitor
+**Core:** JavaScript, TypeScript, Angular, Node.js, Express, MongoDB, Next.js, React, Flutter
 
-**UI:** Tailwind CSS, Bootstrap, PrimeFaces, shadcn/ui, Figma, Balsamiq
-
-**Mobile:** Ionic hybrid apps, Google Play, App Store
+**UI:** Tailwind CSS, Bootstrap, PrimeFaces, shadcn/ui, Figma, Balsamiq, responsive design
 
 **Testing:** Jasmine, Karma, Nightwatch, Vitest
 
-**Cloud:** AWS, Redis, Docker, Firebase, Cloud Functions, realtime databases
+**Cloud:** AWS, Redis, Docker, Firebase, Cloud Functions
 
-**Tools:** Git, GitHub, Jira, REST APIs, responsive design
+**Tools:** Git, GitHub, Jira, Apidog
 
 **Strengths:** Communication, attention to detail, clean code, ownership, continuous learning
 
@@ -41,7 +39,7 @@ Founded [EntelXCore](https://entelxcore.com/) to build AI systems and custom sof
 - Leading product vision, architecture, and delivery across AI assistants, web/mobile apps, and cloud platforms
 - Partnering with clients from idea to launch — and continuing to evolve products after ship
 
-**Tech:** AI Systems, TypeScript, Node.js, Angular, React, Cloud, APIs, Product Design
+**Tech:** AI Systems, TypeScript, Next.js, Angular, Cloud, Flutter, Firebase, Netlify, Product Design
 
 ### Re18 — Fullstack Engineer (Jan 2026 – Present)
 
@@ -51,7 +49,7 @@ Delivering end-to-end features across frontend and backend using the full MEAN s
 - Collaborating with cross-functional teams and owning features from planning to production
 - Applying clean-code standards and a get-things-done mindset in daily delivery
 
-**Tech:** Angular, Node.js, Express, MongoDB, TypeScript, AWS, Redis, Docker, Bootstrap, Jira, GitHub, Figma
+**Tech:** Angular, Node.js, Express, MongoDB, TypeScript, AWS, Redis, Docker, Jira
 
 ### RAW Labs — Frontend Developer (2021 – 2025)
 
@@ -62,7 +60,7 @@ Building the next-generation data platform enabling AI-driven applications via s
 - Integrated APIs and ensured seamless data flow with backend teams
 - Created high-fidelity mockups and transformed them into production-ready interfaces
 
-**Tech:** Angular, TypeScript, Next.js, Tailwind CSS, PrimeFaces, Figma, Balsamiq, Jasmine, Karma, Nightwatch
+**Tech:** Angular, TypeScript, Tailwind CSS, PrimeFaces, Figma, Balsamiq, Jasmine, Karma, Nightwatch
 
 ### INTELIQUA — Frontend & Mobile Application Developer (2019 – 2021)
 
