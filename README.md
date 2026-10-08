@@ -135,7 +135,7 @@ Event planning platform for Greece — browse categories and event types, discov
 
 **Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
 
-### [RootSwap](https://rootswap-official.netlify.app/)
+### [RootSwap](https://rootswap.gr/)
 A neighborhood marketplace for plants — sell, give away, or swap plants, cuttings, seeds, and pots with people nearby, with real-time chat, offers, swap proposals, and a map view.
 
 **Tech:** Flutter • Firebase • Next.js • TailwindCSS • OpenStreetMap

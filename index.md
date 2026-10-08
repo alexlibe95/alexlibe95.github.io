@@ -114,7 +114,7 @@ Event planning platform for Greece — browse nine categories and dozens of even
 
 **Tech:** Next.js, TypeScript, Tailwind CSS, i18n, Netlify
 
-### [RootSwap](https://rootswap-official.netlify.app/)
+### [RootSwap](https://rootswap.gr/)
 
 A neighborhood marketplace and community for plants. Members sell, give away, or swap plants, cuttings, seeds, and pots with people nearby: snap and list in a minute, agree in real-time chat with price offers and swap proposals, then meet and hand over. Natural-language search in English or Greek ("free monstera near me"), list or map browsing, private and business profiles for nurseries and plant shops, and member reviews. Privacy by design: listings show only an approximate area, and photos are stripped of GPS and camera data before upload. Works in any browser, with iOS and Android apps on the way.
 
