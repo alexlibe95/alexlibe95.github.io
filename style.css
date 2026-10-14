@@ -1749,6 +1749,76 @@ html.js .reveal.is-visible {
     background: var(--accent);
 }
 
+/* SubLog: the monthly total and the subscriptions behind it */
+.mock-subs {
+    display: grid;
+    gap: 0.55rem;
+    width: min(92%, 280px);
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-solid) 82%, transparent);
+    border: 1px solid var(--cover-line);
+    box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.6);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--cover-ink-2);
+}
+
+.mock-subs-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--cover-line);
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.mock-subs-head b {
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--cover-ink);
+}
+
+.mock-sub {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.mock-sub i {
+    display: grid;
+    place-items: center;
+    height: 22px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    color: var(--accent-text);
+    font-style: normal;
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.mock-sub span:nth-child(2) {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--cover-ink);
+}
+
+.mock-sub .mock-tag {
+    color: var(--accent-text);
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+/* Smallest phones: two rows keep the card inside its cover */
+@media (max-width: 360px) {
+    .mock-sub:last-child {
+        display: none;
+    }
+}
+
 /* --------------------------------------------------------------------------
    8. Experience
    -------------------------------------------------------------------------- */

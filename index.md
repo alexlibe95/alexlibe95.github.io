@@ -126,6 +126,12 @@ Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026
 
 **Tech:** Next.js, TypeScript, Tailwind CSS, Netlify
 
+### [SubLog](https://sublogapp.web.app/)
+
+Every subscription and recurring bill in one calm overview — Spotify, car insurance, rent, the gym. Supports any billing cycle and shows what it all really costs per week, month, or year, what's due in the next 30 days, and insights by category and as a share of monthly income. Synced across devices.
+
+**Tech:** Flutter, Firebase
+
 ### [Dep Up Surgeon](https://dep-up-surgeon.netlify.app/) ([source](https://github.com/alexlibe95/dep-up-surgeon))
 
 Production-oriented CLI that upgrades npm dependencies with install and validation after each bump and rolls back on failure. Framework-agnostic; supports npm, pnpm, and yarn — including workspaces and monorepos.
