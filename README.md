@@ -1,6 +1,6 @@
 # Alex Lymperopoulos - Portfolio
 
-> **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at Re18**. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
+> **Founder of [EntelXCore](https://entelxcore.com/)** and **Fullstack Engineer at Re18**. 8+ years building AI-powered web and mobile products, from idea to launch.
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visit_Site-a8f542?style=for-the-badge)](https://alexlibe95.github.io)
 
@@ -35,6 +35,7 @@ Alex Lymperopoulos - Founder @ EntelXCore · Fullstack Engineer @ Re18
 $ cat experience.json
 {
   "years_of_experience": "8+",
+  "education": "BSc in Informatics & Telematics, Harokopio University of Athens",
   "current_roles": [
     "Founder at EntelXCore (Jul 2026 – Present)",
     "Fullstack Engineer at Re18 (Jan 2026 – Present)"
@@ -136,9 +137,9 @@ Event planning platform for Greece — browse categories and event types, discov
 **Tech:** Next.js • TypeScript • TailwindCSS • i18n • Netlify
 
 ### [RootSwap](https://rootswap.gr/)
-A neighborhood marketplace for plants — sell, give away, or swap plants, cuttings, seeds, and pots with people nearby, with real-time chat, offers, swap proposals, and a map view.
+A neighborhood marketplace for plants, live on the App Store, Google Play and the web — sell, give away, or swap plants, cuttings, seeds, and pots with people nearby, with real-time chat, offers, swap proposals, a map view, and AI plant identification.
 
-**Tech:** Flutter • Firebase • Next.js • TailwindCSS • OpenStreetMap
+**Tech:** Flutter • Firebase • Gemini • Next.js • Mapbox
 
 ### [EOKK Race Timeline](https://eokk-race-timeline.netlify.app/)
 Live race schedule for the 36th Panhellenic Canoe-Kayak Sprint Championship 2026 — used on-site at the championship.

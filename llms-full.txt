@@ -1,6 +1,6 @@
 # Alex Lymperopoulos
 
-> Founder of EntelXCore and Fullstack Engineer at Re18. 8+ years delivering web and mobile products — AI systems, custom software, and MEAN stack features end-to-end.
+> Founder of EntelXCore and Fullstack Engineer at Re18. 8+ years building AI-powered web and mobile products, from idea to launch.
 
 Also known as Alexandros Lymperopoulos and Αλεξανδρος Λυμπεροπουλος.
 
@@ -13,6 +13,7 @@ This file is the full-text companion to /llms.txt. Use it when an agent needs th
 - Greek name: Αλεξανδρος Λυμπεροπουλος
 - Roles: Founder (EntelXCore), Fullstack Engineer (Re18)
 - Experience: 8+ years across web and mobile
+- Education: BSc in Informatics & Telematics, Harokopio University of Athens
 - Email: alexlibe95@gmail.com
 - Website: https://alexlibe95.github.io/
 - Company: https://entelxcore.com/
@@ -20,6 +21,19 @@ This file is the full-text companion to /llms.txt. Use it when an agent needs th
 - LinkedIn: https://www.linkedin.com/in/alex-lymperopoulos/
 - Cursor: https://cursor.com/@alexlymperopoulos
 - Notion: https://alexlymperopoulos.notion.site/Alex-Lymperopoulos-2a39f31f24c881ef8276ead095cde957
+
+## About
+
+I'm a full-stack software engineer with 8+ years of building web and mobile products, and the founder of EntelXCore.
+
+At EntelXCore I build AI systems and custom software for businesses, as well as our own products, taking them from the first idea to launch and beyond. The latest is RootSwap, a marketplace and community for plant lovers in Greece, live on the App Store, Google Play and the web from one Flutter codebase, with AI plant identification and automatic photo moderation. It went from first commit to both app stores in about five weeks. Alongside it are Loywin (loyalty rewards for local shops), PeakLog (training tracking for coaches and teams), SynapLink (digital business cards) and open-source developer tools: Dep Up Surgeon and a free suite of macOS menu bar apps.
+
+I'm also a fullstack engineer at Re18, delivering features across the MEAN stack (Angular, Node.js, Express, MongoDB) on AWS. Before that, I spent four years at RAW Labs building enterprise interfaces for a real-time data platform, and two at INTELIQUA modernizing Angular and Ionic apps.
+
+I work AI-first, with Claude Code and Cursor as everyday tools, and I care about what makes a product last: clear architecture, clean code, real tests and privacy by design.
+
+- Education: BSc in Informatics & Telematics, Harokopio University of Athens
+- Open to: product collaborations, businesses that need a product built from idea to launch, and early users and feedback for RootSwap
 
 ## Current roles
 
@@ -126,9 +140,11 @@ Tech: Next.js, TypeScript, Tailwind CSS, i18n, Netlify
 
 ### RootSwap — https://rootswap.gr/
 
-A neighborhood marketplace and community for plants. Members sell, give away, or swap plants, cuttings, seeds, and pots with people nearby: snap and list in a minute, agree in real-time chat with price offers and swap proposals, then meet and hand over. Natural-language search in English or Greek ("free monstera near me"), list or map browsing, private and business profiles for nurseries and plant shops, and member reviews. Privacy by design: listings show only an approximate area, and photos are stripped of GPS and camera data before upload. Works in any browser, with iOS and Android apps on the way.
+A neighborhood marketplace and community for plants, live on the App Store, Google Play and the web from one Flutter codebase. Members sell, give away, or swap plants, cuttings, seeds, and pots with people nearby: snap and list in a minute, agree in real-time chat with price offers and swap proposals, then meet and hand over. AI plant identification from a photo, natural-language search in English, Greek or Greeklish ("free monstera"), list or map browsing, and member reviews. Privacy by design: listings show only an approximate area, and photos are stripped of GPS and camera data before upload. From first commit to both app stores in about five weeks.
 
-Tech: Flutter, Firebase, Next.js, Tailwind CSS, OpenStreetMap
+App Store: https://apps.apple.com/app/id6829000039 — Google Play: https://play.google.com/store/apps/details?id=com.rootswap.app
+
+Tech: Flutter, Firebase, Gemini, Next.js, Mapbox
 
 ### EOKK Race Timeline — https://eokk-race-timeline.netlify.app/
 
