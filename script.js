@@ -5,6 +5,11 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const systemLight = window.matchMedia('(prefers-color-scheme: light)');
 
+    // Marks that this script is running. Styles that depend on it (the project filter,
+    // clamped descriptions, cover animations held on their first frame) are scoped to
+    // this class, so a page where script.js never loads keeps its plain, complete layout.
+    root.classList.add('enhanced');
+
     /* ------------------------------------------------------------------
        Theme toggle (system preference by default, manual override saved)
        ------------------------------------------------------------------ */
@@ -174,8 +179,14 @@
                 (entries, observer) => {
                     entries.forEach((entry) => {
                         if (!entry.isIntersecting) return;
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
+                        const el = entry.target;
+                        el.classList.add('is-visible');
+                        observer.unobserve(el);
+                        // .reveal replaces the element's own transitions and adds a stagger
+                        // delay, which would otherwise also delay a card's hover lift. Once
+                        // the entrance has played, hand the element back its own styles.
+                        const index = parseFloat(getComputedStyle(el).getPropertyValue('--i')) || 0;
+                        window.setTimeout(() => el.classList.remove('reveal', 'is-visible'), 700 + index * 70);
                     });
                 },
                 { rootMargin: '0px 0px -10% 0px', threshold: 0.05 },
@@ -196,6 +207,207 @@
             });
         });
     }
+
+    /* ------------------------------------------------------------------
+       Projects: "More" on clamped descriptions, and the type filter
+       ------------------------------------------------------------------ */
+    const projectGrid = document.querySelector('.project-grid');
+    const projects = projectGrid ? Array.from(projectGrid.querySelectorAll('.project')) : [];
+
+    // Every card gets a toggle; it is only shown where three lines really cut the text off.
+    const descToggles = projects
+        .map((project) => {
+            const desc = project.querySelector('.project-desc');
+            if (!desc) return null;
+            const title = project.querySelector('.project-link-cover');
+            const name = title ? title.textContent.trim() : 'this project';
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'desc-toggle';
+            button.hidden = true;
+            const sync = () => {
+                const open = project.classList.contains('is-expanded');
+                button.textContent = open ? 'Less' : 'More';
+                button.setAttribute('aria-expanded', String(open));
+                button.setAttribute('aria-label', `${open ? 'Show less' : 'Show more'} about ${name}`);
+            };
+            button.addEventListener('click', () => {
+                project.classList.toggle('is-expanded');
+                sync();
+            });
+            desc.after(button);
+            sync();
+            return { project, desc, button, sync };
+        })
+        .filter(Boolean);
+
+    function refreshDescToggles({ collapse = false } = {}) {
+        descToggles.forEach(({ project, desc, button, sync }) => {
+            if (collapse) {
+                project.classList.remove('is-expanded');
+                sync();
+            }
+            if (project.hidden || project.classList.contains('is-expanded')) return;
+            button.hidden = desc.scrollHeight <= desc.clientHeight + 1;
+        });
+    }
+
+    if (descToggles.length) {
+        refreshDescToggles();
+        // Line breaks move once the web font replaces the fallback, and whenever the width changes.
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => refreshDescToggles());
+        let clampRaf = 0;
+        window.addEventListener('resize', () => {
+            if (clampRaf) return;
+            clampRaf = requestAnimationFrame(() => {
+                clampRaf = 0;
+                refreshDescToggles();
+            });
+        });
+    }
+
+    const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+    const filterStatus = document.querySelector('[data-filter-status]');
+
+    if (projectGrid && filterButtons.length) {
+        // A name per card lets the browser move each one to its new place when the filter changes.
+        projects.forEach((project, index) => {
+            project.style.viewTransitionName = `project-${index}`;
+        });
+
+        const applyFilter = (filter) => {
+            let shown = 0;
+            projectGrid.dataset.view = filter === 'all' ? 'all' : 'filtered';
+            projects.forEach((project) => {
+                const tags = (project.dataset.tags || '').split(' ');
+                const match = filter === 'all' || tags.includes(filter);
+                project.hidden = !match;
+                if (match) shown += 1;
+            });
+            filterButtons.forEach((button) => {
+                const active = button.dataset.filter === filter;
+                button.classList.toggle('is-active', active);
+                button.setAttribute('aria-pressed', String(active));
+            });
+            if (filterStatus) filterStatus.textContent = `Showing ${shown} of ${projects.length} projects`;
+            refreshDescToggles({ collapse: true });
+        };
+
+        filterButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                if (button.classList.contains('is-active')) return;
+                const filter = button.dataset.filter;
+                if (document.startViewTransition && !reduceMotion.matches) {
+                    document.startViewTransition(() => applyFilter(filter));
+                } else {
+                    applyFilter(filter);
+                }
+            });
+        });
+    }
+
+    /* ------------------------------------------------------------------
+       Living covers and counters
+       Each project cover plays once when it scrolls into view — bars grow,
+       terminal lines print, a selection steps to its final option, numbers
+       count up. The markup always holds the finished picture; this only
+       rewinds it to the first frame beforehand, and only for visitors who
+       haven't asked for reduced motion. The motion itself is CSS (see
+       "Living covers" in style.css), released by the .is-in class.
+       ------------------------------------------------------------------ */
+    (function initLivingCovers() {
+        const stages = Array.from(document.querySelectorAll('.project-cover, .bento-stats'));
+        if (!stages.length) return;
+
+        const players = new Map();
+        const onPlay = (stage, fn) => {
+            if (!stage) return;
+            if (!players.has(stage)) players.set(stage, []);
+            players.get(stage).push(fn);
+        };
+        const play = (stage) => {
+            stage.classList.add('is-in');
+            (players.get(stage) || []).forEach((fn) => fn());
+        };
+
+        if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+            stages.forEach(play);
+            return;
+        }
+
+        // Stagger index for items that arrive one after another.
+        document.querySelectorAll('.mock-menubar, .mock-chart, .mock-schedule, .mock-subs, .mock-listing').forEach((group) => {
+            Array.from(group.children).forEach((child, index) => child.style.setProperty('--n', index));
+        });
+
+        // Terminals: one element per line, so lines can print in turn.
+        document.querySelectorAll('.mock-term').forEach((term) => {
+            term.innerHTML = term.innerHTML
+                .split('\n')
+                .map((line, index) => `<span class="mock-line" style="--n: ${index}">${line}</span>`)
+                .join('\n');
+        });
+
+        // Rewind a selection to its first option, then step it forward to the one the markup marks.
+        function prepareSteps(items, activeClass, doneClass) {
+            const last = items.findIndex((item) => item.classList.contains(activeClass));
+            if (last < 1) return;
+            items.forEach((item) => {
+                item.classList.remove(activeClass);
+                if (doneClass) item.classList.remove(doneClass);
+            });
+            items[0].classList.add(activeClass);
+            onPlay(items[0].closest('.project-cover'), () => {
+                for (let step = 1; step <= last; step++) {
+                    window.setTimeout(() => {
+                        items[step - 1].classList.remove(activeClass);
+                        if (doneClass) items[step - 1].classList.add(doneClass);
+                        items[step].classList.add(activeClass);
+                    }, 500 + step * 650);
+                }
+            });
+        }
+
+        document.querySelectorAll('.mock-seg').forEach((seg) => prepareSteps(Array.from(seg.children), 'is-on'));
+        document.querySelectorAll('.mock-schedule').forEach((list) => prepareSteps(Array.from(list.children), 'is-live'));
+        document.querySelectorAll('.mock-stepper').forEach((list) => prepareSteps(Array.from(list.children), 'is-on', 'is-done'));
+
+        // Numbers count up to the value already in the markup.
+        document.querySelectorAll('[data-count]').forEach((el) => {
+            const to = parseFloat(el.dataset.count);
+            if (Number.isNaN(to)) return;
+            const from = parseFloat(el.dataset.countFrom || '0');
+            const decimals = parseInt(el.dataset.decimals || '0', 10);
+            const prefix = el.dataset.prefix || '';
+            const delay = parseInt(el.dataset.countDelay || '150', 10);
+            const duration = 1100;
+            const format = (value) =>
+                prefix + value.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+
+            el.textContent = format(from);
+            onPlay(el.closest('.project-cover, .bento-stats'), () => {
+                const start = performance.now() + delay;
+                const tick = (now) => {
+                    const t = Math.min(1, Math.max(0, (now - start) / duration));
+                    el.textContent = format(from + (to - from) * (1 - (1 - t) ** 3));
+                    if (t < 1) requestAnimationFrame(tick);
+                };
+                requestAnimationFrame(tick);
+            });
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    observer.unobserve(entry.target);
+                    play(entry.target);
+                });
+            },
+            { threshold: 0.35 },
+        );
+        stages.forEach((stage) => observer.observe(stage));
+    })();
 
     /* ------------------------------------------------------------------
        Copy email

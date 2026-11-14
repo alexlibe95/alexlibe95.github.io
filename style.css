@@ -53,7 +53,8 @@
     /* Text */
     --text: #f4f4f5;
     --text-2: #a6a6ae;
-    --text-3: #6e6e78;
+    /* Tertiary text still clears WCAG AA (4.5:1) on the page and on cards, in both themes */
+    --text-3: #8a8a94;
 
     /* Accent: lime‑green, a modern take on the old matrix green */
     --accent: #a8f542;
@@ -115,7 +116,7 @@
     --border-strong: rgba(0, 0, 0, 0.16);
     --text: #111113;
     --text-2: #55555e;
-    --text-3: #8a8a94;
+    --text-3: #666670;
     --accent: #a8f542;
     --accent-ink: #0a0f05;
     --accent-text: #3f7d10;
@@ -147,7 +148,7 @@
         --border-strong: rgba(0, 0, 0, 0.16);
         --text: #111113;
         --text-2: #55555e;
-        --text-3: #8a8a94;
+        --text-3: #666670;
         --accent: #a8f542;
         --accent-ink: #0a0f05;
         --accent-text: #3f7d10;
@@ -467,12 +468,6 @@ code {
     line-height: 1.3;
     letter-spacing: 0.01em;
     white-space: nowrap;
-    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
-}
-
-.chips li:hover {
-    border-color: var(--border-strong);
-    color: var(--text);
 }
 
 .chips-lg li {
@@ -480,33 +475,24 @@ code {
     padding: 0.4rem 0.8rem;
 }
 
-.badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
+/* Where a project runs: iOS, Android, Web, macOS… */
+.platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.platforms li {
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     line-height: 1.4;
-}
-
-.badge-live {
     color: var(--accent-text);
     background: var(--accent-soft);
-    border: 1px solid transparent;
-}
-
-.badge-live::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .status-dot {
@@ -967,38 +953,100 @@ html.js .rise {
     white-space: nowrap;
 }
 
-.link-list {
-    display: grid;
-    gap: 0.35rem;
-}
-
-.link-list a {
+/* Latest launch */
+.bento-launch {
     display: flex;
+    flex-direction: column;
+}
+
+.launch-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.45rem;
+}
+
+.launch-name a {
+    display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    padding: 0.45rem 0.6rem;
-    margin-inline: -0.6rem;
-    border-radius: 10px;
-    color: var(--text-2);
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.link-list a:hover {
-    color: var(--text);
-    background: var(--surface-2);
-}
-
-.link-list .icon {
-    width: 1rem;
-    height: 1rem;
-    color: var(--text-3);
+    gap: 0.35rem;
     transition: color 0.2s ease;
 }
 
-.link-list a:hover .icon {
+.launch-name .icon {
+    color: var(--text-3);
+    transition: transform 0.25s var(--ease-out), color 0.2s ease;
+}
+
+.launch-name a:hover,
+.launch-name a:hover .icon {
     color: var(--accent-text);
+}
+
+.launch-name a:hover .icon {
+    transform: translate(2px, -2px);
+}
+
+.launch-desc {
+    color: var(--text-2);
+    font-size: 0.95rem;
+    text-wrap: pretty;
+    margin-bottom: 1.1rem;
+}
+
+.launch-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* Numbers: the figure sits above its label, while the markup keeps <dt> before <dd> */
+.bento-stats {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding-inline: 1.5rem;
+    border-left: 1px solid var(--border);
+}
+
+.stat:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.stat dd {
+    font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat dt {
+    color: var(--text-2);
+    font-size: 0.9rem;
+    text-wrap: pretty;
+    max-width: 26ch;
+}
+
+/* Between phone and desktop a one-third column is too narrow for the launch card */
+@media (max-width: 900px) {
+    .bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bento-now {
+        grid-column: auto;
+    }
 }
 
 @media (max-width: 720px) {
@@ -1008,6 +1056,30 @@ html.js .rise {
 
     .bento-now {
         grid-column: auto;
+    }
+
+    .bento-stats {
+        grid-template-columns: 1fr;
+        row-gap: 0.9rem;
+    }
+
+    .stat {
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.9rem 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .stat:first-child {
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .stat dd {
+        flex: none;
+        min-width: 2.4ch;
     }
 
     .now-item {
@@ -1182,6 +1254,53 @@ html.js .reveal.is-visible {
 /* --------------------------------------------------------------------------
    7. Projects
    -------------------------------------------------------------------------- */
+/* Filter — rendered only once script.js has run, since it does nothing without it */
+.project-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+html:not(.enhanced) .project-filter {
+    display: none;
+}
+
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
+    padding: 0 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-2);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+}
+
+.filter-btn.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: transparent;
+}
+
+.filter-count {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    opacity: 0.7;
+}
+
+/* Two views of one grid. "all" is the curated layout: three featured projects (the first
+   one full-width, cover beside text), then the rest. "filtered" is a plain even grid of
+   whatever matches, so no card is left stranded at a size chosen for another neighbour. */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -1199,12 +1318,38 @@ html.js .reveal.is-visible {
     background: linear-gradient(var(--surface), var(--surface)), var(--surface-solid);
 }
 
-.project.wide {
-    grid-column: span 8;
+.project[hidden] {
+    display: none;
 }
 
-.project.half {
+/* Wrapper around the non-featured cards. It generates no box of its own here, so those
+   cards sit in the grid next to the featured ones; on phones it becomes a swipeable row. */
+.project-more {
+    display: contents;
+}
+
+.project.half,
+[data-view="all"] .project.featured {
     grid-column: span 6;
+}
+
+[data-view="all"] .project.lead {
+    grid-column: span 12;
+    flex-direction: row;
+}
+
+[data-view="filtered"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+[data-view="filtered"] .project {
+    grid-column: auto;
+}
+
+/* In the even grid a featured card is one of its peers: no headline, no menu bar clock */
+[data-view="filtered"] .project-outcome,
+[data-view="filtered"] .mock-menubar-time {
+    display: none;
 }
 
 @media (hover: hover) {
@@ -1243,10 +1388,41 @@ html.js .reveal.is-visible {
     opacity: 0.8;
 }
 
-.project.wide .project-cover {
+/* In a row of cards of unequal height the text block takes up the slack, which keeps
+   every card's links on one line; in a featured card the cover takes it instead. */
+[data-view="all"] .project.featured .project-cover {
     aspect-ratio: auto;
-    min-height: 220px;
+    min-height: 240px;
     flex: 1 1 auto;
+}
+
+[data-view="all"] .project.featured:not(.lead) .project-body {
+    flex: 0 0 auto;
+}
+
+[data-view="all"] .project.lead .project-cover {
+    flex: 0 0 46%;
+    min-height: 320px;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+}
+
+[data-view="all"] .project.lead .project-body {
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 2.25rem;
+}
+
+[data-view="all"] .project.featured .project-title {
+    font-size: 1.45rem;
+}
+
+[data-view="all"] .project.lead .project-title {
+    font-size: 1.8rem;
+}
+
+[data-view="all"] .project.lead .project-links {
+    margin-top: 0;
 }
 
 .project-cover > * {
@@ -1263,6 +1439,8 @@ html.js .reveal.is-visible {
 .project-body {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
     gap: 0.85rem;
     padding: 1.35rem 1.4rem 1.4rem;
 }
@@ -1270,7 +1448,30 @@ html.js .reveal.is-visible {
 .project-meta {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+}
+
+/* The one line a featured project is worth remembering for */
+.project-outcome {
+    position: relative;
+    padding-left: 0.85rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-wrap: pretty;
+}
+
+.project-outcome::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    bottom: 0.25em;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--accent);
 }
 
 .project-kind {
@@ -1292,6 +1493,13 @@ html.js .reveal.is-visible {
    overlay's containing block is the card itself. */
 .project > * {
     position: static;
+}
+
+/* The cover is the exception: its grid texture (::before) is positioned against it. Left
+   static, that texture would be laid out against the whole card and run under the text.
+   The link overlay lives in the text block, so it still spans the card — cover included. */
+.project > .project-cover {
+    position: relative;
 }
 
 .project-link-cover::after {
@@ -1322,46 +1530,157 @@ html.js .reveal.is-visible {
     text-wrap: pretty;
 }
 
-.project.wide .project-desc {
+[data-view="all"] .project.featured .project-desc {
     font-size: 1rem;
     max-width: 60ch;
 }
 
+/* Everything but a featured card shows three lines of description; script.js adds a
+   "More" button to the cards where that actually cuts text off. */
+html.enhanced .project:not(.featured):not(.is-expanded) .project-desc,
+html.enhanced [data-view="filtered"] .project:not(.is-expanded) .project-desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.desc-toggle {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    margin-top: -0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
+    color: var(--accent-text);
+}
+
+.desc-toggle:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.desc-toggle[hidden] {
+    display: none;
+}
+
 @media (max-width: 1000px) {
     .project,
-    .project.wide,
     .project.half {
         grid-column: span 6;
     }
 
-    .project.wide .project-cover {
-        aspect-ratio: 16 / 9;
-        min-height: 0;
+    [data-view="all"] .project.lead {
+        flex-direction: column;
+    }
+
+    [data-view="all"] .project.lead .project-cover {
+        flex: none;
+        min-height: 240px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    [data-view="all"] .project.lead .project-body {
+        justify-content: flex-start;
+        gap: 0.85rem;
+        padding: 1.35rem 1.4rem 1.4rem;
+    }
+
+    [data-view="all"] .project.lead .project-title {
+        font-size: 1.45rem;
+    }
+
+    [data-view="all"] .project.lead .project-links {
+        margin-top: auto;
     }
 }
 
-/* Two columns: an odd last card would sit next to an empty cell, so it
-   spans the row with a banner-height cover instead. */
+/* Two columns: seven cards follow the featured three, so the last one would sit next to
+   an empty cell — it spans the row with a banner-height cover instead. */
 @media (min-width: 641px) and (max-width: 1000px) {
-    .project:last-child:nth-child(odd) {
+    [data-view="all"] .project:last-child {
         grid-column: span 12;
     }
 
-    .project:last-child:nth-child(odd) .project-cover {
+    [data-view="all"] .project:last-child .project-cover {
         aspect-ratio: auto;
         min-height: 220px;
-    }
-
-    .project:last-child:nth-child(odd) .project-desc {
-        max-width: 60ch;
     }
 }
 
 @media (max-width: 640px) {
     .project,
-    .project.wide,
-    .project.half {
+    .project.half,
+    [data-view="all"] .project.featured,
+    [data-view="all"] .project.lead {
         grid-column: span 12;
+    }
+
+    [data-view="all"] .project.featured .project-cover {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+    }
+
+    [data-view="all"] .project.featured .project-title {
+        font-size: 1.3rem;
+    }
+
+    /* Ten full cards stacked is close to eight screens of scrolling on a phone. The three
+       featured ones stay stacked; the other seven share one row that scrolls sideways and
+       snaps card by card, with the next card showing at the edge as the cue to swipe.
+       The row runs out to the screen edges, past the page gutter. */
+    [data-view="all"] .project-more {
+        /* distance from the screen edge to .container, which is centred between the safe areas */
+        --edge: calc(var(--gutter) + (var(--safe-left) + var(--safe-right)) / 2);
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 0.8rem;
+        margin-inline: calc(var(--edge) * -1);
+        padding: 0 var(--edge) 0.5rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: var(--edge);
+        scrollbar-width: none;
+    }
+
+    [data-view="all"] .project-more::-webkit-scrollbar {
+        display: none;
+    }
+
+    [data-view="all"] .project-more .project {
+        flex: 0 0 86%;
+        scroll-snap-align: start;
+    }
+
+    /* A card in the row is narrower than the screen, so its cover is a little taller in
+       proportion and the QR code a little smaller — every mockup still fits inside. */
+    [data-view="all"] .project-more .project-cover {
+        aspect-ratio: 3 / 2;
+    }
+
+    [data-view="all"] .project-more .mock-qr {
+        width: 48px;
+        height: 48px;
+        padding: 4px;
+    }
+
+    [data-view="all"] .project-more .mock-term {
+        padding: 0.75rem 0.8rem;
+        font-size: 0.66rem;
+    }
+
+    /* On a phone the headline carries a featured card; its description folds like the rest */
+    html.enhanced [data-view="all"] .project.featured:not(.is-expanded) .project-desc {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
     }
 
     .hero {
@@ -1565,8 +1884,10 @@ html.js .reveal.is-visible {
 
 .mock-stepper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.4rem 0.6rem;
     counter-reset: step;
 }
 
@@ -1875,6 +2196,138 @@ html.js .reveal.is-visible {
     }
 }
 
+/* Living covers. Each mockup plays once when its card scrolls into view: script.js adds
+   .is-in to the cover, which flips --play from paused to running for everything inside.
+   Until then every animation is held on its first frame, so nothing jumps when it starts.
+   All of it is scoped to html.enhanced (set by script.js) and to visitors who haven't
+   asked for reduced motion — without either, the covers are simply the finished picture. */
+.mock-seg span,
+.mock-row,
+.mock-row .mock-tag,
+.mock-stepper li,
+.mock-stepper li::before {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.mock-points-value,
+.mock-subs-head b {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Lets the Loywin progress bar animate its fill: a registered percentage can be
+   interpolated, a plain custom property can only switch from one value to the other. */
+@property --p {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .project-cover.is-in {
+        --play: running;
+    }
+
+    /* Rows, items and cards arrive one after another (--n is the item's index) */
+    html.enhanced .mock-menubar-item,
+    html.enhanced .mock-row,
+    html.enhanced .mock-sub,
+    html.enhanced .mock-listing-item,
+    html.enhanced .mock-bizcard > div,
+    html.enhanced .mock-points .mock-tag {
+        animation: mock-in 0.55s var(--ease-out) both var(--play, paused);
+        animation-delay: calc(var(--n, 0) * 90ms + 120ms);
+    }
+
+    html.enhanced .mock-points .mock-tag {
+        animation-delay: 1s;
+    }
+
+    /* PeakLog: the bars grow from the baseline */
+    html.enhanced .mock-chart i {
+        transform-origin: bottom;
+        animation: bar-grow 0.8s var(--ease-out) both var(--play, paused);
+        animation-delay: calc(var(--n, 0) * 70ms + 100ms);
+    }
+
+    /* SynapLink: the QR code prints top to bottom */
+    html.enhanced .mock-qr {
+        animation: wipe-down 0.9s steps(14) both var(--play, paused);
+        animation-delay: 0.35s;
+    }
+
+    /* Loywin: the bar fills while script.js counts the points up */
+    html.enhanced .mock-points-bar {
+        animation: points-fill 1.1s var(--ease-out) both var(--play, paused);
+        animation-delay: 0.15s;
+    }
+
+    /* EntelXCore Free Tools: UsageBar's ring turns twice once the bar has filled in */
+    html.enhanced .mock-ring {
+        animation: spin 0.9s linear 2 var(--play, paused);
+        animation-delay: 0.9s;
+    }
+
+    /* Terminals: the command is typed, then each line of output appears at once.
+       script.js wraps the lines in .mock-line. */
+    html.enhanced .mock-line {
+        animation: line-in 1ms linear both var(--play, paused);
+        animation-delay: calc(var(--n, 0) * 280ms + 480ms);
+    }
+
+    html.enhanced .mock-line:first-child {
+        display: inline-block;
+        animation: wipe-right 0.55s steps(16) both var(--play, paused);
+        animation-delay: 0.15s;
+    }
+
+    /* Filtering: cards glide to their new places (View Transitions, where supported) */
+    ::view-transition-group(*) {
+        animation-duration: 0.45s;
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+}
+
+@keyframes mock-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@keyframes bar-grow {
+    from {
+        transform: scaleY(0.06);
+    }
+}
+
+@keyframes wipe-down {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes wipe-right {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes points-fill {
+    from {
+        --p: 55%;
+    }
+}
+
+@keyframes line-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* --------------------------------------------------------------------------
    8. Experience
    -------------------------------------------------------------------------- */
@@ -1900,6 +2353,11 @@ html.js .reveal.is-visible {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--text-3);
+}
+
+/* One box for "2021 — 2025", so the column layout can't stack its three parts */
+.xp-dates {
+    white-space: nowrap;
 }
 
 .xp-current {
@@ -2162,9 +2620,7 @@ html.js .reveal.is-visible {
 }
 
 .footer-text {
-    /* --text-3 measures under 4:1 against --bg in both themes — short of WCAG AA's 4.5:1
-       minimum for normal-size text. --text-2 clears it comfortably (~7-8:1) and is already
-       the site's standard secondary-text color. */
+    /* --text-2 (~7-8:1 against --bg) is the site's standard secondary-text color. */
     color: var(--text-2);
     font-size: 0.85rem;
 }
@@ -2204,6 +2660,51 @@ html.js .reveal.is-visible {
     .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* Touch targets: stand-alone links and small buttons get a 44px-tall hit area on phones
+   and touch screens. Negative margins give the extra height back, so the layout around
+   them doesn't move; links inside running text are left alone. */
+@media (max-width: 640px), (pointer: coarse) {
+    .footer-links {
+        gap: 0 1.1rem;
+    }
+
+    .footer-links a,
+    .footer-top {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .now-org,
+    .xp-org a,
+    .project-links a,
+    .launch-name a {
+        padding-block: 0.6rem;
+        margin-block: -0.6rem;
+    }
+
+    .btn-sm,
+    .filter-btn,
+    .brand {
+        min-height: 44px;
+    }
+
+    .desc-toggle {
+        padding-block: 0.8rem;
+        margin-block: -1.25rem -0.8rem;
+    }
+
+    .icon-btn-sm {
+        position: relative;
+    }
+
+    .icon-btn-sm::after {
+        content: '';
+        position: absolute;
+        inset: -5px;
     }
 }
 
