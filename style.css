@@ -696,16 +696,107 @@ code {
     gap: 0.35rem;
 }
 
-/* Theme toggle icons */
-[data-theme-toggle] .icon-sun { display: none; }
-[data-theme-toggle] .icon-moon { display: block; }
+/* Theme toggle icons: both sit in the same cell, and the one that isn't current is
+   turned away and faded out, so switching reads as one icon rotating into the other. */
+[data-theme-toggle] .icon {
+    grid-area: 1 / 1;
+    transition: transform 0.5s var(--ease-out), opacity 0.25s ease;
+}
 
-:root[data-theme="light"] [data-theme-toggle] .icon-sun { display: block; }
-:root[data-theme="light"] [data-theme-toggle] .icon-moon { display: none; }
+[data-theme-toggle] .icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+}
+
+:root[data-theme="light"] [data-theme-toggle] .icon-sun {
+    opacity: 1;
+    transform: none;
+}
+
+:root[data-theme="light"] [data-theme-toggle] .icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.4);
+}
 
 @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) [data-theme-toggle] .icon-sun { display: block; }
-    :root:not([data-theme="dark"]) [data-theme-toggle] .icon-moon { display: none; }
+    :root:not([data-theme="dark"]) [data-theme-toggle] .icon-sun {
+        opacity: 1;
+        transform: none;
+    }
+
+    :root:not([data-theme="dark"]) [data-theme-toggle] .icon-moon {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.4);
+    }
+}
+
+/* Theme switch: the new theme grows as a circle out of the toggle (script.js animates the
+   clip on the new snapshot). The default cross-fade is switched off, and so are the
+   page's own colour transitions, which would otherwise still be fading inside the circle. */
+html.theme-switching::view-transition-old(root),
+html.theme-switching::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+html.theme-switching *:not([data-theme-toggle] *) {
+    transition: none !important;
+}
+
+/* Reading progress: a hairline across the top of the screen, driven by script.js */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    height: 2px;
+    background: var(--accent-text);
+    transform: scaleX(var(--progress, 0));
+    transform-origin: left;
+    pointer-events: none;
+}
+
+html:not(.enhanced) .scroll-progress {
+    display: none;
+}
+
+/* Active section: one pill that slides between the links instead of each link switching
+   its own background. script.js sets its position; the menu on small screens keeps the
+   plain highlight. */
+@media (min-width: 821px) {
+    html.enhanced .nav-links {
+        position: relative;
+    }
+
+    html.enhanced .nav-links::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: var(--pill-w, 0px);
+        height: 36px;
+        margin-top: -18px;
+        border-radius: 999px;
+        background: var(--surface-2);
+        opacity: var(--pill-o, 0);
+        transform: translateX(var(--pill-x, 0px));
+        transition: transform 0.45s var(--ease-out), width 0.45s var(--ease-out), opacity 0.25s ease;
+        pointer-events: none;
+    }
+
+    /* Appearing from nowhere: fade in at the right place rather than slide in from the left */
+    html.enhanced .nav-links.pill-jump::before {
+        transition: opacity 0.25s ease;
+    }
+
+    html.enhanced .nav-link {
+        position: relative;
+    }
+
+    html.enhanced .nav-link.active {
+        background: transparent;
+    }
 }
 
 /* Burger */
@@ -850,8 +941,48 @@ code {
     color: var(--accent-text);
 }
 
+/* "launch" gets a highlighter stroke — drawn in once the tagline has arrived */
 .hero-tagline .serif {
     color: var(--accent-text);
+    padding-inline: 0.1em;
+    margin-inline: -0.04em;
+    border-radius: 2px;
+    background: linear-gradient(var(--accent-soft), var(--accent-soft)) no-repeat 0 88% / 100% 0.42em;
+}
+
+html.js .hero-tagline .serif {
+    background-size: 0% 0.42em;
+    animation: mark 0.7s var(--ease-out) forwards;
+    animation-delay: 1.15s;
+}
+
+@keyframes mark {
+    to {
+        background-size: 100% 0.42em;
+    }
+}
+
+/* The name rises word by word from behind its own baseline. Each word is clipped just
+   below its descenders (negative insets leave the other three sides open). */
+.hero-title .word,
+.hero-title .word-inner {
+    display: inline-block;
+}
+
+html.js .hero-title .word {
+    clip-path: inset(-0.2em -0.15em -0.16em -0.15em);
+}
+
+html.js .hero-title .word-inner {
+    transform: translateY(120%);
+    animation: word-rise 0.95s var(--ease-out) forwards;
+    animation-delay: calc(var(--w, 0) * 120ms + 150ms);
+}
+
+@keyframes word-rise {
+    to {
+        transform: none;
+    }
 }
 
 .hero-lede {
@@ -2343,6 +2474,58 @@ html.enhanced [data-view="filtered"] .project:not(.is-expanded) .project-desc {
     border-bottom: 1px solid var(--border);
 }
 
+/* Timeline rail between the dates and the roles. The track is ::before, the fill ::after;
+   script.js sets --xp-progress as the list scrolls through the viewport and marks each
+   role .is-passed when the fill reaches its dot. Without script.js there is no rail. */
+html.enhanced .xp-list {
+    --rail-x: calc(220px + 1.25rem);
+    --dot-y: calc(2.25rem + 0.5rem);
+    position: relative;
+}
+
+html.enhanced .xp-list::before,
+html.enhanced .xp-list::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--rail-x);
+    width: 1px;
+    background: var(--border);
+}
+
+html.enhanced .xp-list::after {
+    width: 2px;
+    margin-left: -0.5px;
+    background: var(--accent-text);
+    transform: scaleY(var(--xp-progress, 0));
+    transform-origin: top;
+}
+
+html.enhanced .xp-item {
+    position: relative;
+}
+
+html.enhanced .xp-item::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: calc(var(--rail-x) - 4px);
+    top: var(--dot-y);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.enhanced .xp-item.is-passed::before {
+    background: var(--accent);
+    border-color: var(--accent-text);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
 .xp-when {
     display: flex;
     flex-direction: column;
@@ -2449,6 +2632,16 @@ html.enhanced [data-view="filtered"] .project:not(.is-expanded) .project-desc {
         flex-direction: row;
         align-items: center;
         gap: 1rem;
+    }
+
+    /* One column: the rail runs down the left edge and the roles step in to clear it */
+    html.enhanced .xp-list {
+        --rail-x: 4px;
+        --dot-y: calc(1.75rem + 0.4rem);
+    }
+
+    html.enhanced .xp-item {
+        padding-left: 1.6rem;
     }
 }
 
@@ -2725,6 +2918,22 @@ html.enhanced [data-view="filtered"] .project:not(.is-expanded) .project-desc {
         opacity: 1;
         transform: none;
         animation: none;
+        transition: none;
+    }
+
+    html.js .hero-title .word-inner {
+        transform: none;
+        animation: none;
+    }
+
+    html.js .hero-tagline .serif {
+        background-size: 100% 0.42em;
+        animation: none;
+    }
+
+    html.enhanced .nav-links::before,
+    [data-theme-toggle] .icon,
+    html.enhanced .xp-item::before {
         transition: none;
     }
 

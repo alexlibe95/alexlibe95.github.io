@@ -53,7 +53,31 @@
 
     if (themeButton) {
         themeButton.addEventListener('click', () => {
-            setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+            const next = currentTheme() === 'dark' ? 'light' : 'dark';
+            if (!document.startViewTransition || reduceMotion.matches) {
+                setTheme(next);
+                return;
+            }
+
+            // The new theme opens as a circle from the button out to the farthest corner.
+            const rect = themeButton.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+            root.classList.add('theme-switching');
+            const transition = document.startViewTransition(() => setTheme(next));
+            transition.ready
+                .then(() => {
+                    root.animate(
+                        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+                        { duration: 600, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', pseudoElement: '::view-transition-new(root)' },
+                    );
+                })
+                .catch(() => {
+                    /* transition skipped — the theme has still been applied */
+                });
+            transition.finished.finally(() => root.classList.remove('theme-switching'));
         });
     }
 
@@ -112,12 +136,38 @@
     let lastY = window.scrollY;
     let scrollTicking = false;
 
+    // Reading progress: how far down the page, as the scale of the hairline at the top.
+    const progressBar = document.querySelector('.scroll-progress');
+
+    function updateProgress(y) {
+        if (!progressBar) return;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.setProperty('--progress', max > 0 ? Math.min(1, y / max).toFixed(4) : '0');
+    }
+
+    // Experience timeline: the rail fills down to a line a little above mid-screen, and a
+    // role's dot lights up once the fill has reached it.
+    const xpList = document.querySelector('.xp-list');
+    const xpItems = xpList ? Array.from(xpList.children) : [];
+
+    function updateTimeline() {
+        if (!xpList) return;
+        const rect = xpList.getBoundingClientRect();
+        if (!rect.height) return;
+        const fill = Math.min(rect.height, Math.max(0, window.innerHeight * 0.55 - rect.top));
+        xpList.style.setProperty('--xp-progress', (fill / rect.height).toFixed(4));
+        // A dot sits about 40px below the top of its row (see --dot-y in style.css).
+        xpItems.forEach((item) => item.classList.toggle('is-passed', item.offsetTop + 40 <= fill));
+    }
+
     function onScroll() {
         if (scrollTicking) return;
         scrollTicking = true;
         requestAnimationFrame(() => {
             const y = Math.max(0, window.scrollY);
             if (nav) nav.classList.toggle('is-scrolled', y > 24);
+            updateProgress(y);
+            updateTimeline();
 
             if (siteHeader && !isMenuOpen()) {
                 const delta = y - lastY;
@@ -135,6 +185,7 @@
         });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
 
     // Scroll spy: highlight the nav link for the section nearest the top of the viewport.
@@ -146,25 +197,55 @@
         })
         .filter(Boolean);
 
+    // The highlight behind the active link is one pill that slides from link to link
+    // (drawn by .nav-links::before on wide screens); this tells it where to be.
+    let pillLink = null;
+
+    function movePill(link) {
+        if (!navMenu) return;
+        if (!link) {
+            navMenu.style.setProperty('--pill-o', '0');
+            pillLink = null;
+            return;
+        }
+        if (!pillLink) {
+            // Coming from hidden: place it without the slide, then let it fade in.
+            navMenu.classList.add('pill-jump');
+            requestAnimationFrame(() => requestAnimationFrame(() => navMenu.classList.remove('pill-jump')));
+        }
+        navMenu.style.setProperty('--pill-x', `${link.offsetLeft}px`);
+        navMenu.style.setProperty('--pill-w', `${link.offsetWidth}px`);
+        navMenu.style.setProperty('--pill-o', '1');
+        pillLink = link;
+    }
+
     if (spyTargets.length && 'IntersectionObserver' in window) {
         const visible = new Map();
         const spy = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => visible.set(entry.target, entry.isIntersecting));
                 let active = null;
-                for (const { section } of spyTargets) {
-                    if (visible.get(section)) {
-                        active = section;
+                for (const target of spyTargets) {
+                    if (visible.get(target.section)) {
+                        active = target;
                         break;
                     }
                 }
-                spyTargets.forEach(({ link, section }) => {
-                    link.classList.toggle('active', section === active);
+                spyTargets.forEach((target) => {
+                    target.link.classList.toggle('active', target === active);
                 });
+                movePill(active ? active.link : null);
             },
             { rootMargin: '-35% 0px -55% 0px', threshold: 0 },
         );
         spyTargets.forEach(({ section }) => spy.observe(section));
+
+        // Link widths change when the web font arrives or the window is resized.
+        const realignPill = () => {
+            if (pillLink) movePill(pillLink);
+        };
+        window.addEventListener('resize', realignPill);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(realignPill);
     }
 
     /* ------------------------------------------------------------------
@@ -270,10 +351,7 @@
     const filterStatus = document.querySelector('[data-filter-status]');
 
     if (projectGrid && filterButtons.length) {
-        // A name per card lets the browser move each one to its new place when the filter changes.
-        projects.forEach((project, index) => {
-            project.style.viewTransitionName = `project-${index}`;
-        });
+        let filterRun = 0;
 
         const applyFilter = (filter) => {
             let shown = 0;
@@ -297,11 +375,23 @@
             button.addEventListener('click', () => {
                 if (button.classList.contains('is-active')) return;
                 const filter = button.dataset.filter;
-                if (document.startViewTransition && !reduceMotion.matches) {
-                    document.startViewTransition(() => applyFilter(filter));
-                } else {
+                if (!document.startViewTransition || reduceMotion.matches) {
                     applyFilter(filter);
+                    return;
                 }
+                // A name per card lets the browser move each one to its new place. The names
+                // are only there for the length of this transition, so the cards stay part of
+                // the page for any other one (the theme switch).
+                const run = ++filterRun;
+                projects.forEach((project, index) => {
+                    project.style.viewTransitionName = `project-${index}`;
+                });
+                document.startViewTransition(() => applyFilter(filter)).finished.finally(() => {
+                    if (run !== filterRun) return;
+                    projects.forEach((project) => {
+                        project.style.viewTransitionName = '';
+                    });
+                });
             });
         });
     }
@@ -535,33 +625,54 @@
             };
         }
 
-        function spawn() {
+        // Fires a pulse from the grid intersection at (ox, oy).
+        function fire(ox, oy) {
             const styles = getComputedStyle(root);
             const rgb = styles.getPropertyValue('--pulse-rgb').trim() || '168, 245, 66';
             const strength = parseFloat(styles.getPropertyValue('--pulse-strength')) || 0.55;
 
+            // 3 to 5 sparks, leaving in different directions first, a moment apart.
+            const order = [0, 1, 2, 3];
+            for (let i = order.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [order[i], order[j]] = [order[j], order[i]];
+            }
+            const count = 3 + Math.floor(Math.random() * 3);
+            const sparks = [];
+            for (let i = 0; i < count; i++) {
+                sparks.push(makeSpark(ox, oy, order[i % 4], i * 90 + Math.random() * 120));
+            }
+            pulses.push({ ox, oy, rgb, strength, sparks, start: performance.now() });
+            if (!rafId) rafId = requestAnimationFrame(frame);
+        }
+
+        function spawn() {
             // Pick an intersection, favouring places where the faded grid is actually visible.
             for (let attempt = 0; attempt < 20; attempt++) {
                 const ox = originX + Math.round((Math.random() * width - originX) / CELL) * CELL;
                 const oy = Math.max(1, Math.round((Math.random() * height * 0.6) / CELL)) * CELL;
                 if (ox < 0 || ox > width || Math.random() > gridVisibility(ox, oy)) continue;
-
-                // 3 to 5 sparks, leaving in different directions first, a moment apart.
-                const order = [0, 1, 2, 3];
-                for (let i = order.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [order[i], order[j]] = [order[j], order[i]];
-                }
-                const count = 3 + Math.floor(Math.random() * 3);
-                const sparks = [];
-                for (let i = 0; i < count; i++) {
-                    sparks.push(makeSpark(ox, oy, order[i % 4], i * 90 + Math.random() * 120));
-                }
-                pulses.push({ ox, oy, rgb, strength, sparks, start: performance.now() });
-                if (!rafId) rafId = requestAnimationFrame(frame);
+                fire(ox, oy);
                 return;
             }
         }
+
+        // A click or tap on empty background fires a pulse from the nearest intersection.
+        // "Empty" means the pointer landed on a layout container rather than on text, a
+        // card or a control, and on a part of the grid that is actually visible.
+        const EMPTY_SPACE =
+            'html, body, main, section, footer, .container, .site-header, .section-head, .hero-actions, .bento, .about-grid, .project-grid, .project-more, .xp-list, .skill-grid, .footer-inner';
+        const MAX_TOUCH_PULSES = 6;
+
+        document.addEventListener('pointerdown', (event) => {
+            if (!running || !event.isPrimary || event.button > 0) return;
+            if (!(event.target instanceof Element) || !event.target.matches(EMPTY_SPACE)) return;
+            if (pulses.length >= MAX_TOUCH_PULSES) return;
+            const ox = originX + Math.round((event.clientX - originX) / CELL) * CELL;
+            const oy = Math.round(event.clientY / CELL) * CELL;
+            if (gridVisibility(ox, oy) < 0.08) return;
+            fire(ox, oy);
+        });
 
         // A soft glow plus a crisp core exactly on the 1px grid line.
         function strokeGlow(x1, y1, x2, y2, style) {

@@ -12,6 +12,7 @@ Built with pure **HTML5**, **CSS3**, and **JavaScript** — no frameworks, no de
 
 - **Editorial design, dark & light** — Fluid type (Geist + Geist Mono), bento hero, spotlight cards, and a theme toggle that follows the system by default
 - **Projects** — Three featured cards, a type filter (Mobile / Web / Dev tools), a swipeable row on phones, and CSS-drawn covers that animate once as they scroll into view
+- **Motion** — Word-by-word hero title, a nav pill that slides to the active section, a reading-progress line, an experience timeline that fills on scroll, a circular theme switch (View Transitions), and grid pulses you can fire with a click — all off under `prefers-reduced-motion`
 - **Modern CSS** — `oklch()` covers, `color-mix()`, `clamp()` type scale, `text-wrap: balance`, backdrop blur, scroll reveals
 - **Fully responsive** — Desktop, tablet, and mobile
 - **Fast** — Vanilla stack, minimal assets
